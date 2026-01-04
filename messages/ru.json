@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "home": "Главная",
+    "techStack": "Стек",
+    "projects": "Проекты",
+    "skills": "Навыки",
+    "contact": "Контакты",
+    "contactBtn": "Связаться"
+  },
+  "hero": {
+    "greeting": "Привет, я",
+    "title": "Backend Developer",
+    "subtitle": "Python • AI/ML • Blockchain • Telegram Bots",
+    "description": "Backend-разработчик с опытом создания высоконагруженных систем, AI-интеграций и blockchain-решений. Специализируюсь на Python, FastAPI, микросервисной архитектуре и Telegram-экосистеме.",
+    "location": "Remote",
+    "viewProjects": "Смотреть проекты",
+    "downloadCV": "Скачать резюме"
+  },
+  "stats": {
+    "projects": "Проектов",
+    "telegramBots": "Telegram-ботов",
+    "techLead": "Tech Lead опыт",
+    "team": "Команда"
+  },
+  "techStack": {
+    "title": "Технический стек",
+    "subtitle": "Технологии и инструменты, с которыми я работаю",
+    "languages": "Языки программирования",
+    "backend": "Backend",
+    "ai": "AI/ML",
+    "telegram": "Telegram",
+    "frontend": "Frontend",
+    "databases": "Базы данных",
+    "devops": "DevOps",
+    "cloud": "Облачные платформы",
+    "blockchain": "Blockchain",
+    "monitoring": "Мониторинг",
+    "other": "Другое"
+  },
+  "projects": {
+    "title": "Избранные проекты",
+    "subtitle": "Примеры моих лучших работ",
+    "allProjects": "Все проекты",
+    "viewDetails": "Подробнее",
+    "viewGithub": "Смотреть на GitHub",
+    "viewDemo": "Демо",
+    "features": "Особенности",
+    "technologies": "Технологии",
+    "role": "Роль",
+    "period": "Период",
+    "backToHome": "Вернуться на главную",
+    "allProjectsTitle": "Все проекты",
+    "allProjectsSubtitle": "Полная коллекция моих работ: от крупных платформ до небольших автоматизаций",
+    "filterBy": "Фильтр по категориям:",
+    "foundProjects": "Найдено проектов:",
+    "showDetails": "Показать детали",
+    "hideDetails": "Скрыть детали",
+    "ctaTitle": "Готов обсудить ваш проект?",
+    "ctaDescription": "Свяжитесь со мной для обсуждения вашей задачи. Я помогу найти оптимальное решение и реализую проект качественно и в срок.",
+    "ctaButton": "Связаться со мной",
+    "categories": {
+      "all": "Все проекты",
+      "trading": "Трейдинг",
+      "ai": "AI/ML",
+      "telegram": "Telegram",
+      "blockchain": "Blockchain",
+      "fullstack": "Fullstack",
+      "automation": "Автоматизация"
+    }
+  },
+  "skills": {
+    "title": "Навыки и компетенции",
+    "subtitle": "Мои ключевые навыки в разработке",
+    "years": "лет опыта",
+    "categories": {
+      "Backend Development": "Backend разработка",
+      "AI/ML Integration": "Интеграция AI/ML",
+      "Telegram Ecosystem": "Экосистема Telegram",
+      "DevOps & Infrastructure": "DevOps & Инфраструктура",
+      "Blockchain": "Blockchain"
+    }
+  },
+  "achievements": {
+    "title": "Достижения",
+    "items": {
+      "bots": "30+ Telegram-ботов различной сложности",
+      "team": "Руководство командой от 2 разработчиков",
+      "refactor": "Полный рефакторинг legacy проектов (2300+ строк → модульная архитектура)",
+      "optimization": "Оптимизация производительности (15s → приемлемые значения)",
+      "budget": "Работа с большими бюджетами на проект",
+      "techLead": "Опыт Tech Lead на нескольких проектах",
+      "deploy": "Быстрый деплой (backend за 1 день)"
+    }
+  },
+  "contact": {
+    "title": "Свяжитесь со мной",
+    "subtitle": "Готов обсудить ваш проект",
+    "name": "Имя",
+    "email": "Email",
+    "message": "Сообщение",
+    "send": "Отправить",
+    "sending": "Отправка...",
+    "success": "Сообщение отправлено!",
+    "error": "Ошибка отправки",
+    "telegram": "Telegram",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "footer": {
+    "rights": "Все права защищены",
+    "builtWith": "Создано с помощью Next.js, Three.js и Tailwind CSS"
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "readMore": "Читать далее",
+    "close": "Закрыть",
+    "back": "Назад"
+  }
+}

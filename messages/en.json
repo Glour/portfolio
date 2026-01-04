@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "home": "Home",
+    "techStack": "Tech Stack",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "contactBtn": "Get in Touch"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "title": "Backend Developer",
+    "subtitle": "Python • AI/ML • Blockchain • Telegram Bots",
+    "description": "Backend developer with experience in building high-load systems, AI integrations, and blockchain solutions. Specializing in Python, FastAPI, microservices architecture, and Telegram ecosystem.",
+    "location": "Remote",
+    "viewProjects": "View Projects",
+    "downloadCV": "Download CV"
+  },
+  "stats": {
+    "projects": "Projects",
+    "telegramBots": "Telegram Bots",
+    "techLead": "Tech Lead Experience",
+    "team": "Team"
+  },
+  "techStack": {
+    "title": "Technology Stack",
+    "subtitle": "Technologies and tools I work with",
+    "languages": "Programming Languages",
+    "backend": "Backend",
+    "ai": "AI/ML",
+    "telegram": "Telegram",
+    "frontend": "Frontend",
+    "databases": "Databases",
+    "devops": "DevOps",
+    "cloud": "Cloud Platforms",
+    "blockchain": "Blockchain",
+    "monitoring": "Monitoring",
+    "other": "Other"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Examples of my best work",
+    "allProjects": "All Projects",
+    "viewDetails": "View Details",
+    "viewGithub": "View on GitHub",
+    "viewDemo": "Demo",
+    "features": "Features",
+    "technologies": "Technologies",
+    "role": "Role",
+    "period": "Period",
+    "backToHome": "Back to home",
+    "allProjectsTitle": "All Projects",
+    "allProjectsSubtitle": "Complete collection of my work: from large platforms to small automations",
+    "filterBy": "Filter by categories:",
+    "foundProjects": "Found projects:",
+    "showDetails": "Show details",
+    "hideDetails": "Hide details",
+    "ctaTitle": "Ready to discuss your project?",
+    "ctaDescription": "Contact me to discuss your task. I will help find the optimal solution and implement the project with quality and on time.",
+    "ctaButton": "Contact me",
+    "categories": {
+      "all": "All Projects",
+      "trading": "Trading",
+      "ai": "AI/ML",
+      "telegram": "Telegram",
+      "blockchain": "Blockchain",
+      "fullstack": "Fullstack",
+      "automation": "Automation"
+    }
+  },
+  "skills": {
+    "title": "Skills & Competencies",
+    "subtitle": "My key development skills",
+    "years": "years of experience",
+    "categories": {
+      "Backend Development": "Backend Development",
+      "AI/ML Integration": "AI/ML Integration",
+      "Telegram Ecosystem": "Telegram Ecosystem",
+      "DevOps & Infrastructure": "DevOps & Infrastructure",
+      "Blockchain": "Blockchain"
+    }
+  },
+  "achievements": {
+    "title": "Achievements",
+    "items": {
+      "bots": "30+ Telegram bots of varying complexity",
+      "team": "Team leadership of 2+ developers",
+      "refactor": "Complete refactoring of legacy projects (2300+ lines → modular architecture)",
+      "optimization": "Performance optimization (15s → acceptable values)",
+      "budget": "Worked with large project budgets",
+      "techLead": "Tech Lead experience on multiple projects",
+      "deploy": "Fast deployment (backend in 1 day)"
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Ready to discuss your project",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Message sent!",
+    "error": "Error sending",
+    "telegram": "Telegram",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "builtWith": "Built with Next.js, Three.js and Tailwind CSS"
+  },
+  "common": {
+    "loading": "Loading...",
+    "readMore": "Read more",
+    "close": "Close",
+    "back": "Back"
+  }
+}
