@@ -362,5 +362,19 @@ export interface Experience {
 }
 
 export const experience: Experience[] = [];
-export const education = [];
-export const certifications = [];
+
+export interface Education {
+  degree: string;
+  institution: string;
+  period: string;
+  description: string;
+}
+
+export interface Certification {
+  name: string;
+  issuer: string;
+  year: string;
+}
+
+export const education: Education[] = [];
+export const certifications: Certification[] = [];
