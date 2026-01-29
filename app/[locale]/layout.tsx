@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     'Aleksandr Bogdanov',
   ],
   authors: [{ name: 'Aleksandr Bogdanov' }],
+  icons: {
+    icon: '/icon.svg',
+  },
   openGraph: {
     title: 'Aleksandr Bogdanov | Backend Developer',
     description: 'Backend Developer: Python, FastAPI, AI/ML, Blockchain, Telegram Bots',
