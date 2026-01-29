@@ -1,11 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
-import { allProjects, type Project } from '../../data/profile';
 import { FaCheck, FaArrowLeft, FaFilter } from 'react-icons/fa';
+
+interface Project {
+  title: string;
+  role: string;
+  description: string;
+  features?: string[];
+  tech: string[];
+  category: 'trading' | 'ai' | 'telegram' | 'blockchain' | 'fullstack' | 'automation';
+  budget?: string;
+  period?: string;
+  highlight?: boolean;
+}
 
 const categoryColors: Record<string, string> = {
   trading: 'from-green-600 to-emerald-600',
@@ -20,6 +31,12 @@ export default function ProjectsPage() {
   const t = useTranslations('projects');
   const locale = useLocale();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+
+  // Get projects from translations
+  const allProjects = useMemo(() => {
+    const projectsData = t.raw('projectsList') as unknown;
+    return Array.isArray(projectsData) ? projectsData as Project[] : [];
+  }, [t]);
 
   const categories = [
     { id: 'all', name: t('categories.all') },

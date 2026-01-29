@@ -1,12 +1,24 @@
 'use client';
 
-import { Suspense } from 'react';
+import { Suspense, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useTranslations, useLocale } from 'next-intl';
-import { profile, featuredProjects, techStack, keySkills, achievements } from '../data/profile';
+import { profile, techStack, keySkills } from '../data/profile';
 import { FaGithub, FaLinkedin, FaTelegram, FaEnvelope, FaCheck } from 'react-icons/fa';
+
+interface Project {
+  title: string;
+  role: string;
+  description: string;
+  features?: string[];
+  tech: string[];
+  category: string;
+  budget?: string;
+  period?: string;
+  highlight?: boolean;
+}
 
 // Lazy load 3D component
 const HeroScene = dynamic(() => import('../components/3d/HeroScene'), {
@@ -21,6 +33,14 @@ const HeroScene = dynamic(() => import('../components/3d/HeroScene'), {
 export default function HomePage() {
   const t = useTranslations();
   const locale = useLocale();
+
+  // Get featured projects from translations
+  const featuredProjects = useMemo(() => {
+    const projectsData = t.raw('projectsList') as unknown;
+    const allProjects = Array.isArray(projectsData) ? projectsData as Project[] : [];
+    return allProjects.filter(p => p.highlight);
+  }, [t]);
+
   return (
     <div className="relative">
       {/* Hero Section */}

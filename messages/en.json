@@ -115,5 +115,270 @@
     "readMore": "Read more",
     "close": "Close",
     "back": "Back"
-  }
+  },
+  "projectsList": [
+    {
+      "title": "ChainAlert - Blockchain Transaction Monitoring",
+      "role": "System Architect, Full-stack Developer",
+      "category": "blockchain",
+      "description": "B2B/B2C SaaS platform for real-time Ethereum transaction monitoring with Telegram notifications",
+      "features": [
+        "Telegram Bot Interface for wallet and settings management",
+        "Ethereum transaction monitoring via WebSocket (Alchemy/Infura)",
+        "Customizable alert thresholds based on transaction amounts",
+        "Instant notifications (<5 seconds from transaction)",
+        "Subscription-based model with three pricing tiers",
+        "Stripe integration for payments",
+        "Track up to 50 wallets per account (Pro plan)",
+        "Transaction statistics and analytics"
+      ],
+      "tech": ["Python", "FastAPI", "PostgreSQL", "WebSocket", "Alchemy API", "Telegram Bot API", "Aiogram", "Stripe API", "Docker", "Web3.py"],
+      "period": "2.5 weeks",
+      "budget": "MVP project",
+      "highlight": true
+    },
+    {
+      "title": "Telegram Chat Analyzer - AI Portfolio Generator",
+      "role": "Full-stack Developer / AI Engineer",
+      "category": "ai",
+      "description": "Automated tool for generating developer portfolio from Telegram chat exports using Claude AI",
+      "features": [
+        "Automatic Telegram export (JSON) analysis via Claude API",
+        "Extract professional experience, projects, and skills from conversations",
+        "Three-stage pipeline: Split → Analyze → Aggregate",
+        "Relevance filtering (0-10 score)",
+        "Resume analysis from any chat",
+        "Detailed token usage and cost statistics",
+        "Automatic large file handling (skip chats >180K tokens)",
+        "Portfolio export in JSON and Markdown formats"
+      ],
+      "tech": ["Python", "Claude API (Sonnet 4.5)", "Anthropic SDK", "JSON processing", "Markdown generation", "asyncio"],
+      "highlight": true
+    },
+    {
+      "title": "Crypto Arbitrage Platform",
+      "role": "System Architect, Backend/Engine Developer",
+      "category": "trading",
+      "description": "Platform for finding arbitrage opportunities across 20+ CEX and DEX in real-time",
+      "features": [
+        "Data collection from 20+ CEX via REST and WebSocket",
+        "DEX integration (Dexscreener, Jupiter, 1inch, Uniswap)",
+        "Spot↔Spot, Spot↔DEX, Futures↔Spot, Cross-chain arbitrage",
+        "Fees, order book depth, and token tax calculation",
+        "Telegram notifications, WebSocket API, Web interface"
+      ],
+      "tech": ["Python", "asyncio", "httpx", "WebSocket", "Redis", "PostgreSQL", "Aiogram", "FastAPI", "Prometheus", "Grafana"],
+      "highlight": true
+    },
+    {
+      "title": "Auto Trading Bot",
+      "role": "Architect, Core Execution Logic",
+      "category": "trading",
+      "description": "Trading bot for automated futures position opening and management (MEXC, Gate)",
+      "features": [
+        "Signal aggregation from API and Telegram channels",
+        "Duplicate protection (1 token — 1 position)",
+        "Fast reaction to listings and impulse events",
+        "SL/TP/trailing stop, WebSocket monitoring",
+        "Multi-account support, proxy isolation"
+      ],
+      "tech": ["Python", "asyncio", "WebSocket", "Redis", "PostgreSQL", "Telegram Bot API"],
+      "highlight": true
+    },
+    {
+      "title": "ChatGPT Telegram Bot (@AI_apps_bot)",
+      "role": "Lead Developer / Tech Lead",
+      "category": "ai",
+      "description": "Comprehensive AI bot with content generation and document analysis",
+      "features": [
+        "Text, image, video, and voice generation",
+        "Academic work (essays, term papers, theses)",
+        "DOCX, XLSX, TXT analysis",
+        "4+ payment provider integration",
+        "Complete refactoring (2300+ lines → modular architecture)"
+      ],
+      "tech": ["Python", "Aiogram", "OpenAI API (GPT-4o)", "PostgreSQL", "DALL-E 3", "YooKassa", "UnitPay", "Telegram Stars"]
+    },
+    {
+      "title": "MEXC Trade Synchronizer",
+      "role": "Architect and Implementation",
+      "category": "trading",
+      "description": "Bot for synchronizing trades between main account and N sub-accounts with minimal latency (MEXC Futures)",
+      "features": [
+        "Connect dozens of accounts (web_key + proxy)",
+        "Mirroring: market/limit orders, cancellation, position closing",
+        "Management via Telegram commands",
+        "Proxy or web_key failure notifications",
+        "Minimal latency between main and sub-accounts"
+      ],
+      "tech": ["Python", "WebSocket", "asyncio", "Telegram Bot API", "Proxy"],
+      "period": "2 months",
+      "highlight": true
+    },
+    {
+      "title": "Magnet - Dating/Networking Mini App",
+      "role": "Lead Backend Developer / Tech Lead",
+      "category": "telegram",
+      "description": "Backend for Telegram Mini App with smart specialist search and real-time updates",
+      "features": [
+        "Authentication via Telegram InitData",
+        "Elasticsearch for smart search",
+        "WebSocket for real-time updates",
+        "Query optimization (from 15s to acceptable values)",
+        "Dev/prod environment setup"
+      ],
+      "tech": ["FastAPI", "PostgreSQL", "SQLAlchemy 2.*", "Redis", "Elasticsearch", "Aiogram 3.*", "WebSockets", "Docker", "Nginx"],
+      "highlight": true
+    },
+    {
+      "title": "BOP (Battle of Planets)",
+      "role": "Backend Developer / Team Lead",
+      "category": "blockchain",
+      "description": "3D space card game with complex game logic",
+      "features": [
+        "Battle and leaderboard system with real-time updates",
+        "Pools, premium, daily boxes",
+        "Referral system, Battle Pass, expeditions",
+        "Admin panel with extensive settings",
+        "Backend department management"
+      ],
+      "tech": ["FastAPI", "PostgreSQL", "SQLAlchemy", "SQLAdmin", "Docker", "Nginx", "TON blockchain", "JWT", "CI/CD"],
+      "period": "2 months"
+    },
+    {
+      "title": "GOST AI Assistant (GostAssistent.ru)",
+      "role": "AI/ML Developer, Backend Developer",
+      "category": "ai",
+      "description": "AI assistant for searching technical documentation with vector search",
+      "features": [
+        "Microservices architecture",
+        "Vector search and RAG",
+        "Prompt configuration",
+        "Vector index optimization",
+        "API cost reduction"
+      ],
+      "tech": ["GPT-4-turbo-128k", "OpenAI API", "Chroma", "ClickHouse", "Ollama", "Gemma 2", "Python"],
+      "highlight": true
+    },
+    {
+      "title": "Sqrow Idle - Eco-friendly Mining",
+      "role": "Backend Developer",
+      "category": "telegram",
+      "description": "Backend for mining app with staking system, pools, referral program",
+      "tech": ["FastAPI", "Flask", "PostgreSQL", "Docker", "Nginx", "JWT", "Telegram Bot API", "Telegram Mini App"],
+      "features": ["Full-featured backend for bot and web app", "RESTful API development", "Unique protection systems implemented"]
+    },
+    {
+      "title": "Rhyme Generation Web Service",
+      "role": "Fullstack Developer",
+      "category": "fullstack",
+      "description": "Multi-user service for rhyme generation using 7 neural networks",
+      "tech": ["Python", "OpenAI", "Claude", "YaGPT", "Mistral", "Gemini", "Web scraping", "Yandex DataLens"],
+      "features": ["7+ API integration", "Parsing ~4000 quatrains", "Similar line search system"]
+    },
+    {
+      "title": "Radugadesign Brief Bot",
+      "role": "Backend Developer",
+      "category": "automation",
+      "description": "Bot for accepting briefs with workflow automation",
+      "tech": ["Python", "Aiogram", "Google Drive API", "AmoCRM API", "PostgreSQL"],
+      "features": ["Full automation of request intake with validation", "CRM and notification integration"]
+    },
+    {
+      "title": "Wildberries Description Generator",
+      "role": "Backend Developer / DevOps",
+      "category": "ai",
+      "description": "Automatic product description generation using GPT-3.5-turbo",
+      "tech": ["Python", "ChatGPT API", "PostgreSQL", "Telegram Bot API"],
+      "features": ["Migration to new API versions", "Blocking issue resolution", "Cost optimization"]
+    },
+    {
+      "title": "Sqrow Chain (Blockchain)",
+      "role": "Backend/Blockchain Developer",
+      "category": "blockchain",
+      "description": "Bitcoin-based blockchain solution, Runes protocol work, custom Layer 2",
+      "tech": ["Python", "Hardhat", "Bitcoin", "Runes protocol", "Layer 2"],
+      "features": ["Web3/blockchain learning from scratch", "Chain architecture development"]
+    },
+    {
+      "title": "Generative Gallery Bot (Rotor Reviews)",
+      "role": "Backend Developer",
+      "category": "telegram",
+      "description": "Bot for collecting reviews with moderation and publishing",
+      "tech": ["Python", "Telegram Bot API", "PostgreSQL", "Yandex DataLens"],
+      "features": ["Voting-based moderation system", "Data visualization"]
+    },
+    {
+      "title": "@techgenai - Autonomous Neural Network",
+      "role": "AI Engineer / Backend Developer",
+      "category": "ai",
+      "description": "Autonomous neural network for Telegram channel management with fully automatic content generation and publishing",
+      "tech": ["Python", "AI/ML", "Telegram API", "Autonomous AI"],
+      "features": ["Fully autonomous system without human intervention"]
+    },
+    {
+      "title": "Fine-tuned ML Models",
+      "role": "ML Engineer",
+      "category": "ai",
+      "description": "Training and deploying specialized models on custom data",
+      "tech": ["GPT fine-tuning", "RAG", "Custom datasets"],
+      "features": ["Model fine-tuning for specific tasks"]
+    },
+    {
+      "title": "Traffaldino Bot",
+      "role": "Backend Developer",
+      "category": "telegram",
+      "description": "Bot for creating and managing events with channel subscription verification",
+      "tech": ["Python", "Telegram Bot API"],
+      "features": ["Subscription verification and event system implementation"]
+    },
+    {
+      "title": "Geymonitor Game Bot",
+      "role": "Full-stack Developer",
+      "category": "telegram",
+      "description": "Addiction test bot with subscription system and referral links",
+      "tech": ["Python", "aiogram"],
+      "features": ["Rapid development (several days)", "Personalized results"]
+    },
+    {
+      "title": "Monitoring and Reporting System",
+      "role": "Backend Developer",
+      "category": "automation",
+      "description": "Automated daily email report system with logs, statistics, and error monitoring",
+      "tech": ["Python", "Email delivery", "Logging", "Cron jobs"],
+      "features": ["Service operation control automation", "Early problem detection"]
+    },
+    {
+      "title": "API Abuse Protection",
+      "role": "Backend Developer",
+      "category": "automation",
+      "description": "Protection system against automated requests with 10 requests per 10 minutes per user limit",
+      "tech": ["Python", "Rate limiting", "User tracking", "Email notifications"],
+      "features": ["Unauthorized API usage prevention", "Budget overrun prevention"]
+    },
+    {
+      "title": "CRM Integrations",
+      "role": "Backend Developer",
+      "category": "automation",
+      "description": "Integration of business bots and services with CRM systems",
+      "tech": ["Python", "Bitrix24", "AmoCRM", "REST API", "Webhooks"],
+      "features": ["Successful integration with Bitrix24 and AmoCRM"]
+    },
+    {
+      "title": "Advertising Bot Assistant",
+      "role": "Backend Developer",
+      "category": "telegram",
+      "description": "Bot for Telegram advertising management with Yandex.Direct integration, statistics, mass mailings",
+      "tech": ["Python", "Telegram Bot API", "Yandex Direct API", "Google Sheets API"],
+      "features": ["Complex statistics and analytics system implementation"]
+    },
+    {
+      "title": "Delivery Bot (@rs_dostavka_bot)",
+      "role": "Consultant / Debugger",
+      "category": "telegram",
+      "description": "Performance issue diagnosis, bot architecture analysis for courier service",
+      "tech": ["Python", "Telegram Bot API", "RetailCRM API"],
+      "features": ["Routing and architecture issue identification", "Optimization solution proposals"]
+    }
+  ]
 }
