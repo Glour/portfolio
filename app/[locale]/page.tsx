@@ -222,20 +222,18 @@ export default function HomePage() {
               key={skillGroup.category}
               {...fadeUp}
               transition={{ duration: 0.55, delay: index * 0.05, ease: 'easeOut' }}
-              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400/20 hover:bg-white/[0.07] hover:shadow-[0_4px_24px_rgba(34,211,238,0.05)]"
+              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400/25 hover:bg-white/[0.07] hover:shadow-[0_4px_24px_rgba(34,211,238,0.06)]"
             >
-              <div className="mb-5 flex items-center justify-between">
+              <div className="mb-5 flex items-center gap-2.5">
+                <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary-400" />
                 <h3 className="text-sm font-semibold tracking-tight text-white">
                   {t(`skills.categories.${skillGroup.category}`)}
                 </h3>
-                <span className="font-mono text-[10px] tracking-widest text-white/35">
-                  {String(skillGroup.skills.length).padStart(2, '0')}
-                </span>
               </div>
               <ul className="space-y-2.5">
                 {skillGroup.skills.map((skill) => (
-                  <li key={skill} className="flex items-start gap-3 text-sm text-white/70">
-                    <span className="mt-[6px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary-400/70" />
+                  <li key={skill} className="flex items-start gap-3 text-sm text-white/75">
+                    <span className="mt-[6px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white/20" />
                     <span>{skill}</span>
                   </li>
                 ))}
@@ -258,19 +256,17 @@ export default function HomePage() {
               key={group.title}
               {...fadeUp}
               transition={{ duration: 0.55, delay: index * 0.05, ease: 'easeOut' }}
-              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400/20 hover:bg-white/[0.07] hover:shadow-[0_4px_24px_rgba(34,211,238,0.05)]"
+              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400/25 hover:bg-white/[0.07] hover:shadow-[0_4px_24px_rgba(34,211,238,0.06)]"
             >
-              <div className="mb-5 flex items-center justify-between">
+              <div className="mb-5 flex items-center gap-2.5">
+                <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary-400" />
                 <h3 className="text-sm font-semibold text-white">{group.title}</h3>
-                <span className="font-mono text-[10px] tracking-widest text-white/35">
-                  {String(group.items.length).padStart(2, '0')}
-                </span>
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-xs text-white/70 transition-colors duration-200 group-hover:border-primary-400/15 group-hover:text-white/85"
+                    className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-xs text-white/75 transition-colors duration-200 group-hover:border-primary-400/20 group-hover:text-white/90"
                   >
                     {item}
                   </span>
@@ -394,67 +390,79 @@ function SectionShell({
 
 /* ── Project card ─────────────────────────────────────────── */
 function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const t = useTranslations('projects');
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.55, delay: index * 0.07, ease: 'easeOut' }}
-      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-400/20 hover:bg-white/[0.07] hover:shadow-[0_8px_40px_rgba(34,211,238,0.06)]"
+      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400/20 hover:bg-white/[0.06] hover:shadow-[0_8px_40px_rgba(34,211,238,0.07)]"
     >
+      {/* Left cyan accent strip on hover */}
+      <div className="pointer-events-none absolute top-0 left-0 h-full w-[2px] origin-top scale-y-0 bg-primary-400 transition-transform duration-300 ease-out group-hover:scale-y-100" />
+
       {/* Subtle glow on hover */}
       <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-           style={{ background: 'radial-gradient(circle at top left, rgba(34,211,238,0.05) 0%, transparent 60%)' }} />
-
-      {/* Category + meta row */}
-      <div className="relative mb-5 flex flex-wrap items-center gap-2">
-        <span className="rounded-full border border-primary-400/30 bg-primary-400/10 px-3 py-1 font-mono text-[10px] tracking-wider text-primary-300 uppercase">
-          {project.category}
-        </span>
-        {project.period && (
-          <span className="font-mono text-[10px] tracking-wider text-white/40 uppercase">
-            {project.period}
-          </span>
-        )}
-        {project.budget && (
-          <span className="ml-auto font-mono text-[10px] tracking-wider text-white/50 uppercase">
-            {project.budget}
-          </span>
-        )}
-        {project.highlight && (
-          <span className="ml-auto rounded-full border border-primary-400/30 bg-primary-400/10 px-2.5 py-0.5 font-mono text-[9px] tracking-widest text-primary-300 uppercase">
-            Featured
-          </span>
-        )}
-      </div>
+           style={{ background: 'radial-gradient(circle at top left, rgba(34,211,238,0.05) 0%, transparent 65%)' }} />
 
       <div className="relative">
-        <h3 className="text-xl font-semibold leading-snug tracking-tight text-white transition-colors duration-200 group-hover:text-primary-300">
+        {/* Top row: category tag + meta right */}
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <span className="rounded-full border border-primary-400/25 bg-primary-400/8 px-2.5 py-0.5 font-mono text-[10px] tracking-wider text-primary-400/80 uppercase">
+              {project.category}
+            </span>
+            {project.period && (
+              <span className="font-mono text-[10px] tracking-wider text-white/40 uppercase">
+                {project.period}
+              </span>
+            )}
+          </div>
+          <div className="flex items-center gap-2">
+            {project.budget && (
+              <span className="font-mono text-[10px] tracking-wider text-white/55 uppercase">
+                {project.budget}
+              </span>
+            )}
+            {project.highlight && (
+              <span className="rounded-full border border-primary-400/30 bg-primary-400/10 px-2.5 py-0.5 font-mono text-[9px] tracking-widest text-primary-300 uppercase">
+                Featured
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Title + role */}
+        <h3 className="text-[1.15rem] font-semibold leading-snug tracking-tight text-white transition-colors duration-200 group-hover:text-primary-300">
           {project.title}
         </h3>
-        <p className="mt-1.5 text-sm font-medium text-white/50">{project.role}</p>
+        <p className="mt-1 text-[11px] font-medium tracking-wide text-white/45 uppercase">
+          {project.role}
+        </p>
 
-        <p className="mt-4 text-sm leading-[1.8] text-white/70">
+        {/* Description */}
+        <p className="mt-4 text-sm leading-[1.8] text-white/75">
           {project.description}
         </p>
 
+        {/* Features as bullet list */}
         {project.features && project.features.length > 0 && (
-          <ul className="mt-5 space-y-2.5">
+          <ul className="mt-4 space-y-2">
             {project.features.slice(0, 3).map((feature) => (
               <li key={feature} className="flex items-start gap-2.5 text-sm text-white/65">
-                <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-primary-400" />
+                <span className="mt-[6px] h-1 w-1 flex-shrink-0 rounded-full bg-primary-400/70" />
                 {feature}
               </li>
             ))}
           </ul>
         )}
 
-        <div className="mt-6 flex flex-wrap gap-1.5">
+        {/* Tech tags */}
+        <div className="mt-5 flex flex-wrap gap-1.5">
           {project.tech.slice(0, 6).map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] text-white/60 transition-colors duration-200 group-hover:border-primary-400/15 group-hover:text-white/75"
+              className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] text-white/65 transition-colors duration-200 group-hover:border-primary-400/15 group-hover:text-white/80"
             >
               {tech}
             </span>
