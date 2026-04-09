@@ -10,12 +10,12 @@
   "hero": {
     "greeting": "Hi, I'm",
     "title": "Backend Engineer / Tech Lead / AI Engineer",
-    "subtitle": "AI, Telegram, and real-time systems",
+    "subtitle": "Backend engineer and Tech Lead building AI platforms, agent infrastructure, and Telegram-native products that survive production",
     "description": "I design backend products that look simple, stay fast, and hold up under real load.",
     "location": "Remote",
     "viewProjects": "View Projects",
     "downloadCV": "Download CV",
-    "titleLine1": "Backend Engineer",
+    "titleLine1": "Backend / AI Platform",
     "titleLine2": "Tech Lead / AI Engineer"
   },
   "stats": {
@@ -85,13 +85,13 @@
   "achievements": {
     "title": "Achievements",
     "items": {
-      "bots": "30+ Telegram bots of varying complexity",
-      "team": "Team leadership of 2+ developers",
-      "refactor": "Complete refactoring of legacy projects (2300+ lines → modular architecture)",
-      "optimization": "Performance optimization (15s → acceptable values)",
-      "budget": "Worked with large project budgets",
-      "techLead": "Tech Lead experience on multiple projects",
-      "deploy": "Fast deployment (backend in 1 day)"
+      "platforms": "Built AI platforms Viably and Vibegent from scratch to production",
+      "agents": "Designed multi-tenant AI agent platform with billing, proxying, and worker-node deployment",
+      "proxy": "Built LLM proxy with token rotation, per-token backoff, and credit-aware control for production loads",
+      "bots": "30+ Telegram bots and Mini Apps from MVP to scalable products",
+      "team": "Tech Lead on multiple projects, teams of 2+ developers",
+      "infra": "Deployed production infrastructure: Hetzner worker nodes, autoscaling, remote Docker orchestration",
+      "trading": "Real-time arbitrage and trading systems across 20+ exchanges"
     }
   },
   "contact": {
@@ -119,6 +119,86 @@
     "back": "Back"
   },
   "projectsList": [
+    {
+      "title": "Viably — AI Product Platform",
+      "role": "Backend Engineer / Tech Lead / Platform Architect",
+      "category": "ai",
+      "description": "AI platform for generating and deploying digital products: websites, web apps, and bots. Built and stabilized backend, generation pipeline, preview runtime, deployment flow, OAuth, billing, and production infrastructure.",
+      "features": [
+        "AI generation pipeline for websites, webapps, and bots",
+        "Preview/render runtime with correct artifact deployment",
+        "OAuth integration (Google + GitHub), billing/credits/plans",
+        "dev/prod environments, nginx/HTTPS/Cloudflare production hardening",
+        "FastAPI + Next.js + PostgreSQL + Redis + Docker architecture"
+      ],
+      "tech": ["Python", "FastAPI", "Next.js", "PostgreSQL", "Redis", "Docker", "Nginx", "Cloudflare", "OAuth2"],
+      "period": "2024–2025",
+      "highlight": true
+    },
+    {
+      "title": "Vibegent — Multi-tenant AI Agent Platform",
+      "role": "Platform Architect / Backend Engineer / AI Infrastructure",
+      "category": "ai",
+      "description": "Production platform for user AI agents with credit system, LLM proxying, billing, Telegram interfaces, worker nodes, and Hetzner deployment infrastructure.",
+      "features": [
+        "Multi-tenant architecture with per-user agent isolation",
+        "Credit system: plans, packs, balance enforcement, YooKassa",
+        "LLM proxy between agents and model providers",
+        "Telegram bot + support bot + channel infrastructure",
+        "Hetzner worker nodes: remote Docker deploy, autoscaling, DB tracking"
+      ],
+      "tech": ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker", "Hetzner", "Aiogram", "Telegram Bot API"],
+      "period": "2024–2025",
+      "highlight": true
+    },
+    {
+      "title": "vibegent-proxy — LLM Infrastructure Layer",
+      "role": "AI Infrastructure Engineer / Backend",
+      "category": "ai",
+      "description": "Resilient proxy layer between AI agents and Anthropic API: token rotation, per-token backoff, retry/fallback, credit-aware request control. Managing model access as production infrastructure.",
+      "features": [
+        "Architecture: Agent → vibegent-proxy → Anthropic (legacy complexity removed)",
+        "Token pool management with rotation across organizations",
+        "Per-token backoff instead of global cooldown",
+        "Retry/fallback on rate-limit, stop-on-zero balance mechanics",
+        "Security and audit layers, balance/credits control"
+      ],
+      "tech": ["Python", "FastAPI", "asyncio", "Anthropic API", "Redis", "Docker"],
+      "period": "2024–2025",
+      "highlight": true
+    },
+    {
+      "title": "Agent Cloud — Hetzner Deploy Infrastructure",
+      "role": "Platform Engineer / Infrastructure Architect",
+      "category": "automation",
+      "description": "Cloud infrastructure for deploying AI agents on dedicated Hetzner worker nodes: remote Docker orchestration, autoscaling, workload isolation, and DB-tracked deployments.",
+      "features": [
+        "Dedicated Hetzner worker nodes for user agents",
+        "Remote Docker deployment over SSH, no local deployment on backend hosts",
+        "Autoscaling when nodes hit capacity",
+        "DB-tracked deployments, workload isolation (websites vs agents)",
+        "Node allocation logic and scheduling rules"
+      ],
+      "tech": ["Python", "Docker", "SSH", "Hetzner API", "PostgreSQL", "FastAPI"],
+      "period": "2024–2025",
+      "highlight": true
+    },
+    {
+      "title": "OpenClaw — Agent Runtime Operations",
+      "role": "AI Ops Engineer / Platform Engineer",
+      "category": "ai",
+      "description": "Deployment, customization, and production stabilization of OpenClaw as an agent operating environment: gateway, browser, messaging, memory, model auth, and persistent sessions.",
+      "features": [
+        "Deployment and operationalization of OpenClaw environments",
+        "Gateway/node/browser/messaging integration",
+        "Memory-aware agent workflows, persistent sessions",
+        "Model auth and agent defaults configuration",
+        "Production debugging: runtime, browser/auth, agent behavior fixes"
+      ],
+      "tech": ["OpenClaw", "Python", "Docker", "Nginx", "PostgreSQL", "Telegram Bot API"],
+      "period": "2024–2025",
+      "highlight": true
+    },
     {
       "title": "ChainAlert - Blockchain Transaction Monitoring",
       "role": "System Architect, Full-stack Developer",

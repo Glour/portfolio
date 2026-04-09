@@ -319,6 +319,17 @@ export const keySkills = [
     ],
   },
   {
+    category: 'AI Platform & Agents',
+    skills: [
+      'Agent orchestration',
+      'Multi-tenant agent platforms',
+      'LLM proxy infrastructure',
+      'Credit/billing systems',
+      'Worker node deployment',
+      'Memory-aware workflows',
+    ],
+  },
+  {
     category: 'DevOps & Infrastructure',
     skills: [
       'Docker & Containerization',
@@ -326,6 +337,12 @@ export const keySkills = [
       'CI/CD (GitHub Actions)',
       'Nginx configuration',
       'Мониторинг (Prometheus, Grafana)',
+      'Hetzner / Cloud provisioning',
+      'Remote Docker orchestration',
+      'Nginx / HTTPS / Cloudflare',
+      'Autoscaling infrastructure',
+      'Production debugging',
+      'Server hardening',
     ],
   },
   {
