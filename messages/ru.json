@@ -83,6 +83,73 @@
       "Blockchain": "Blockchain"
     }
   },
+  "keySkills": [
+    {
+      "category": "Backend Development",
+      "skills": [
+        "Python Web Development (FastAPI, Flask)",
+        "REST API Design & Architecture",
+        "Микросервисная архитектура",
+        "Асинхронное программирование (asyncio)",
+        "Database Design & Optimization",
+        "WebSocket & Real-time системы",
+        "Authentication & Security (JWT)"
+      ]
+    },
+    {
+      "category": "AI/ML Integration",
+      "skills": [
+        "Интеграция LLM (GPT-4, Claude, YaGPT, Gemini)",
+        "RAG системы и векторный поиск",
+        "Fine-tuning нейросетей",
+        "Prompt engineering",
+        "Векторные БД (Pinecone, Milvus, Chroma)"
+      ]
+    },
+    {
+      "category": "Telegram Ecosystem",
+      "skills": [
+        "Telegram Bot Development (Aiogram 3.x)",
+        "Telegram Mini Apps",
+        "User Bot Development (Telethon/Pyrogram)",
+        "WebApp API интеграция"
+      ]
+    },
+    {
+      "category": "AI Platform & Agents",
+      "skills": [
+        "Оркестрация агентов и мультиагентные системы",
+        "Мультитенантные агент-платформы",
+        "LLM proxy инфраструктура",
+        "Кредитная система и биллинг",
+        "Деплой воркер-нод",
+        "Memory-aware агентные воркфлоу"
+      ]
+    },
+    {
+      "category": "DevOps & Infrastructure",
+      "skills": [
+        "Docker & контейнеризация",
+        "Администрирование Linux серверов",
+        "CI/CD (GitHub Actions)",
+        "Nginx / HTTPS / Cloudflare",
+        "Мониторинг (Prometheus, Grafana)",
+        "Hetzner / провижининг облаков",
+        "Remote Docker orchestration",
+        "Автоскейлинг инфраструктура",
+        "Hardening серверов"
+      ]
+    },
+    {
+      "category": "Blockchain",
+      "skills": [
+        "Bitcoin L2 решения",
+        "Smart Contracts",
+        "TON Blockchain",
+        "Wallet Connect интеграция"
+      ]
+    }
+  ],
   "achievements": {
     "title": "Достижения",
     "items": {

@@ -83,6 +83,73 @@
       "Blockchain": "Blockchain"
     }
   },
+  "keySkills": [
+    {
+      "category": "Backend Development",
+      "skills": [
+        "Python Web Development (FastAPI, Flask)",
+        "REST API Design & Architecture",
+        "Microservices architecture",
+        "Async programming (asyncio)",
+        "Database Design & Optimization",
+        "WebSocket & Real-time systems",
+        "Authentication & Security (JWT)"
+      ]
+    },
+    {
+      "category": "AI/ML Integration",
+      "skills": [
+        "LLM integration (GPT-4, Claude, YaGPT, Gemini)",
+        "RAG systems and vector search",
+        "Neural network fine-tuning",
+        "Prompt engineering",
+        "Vector DBs (Pinecone, Milvus, Chroma)"
+      ]
+    },
+    {
+      "category": "Telegram Ecosystem",
+      "skills": [
+        "Telegram Bot Development (Aiogram 3.x)",
+        "Telegram Mini Apps",
+        "User Bot Development (Telethon/Pyrogram)",
+        "WebApp API integration"
+      ]
+    },
+    {
+      "category": "AI Platform & Agents",
+      "skills": [
+        "Agent orchestration & multi-agent systems",
+        "Multi-tenant agent platforms",
+        "LLM proxy infrastructure",
+        "Credit & billing systems",
+        "Worker node deployment",
+        "Memory-aware agent workflows"
+      ]
+    },
+    {
+      "category": "DevOps & Infrastructure",
+      "skills": [
+        "Docker & containerization",
+        "Linux server administration",
+        "CI/CD (GitHub Actions)",
+        "Nginx / HTTPS / Cloudflare",
+        "Monitoring (Prometheus, Grafana)",
+        "Hetzner / cloud provisioning",
+        "Remote Docker orchestration",
+        "Autoscaling infrastructure",
+        "Server hardening"
+      ]
+    },
+    {
+      "category": "Blockchain",
+      "skills": [
+        "Bitcoin L2 solutions",
+        "Smart Contracts",
+        "TON Blockchain",
+        "Wallet Connect integration"
+      ]
+    }
+  ],
   "achievements": {
     "title": "Achievements",
     "items": {

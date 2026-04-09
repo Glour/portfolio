@@ -14,7 +14,7 @@ import {
   FaLinkedin,
   FaTelegram,
 } from 'react-icons/fa';
-import { profile, techStack, keySkills } from '../data/profile';
+import { profile, techStack } from '../data/profile';
 import ProjectsCarousel from '../components/ui/ProjectsCarousel';
 
 interface Project {
@@ -59,6 +59,11 @@ export default function HomePage() {
   const achievements = useMemo(() => {
     const items = t.raw('achievements.items') as Record<string, string> | undefined;
     return items ? Object.values(items).slice(0, 6) : [];
+  }, [t]);
+
+  const keySkills = useMemo(() => {
+    const data = t.raw('keySkills') as unknown;
+    return Array.isArray(data) ? data as { category: string; skills: string[] }[] : [];
   }, [t]);
 
   const skillGroups = [
