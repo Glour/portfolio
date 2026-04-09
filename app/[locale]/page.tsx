@@ -187,28 +187,42 @@ export default function HomePage() {
       </div>
 
       {/* ── FEATURED PROJECTS ─────────────────────────────── */}
-      <SectionShell
-        id="projects"
-        eyebrow={isRu ? 'Избранные работы' : 'Featured work'}
-        title={t('projects.title')}
-        subtitle={t('projects.subtitle')}
-      >
-        <div className="grid gap-4 lg:grid-cols-2">
-          {featuredProjects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
-          ))}
-        </div>
+      <section id="projects" className="px-6 py-20 md:py-28">
+        <div className="container mx-auto max-w-5xl">
+          <motion.div {...fadeUp} className="mb-14">
+            <p className="font-mono text-[11px] tracking-[0.3em] text-primary-400/60 uppercase">
+              {isRu ? 'Избранные работы' : 'Featured work'}
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-white md:text-4xl">
+              {t('projects.title')}
+            </h2>
+            <p className="mt-3 max-w-xl text-base leading-[1.75] text-white/55">
+              {t('projects.subtitle')}
+            </p>
+          </motion.div>
 
-        <div className="mt-8 flex justify-start">
-          <Link
-            href={`${basePath}/projects`}
-            className="group inline-flex items-center gap-2 text-sm text-white/40 transition-colors duration-200 hover:text-primary-400"
+          {/* Gallery list */}
+          <div className="divide-y divide-white/[0.07]">
+            {featuredProjects.map((project, index) => (
+              <ProjectRow key={project.title} project={project} index={index} />
+            ))}
+          </div>
+
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
+            className="mt-10 flex justify-start"
           >
-            {t('projects.allProjects')}
-            <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-0.5" />
-          </Link>
+            <Link
+              href={`${basePath}/projects`}
+              className="group inline-flex items-center gap-2 text-sm text-white/40 transition-colors duration-200 hover:text-primary-400"
+            >
+              {t('projects.allProjects')}
+              <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-0.5" />
+            </Link>
+          </motion.div>
         </div>
-      </SectionShell>
+      </section>
 
       {/* ── SKILLS ────────────────────────────────────────── */}
       <SectionShell
@@ -388,87 +402,89 @@ function SectionShell({
   );
 }
 
-/* ── Project card ─────────────────────────────────────────── */
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+/* ── Project row (gallery style) ──────────────────────────── */
+function ProjectRow({ project, index }: { project: Project; index: number }) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.55, delay: index * 0.07, ease: 'easeOut' }}
-      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400/20 hover:bg-white/[0.06] hover:shadow-[0_8px_40px_rgba(34,211,238,0.07)]"
+      initial={{ opacity: 0, x: -16 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.55, delay: index * 0.08, ease: 'easeOut' }}
+      className="group relative cursor-default py-8 transition-all duration-300"
     >
-      {/* Left cyan accent strip on hover */}
-      <div className="pointer-events-none absolute top-0 left-0 h-full w-[2px] origin-top scale-y-0 bg-primary-400 transition-transform duration-300 ease-out group-hover:scale-y-100" />
+      {/* Animated left border on hover */}
+      <div className="pointer-events-none absolute top-0 left-0 h-full w-px bg-white/10 transition-all duration-400">
+        <div className="absolute left-0 top-0 h-0 w-px bg-primary-400 transition-all duration-500 group-hover:h-full" />
+      </div>
 
-      {/* Subtle glow on hover */}
-      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-           style={{ background: 'radial-gradient(circle at top left, rgba(34,211,238,0.05) 0%, transparent 65%)' }} />
-
-      <div className="relative">
-        {/* Top row: category tag + meta right */}
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
-            <span className="rounded-full border border-primary-400/25 bg-primary-400/8 px-2.5 py-0.5 font-mono text-[10px] tracking-wider text-primary-400/80 uppercase">
-              {project.category}
+      <div className="pl-8 md:pl-10">
+        {/* Row: number + category + period */}
+        <div className="flex flex-wrap items-center gap-3 mb-4">
+          <span className="font-mono text-[11px] text-white/20 tabular-nums">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <span className="rounded-full border border-primary-400/25 bg-primary-400/8 px-2.5 py-0.5 font-mono text-[9px] tracking-[0.15em] text-primary-400/80 uppercase">
+            {project.category}
+          </span>
+          {project.period && (
+            <span className="font-mono text-[10px] tracking-wider text-white/30 uppercase">
+              {project.period}
             </span>
-            {project.period && (
-              <span className="font-mono text-[10px] tracking-wider text-white/40 uppercase">
-                {project.period}
-              </span>
-            )}
-          </div>
-          <div className="flex items-center gap-2">
-            {project.budget && (
-              <span className="font-mono text-[10px] tracking-wider text-white/55 uppercase">
-                {project.budget}
-              </span>
-            )}
-            {project.highlight && (
-              <span className="rounded-full border border-primary-400/30 bg-primary-400/10 px-2.5 py-0.5 font-mono text-[9px] tracking-widest text-primary-300 uppercase">
-                Featured
-              </span>
-            )}
-          </div>
+          )}
+          {project.budget && (
+            <span className="ml-auto font-mono text-[10px] tracking-wider text-white/45">
+              {project.budget}
+            </span>
+          )}
         </div>
 
-        {/* Title + role */}
-        <h3 className="text-[1.15rem] font-semibold leading-snug tracking-tight text-white transition-colors duration-200 group-hover:text-primary-300">
-          {project.title}
-        </h3>
-        <p className="mt-1 text-[11px] font-medium tracking-wide text-white/45 uppercase">
-          {project.role}
-        </p>
+        {/* Main content row */}
+        <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-start">
+          <div>
+            {/* Title */}
+            <h3 className="text-xl font-semibold tracking-[-0.02em] text-white transition-colors duration-200 group-hover:text-primary-300 md:text-2xl">
+              {project.title}
+            </h3>
+            <p className="mt-0.5 text-[11px] font-medium tracking-[0.12em] text-white/35 uppercase">
+              {project.role}
+            </p>
 
-        {/* Description */}
-        <p className="mt-4 text-sm leading-[1.8] text-white/75">
-          {project.description}
-        </p>
+            {/* Description — visible on hover with smooth expand */}
+            <div className="overflow-hidden">
+              <p className="mt-3 max-w-2xl text-sm leading-[1.8] text-white/60 transition-all duration-300 group-hover:text-white/80">
+                {project.description}
+              </p>
 
-        {/* Features as bullet list */}
-        {project.features && project.features.length > 0 && (
-          <ul className="mt-4 space-y-2">
-            {project.features.slice(0, 3).map((feature) => (
-              <li key={feature} className="flex items-start gap-2.5 text-sm text-white/65">
-                <span className="mt-[6px] h-1 w-1 flex-shrink-0 rounded-full bg-primary-400/70" />
-                {feature}
-              </li>
+              {/* Features — appear on hover */}
+              {project.features && project.features.length > 0 && (
+                <ul className="mt-3 space-y-1.5 max-h-0 overflow-hidden opacity-0 transition-all duration-400 group-hover:max-h-32 group-hover:opacity-100">
+                  {project.features.slice(0, 3).map((feature) => (
+                    <li key={feature} className="flex items-start gap-2.5 text-sm text-white/55">
+                      <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-primary-400/60" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+
+          {/* Tech tags — right column on desktop */}
+          <div className="flex flex-wrap gap-1.5 md:flex-col md:items-end md:gap-1">
+            {project.tech.slice(0, 5).map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] text-white/40 transition-all duration-200 group-hover:border-primary-400/15 group-hover:text-white/65"
+              >
+                {tech}
+              </span>
             ))}
-          </ul>
-        )}
-
-        {/* Tech tags */}
-        <div className="mt-5 flex flex-wrap gap-1.5">
-          {project.tech.slice(0, 6).map((tech) => (
-            <span
-              key={tech}
-              className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] text-white/65 transition-colors duration-200 group-hover:border-primary-400/15 group-hover:text-white/80"
-            >
-              {tech}
-            </span>
-          ))}
+          </div>
         </div>
       </div>
+
+      {/* Bottom line glow on hover */}
+      <div className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-primary-400/40 to-transparent transition-all duration-500 group-hover:w-full" />
     </motion.article>
   );
 }
