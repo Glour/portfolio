@@ -47,11 +47,14 @@ export default function HomePage() {
   const isRu = locale === 'ru';
   const basePath = `/${locale}`;
 
-  const featuredProjects = useMemo(() => {
+  const allProjects = useMemo(() => {
     const projectsData = t.raw('projectsList') as unknown;
-    const allProjects = Array.isArray(projectsData) ? (projectsData as Project[]) : [];
-    return allProjects.filter((project) => project.highlight).slice(0, 4);
+    return Array.isArray(projectsData) ? (projectsData as Project[]) : [];
   }, [t]);
+
+  const featuredProjects = useMemo(() => {
+    return allProjects.filter((project) => project.highlight).slice(0, 6);
+  }, [allProjects]);
 
   const achievements = useMemo(() => {
     const items = t.raw('achievements.items') as Record<string, string> | undefined;
@@ -203,7 +206,7 @@ export default function HomePage() {
           </motion.div>
 
           {/* Infinity carousel */}
-          <ProjectsCarousel projects={featuredProjects} />
+          <ProjectsCarousel featured={featuredProjects} all={allProjects} />
 
           <motion.div
             {...fadeUp}
