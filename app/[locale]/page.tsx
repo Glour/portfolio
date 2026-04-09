@@ -30,15 +30,15 @@ interface Project {
 
 const HeroScene = dynamic(() => import('../components/3d/HeroScene'), {
   ssr: false,
-  loading: () => <div className="h-full w-full bg-slate-950" />,
+  loading: () => null,
 });
 
-const sectionFade = {
-  initial: { opacity: 0, y: 24 },
+const fadeUp = {
+  initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.2 },
-  transition: { duration: 0.7 },
-};
+  viewport: { once: true, amount: 0.15 },
+  transition: { duration: 0.65, ease: 'easeOut' },
+} as const;
 
 export default function HomePage() {
   const t = useTranslations();
@@ -58,255 +58,173 @@ export default function HomePage() {
   }, [t]);
 
   const skillGroups = [
-    {
-      title: t('techStack.languages'),
-      items: techStack.languages,
-      accent: 'from-primary-500/25 to-primary-500/5',
-    },
-    {
-      title: t('techStack.backend'),
-      items: techStack.backend,
-      accent: 'from-accent-500/25 to-accent-500/5',
-    },
-    {
-      title: t('techStack.ai'),
-      items: techStack.ai,
-      accent: 'from-fuchsia-500/20 to-transparent',
-    },
-    {
-      title: t('techStack.telegram'),
-      items: techStack.telegram,
-      accent: 'from-cyan-500/20 to-transparent',
-    },
-    {
-      title: t('techStack.databases'),
-      items: techStack.databases,
-      accent: 'from-emerald-500/20 to-transparent',
-    },
-    {
-      title: t('techStack.devops'),
-      items: techStack.devops,
-      accent: 'from-amber-500/20 to-transparent',
-    },
+    { title: t('techStack.languages'), items: techStack.languages },
+    { title: t('techStack.backend'),   items: techStack.backend },
+    { title: t('techStack.ai'),        items: techStack.ai },
+    { title: t('techStack.telegram'),  items: techStack.telegram },
+    { title: t('techStack.databases'), items: techStack.databases },
+    { title: t('techStack.devops'),    items: techStack.devops },
   ];
 
   const heroStats = [
-    { value: '30+', label: t('stats.projects') },
-    { value: '30+', label: t('stats.telegramBots') },
-    { value: '2+', label: t('stats.team') },
+    { value: '30+',       label: t('stats.projects') },
+    { value: '30+',       label: t('stats.telegramBots') },
+    { value: '2+',        label: t('stats.team') },
     { value: 'Tech Lead', label: t('stats.techLead') },
   ];
 
-  const focusPills = isRu
-    ? ['FastAPI', 'AI workflows', 'Telegram products', 'Real-time systems', 'Payments', 'Infra']
-    : ['FastAPI', 'AI workflows', 'Telegram products', 'Real-time systems', 'Payments', 'Infra'];
-
-  const trustPills = isRu
-    ? ['Backend', 'AI integration', 'Telegram ecosystem', 'Trading systems', 'DevOps']
-    : ['Backend', 'AI integration', 'Telegram ecosystem', 'Trading systems', 'DevOps'];
-
   return (
-    <div className="relative overflow-hidden">
-      <section className="relative isolate flex min-h-[calc(100vh-5rem)] items-center px-6 py-16 md:py-24">
-        <div className="absolute inset-0 z-0">
-          <Suspense fallback={<div className="h-full w-full bg-slate-950" />}>
-            <HeroScene />
-          </Suspense>
-        </div>
+    <div className="relative">
+      {/* Ambient background — cursor glow + static blobs */}
+      <Suspense fallback={null}>
+        <HeroScene />
+      </Suspense>
 
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,0.16),transparent_30%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.18),transparent_32%),linear-gradient(to_bottom,rgba(2,6,23,0.12),rgba(2,6,23,0.72)_55%,rgba(2,6,23,1))]" />
+      {/* ── HERO ─────────────────────────────────────────── */}
+      <section className="relative isolate flex min-h-[calc(100vh-5rem)] items-center px-6 py-20 md:py-32">
+        <div className="container relative z-10 mx-auto max-w-5xl">
 
-        <div className="container relative z-10 mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <motion.div {...sectionFade}>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300 backdrop-blur-xl">
-              <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.6)]" />
-              {isRu ? 'Открыт к точечным проектам' : 'Available for selective projects'}
-            </div>
-
-            <p className="mt-6 text-xs uppercase tracking-[0.34em] text-slate-500">
-              {profile.name}
-            </p>
-
-            <h1 className="mt-4 max-w-4xl text-balance font-display text-[clamp(3rem,7.4vw,6.6rem)] font-semibold tracking-[-0.08em] text-white">
-              <span className="block leading-[0.92]">
-                {t('hero.title')}
-              </span>
-            </h1>
-
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl">
-              {t('hero.subtitle')}
-            </p>
-
-            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-400 md:text-lg">
-              {t('hero.description')}
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href={`${basePath}#projects`}
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-600 to-accent-600 px-6 py-3 font-medium text-white shadow-[0_18px_60px_rgba(14,165,233,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_80px_rgba(168,85,247,0.3)]"
-              >
-                {t('hero.viewProjects')}
-                <FaArrowRight className="text-sm" />
-              </Link>
-              <Link
-                href={`${basePath}#contact`}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 font-medium text-white backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/10"
-              >
-                {t('nav.contact')}
-              </Link>
-            </div>
-
-            <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {heroStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="glass rounded-[24px] p-4 text-left shadow-[0_18px_60px_rgba(2,6,23,0.35)]"
-                >
-                  <div className="text-2xl font-bold text-white md:text-3xl">{stat.value}</div>
-                  <div className="mt-1 text-xs uppercase tracking-[0.18em] text-slate-400">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
+          {/* Available badge */}
           <motion.div
-            initial={{ opacity: 0, y: 28, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.12 }}
-            className="relative"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2.5 rounded-full border border-white/8 bg-white/4 px-4 py-2 text-xs tracking-widest text-white/50 uppercase"
           >
-            <div className="absolute -inset-8 rounded-full bg-primary-500/10 blur-3xl" />
-            <div className="relative rounded-[32px] border border-white/10 bg-slate-950/70 p-6 shadow-[0_24px_90px_rgba(2,6,23,0.55)] backdrop-blur-xl">
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.32em] text-slate-500">
-                    {isRu ? 'Ключевой фокус' : 'Core focus'}
-                  </p>
-                  <p className="mt-2 text-lg font-semibold text-white">
-                    {isRu ? 'Собираю backend как продукт' : 'I build backend like a product'}
-                  </p>
-                </div>
-                <div className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-300">
-                  Remote
-                </div>
-              </div>
+            <span className="h-1.5 w-1.5 rounded-full bg-primary-400 shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
+            {isRu ? 'Открыт к проектам' : 'Available for projects'}
+          </motion.div>
 
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                <InfoCard title={isRu ? 'Надёжность' : 'Reliability'} text={isRu ? 'Системы без хрупких мест, рассчитанные на реальную нагрузку.' : 'Systems without fragile spots, designed for real load.'} />
-                <InfoCard title={isRu ? 'Скорость' : 'Speed'} text={isRu ? 'Быстро собираю MVP, но без дешёвой спешки.' : 'Fast MVP delivery without cheap shortcuts.'} />
-                <InfoCard title={isRu ? 'AI' : 'AI'} text={isRu ? 'LLM, автоматизация, агенты, сценарии вокруг продукта.' : 'LLMs, automation, agents, product workflows.'} />
-                <InfoCard title={isRu ? 'Telegram' : 'Telegram'} text={isRu ? 'Боты, Mini Apps и сложные пользовательские сценарии.' : 'Bots, Mini Apps, and complex user flows.'} />
-              </div>
+          {/* Name label */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.07 }}
+            className="mt-10 font-mono text-[11px] tracking-[0.3em] text-white/30 uppercase"
+          >
+            {profile.name}
+          </motion.p>
 
-              <div className="mt-6 rounded-[28px] border border-white/10 bg-white/[0.04] p-5">
-                <div className="flex items-center justify-between gap-3">
-                  <p className="text-sm font-medium text-slate-300">
-                    {isRu ? 'Стек, который я люблю' : 'Stack I prefer'}
-                  </p>
-                  <p className="text-xs uppercase tracking-[0.24em] text-slate-500">
-                    {isRu ? 'практично' : 'practical'}
-                  </p>
-                </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {focusPills.map((pill) => (
-                    <span
-                      key={pill}
-                      className="rounded-full border border-white/10 bg-slate-900/60 px-3 py-1.5 text-xs text-slate-200"
-                    >
-                      {pill}
-                    </span>
-                  ))}
-                </div>
-              </div>
+          {/* Main headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.12, ease: 'easeOut' }}
+            className="mt-4 max-w-4xl text-balance font-sans text-[clamp(2.8rem,7vw,6.5rem)] font-semibold leading-[0.93] tracking-[-0.04em] text-white"
+          >
+            {t('hero.title')}
+          </motion.h1>
 
-              <div className="mt-6 grid grid-cols-3 gap-3 text-center text-xs text-slate-400">
-                <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-4">
-                  <div className="text-lg font-semibold text-white">30+</div>
-                  <div className="mt-1">{isRu ? 'ботов' : 'bots'}</div>
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.22, ease: 'easeOut' }}
+            className="mt-7 max-w-2xl text-[1.05rem] leading-[1.75] text-white/50"
+          >
+            {t('hero.subtitle')}
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.32 }}
+            className="mt-10 flex flex-wrap items-center gap-4"
+          >
+            <Link
+              href={`${basePath}#projects`}
+              className="group inline-flex items-center gap-2.5 rounded-full bg-primary-400 px-7 py-3.5 text-sm font-medium text-black transition-all duration-300 hover:bg-primary-300 hover:shadow-[0_0_40px_rgba(34,211,238,0.25)]"
+            >
+              {t('hero.viewProjects')}
+              <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-0.5" />
+            </Link>
+            <Link
+              href={`${basePath}#contact`}
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-7 py-3.5 text-sm font-medium text-white/70 transition-all duration-300 hover:border-white/20 hover:text-white"
+            >
+              {t('nav.contact')}
+            </Link>
+          </motion.div>
+
+          {/* Stats row */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="mt-20 flex flex-wrap items-end gap-x-12 gap-y-6 border-t border-white/6 pt-8"
+          >
+            {heroStats.map((stat) => (
+              <div key={stat.label}>
+                <div className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
+                  {stat.value}
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-4">
-                  <div className="text-lg font-semibold text-white">2+</div>
-                  <div className="mt-1">{isRu ? 'разработчика в команде' : 'devs led'}</div>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-4">
-                  <div className="text-lg font-semibold text-white">1d</div>
-                  <div className="mt-1">{isRu ? 'backend за день' : 'backend in a day'}</div>
+                <div className="mt-1 font-mono text-[10px] tracking-[0.25em] text-white/30 uppercase">
+                  {stat.label}
                 </div>
               </div>
-            </div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      <section className="px-6 pb-10">
-        <div className="container mx-auto max-w-6xl">
-          <div className="glass rounded-[28px] px-6 py-5 shadow-[0_18px_70px_rgba(2,6,23,0.3)] md:px-8">
-            <div className="flex flex-wrap items-center gap-3">
-              {trustPills.map((pill) => (
-                <span
-                  key={pill}
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-slate-300"
-                >
-                  {pill}
-                </span>
-              ))}
-            </div>
-          </div>
+      {/* Divider */}
+      <div className="px-6">
+        <div className="container mx-auto max-w-5xl">
+          <div className="h-px bg-white/6" />
         </div>
-      </section>
+      </div>
 
+      {/* ── FEATURED PROJECTS ─────────────────────────────── */}
       <SectionShell
         id="projects"
         eyebrow={isRu ? 'Избранные работы' : 'Featured work'}
         title={t('projects.title')}
         subtitle={t('projects.subtitle')}
       >
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className="grid gap-4 lg:grid-cols-2">
           {featuredProjects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
         </div>
 
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 flex justify-start">
           <Link
             href={`${basePath}/projects`}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 font-medium text-white backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/10"
+            className="group inline-flex items-center gap-2 text-sm text-white/40 transition-colors duration-200 hover:text-primary-400"
           >
             {t('projects.allProjects')}
-            <FaArrowRight className="text-sm" />
+            <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
         </div>
       </SectionShell>
 
+      {/* ── SKILLS ────────────────────────────────────────── */}
       <SectionShell
         eyebrow={isRu ? 'Что я умею' : 'What I build'}
         title={isRu ? 'Глубина по ключевым направлениям' : 'Depth in the areas that matter'}
-        subtitle={isRu ? 'Показываю не список технологий, а зоны, где могу брать ответственность.' : 'Not just tools, but the areas where I can take responsibility.'}
+        subtitle={isRu ? 'Зоны, где могу брать ответственность.' : 'Areas where I own the outcome.'}
       >
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {keySkills.map((skillGroup, index) => (
             <motion.article
               key={skillGroup.category}
-              {...sectionFade}
-              transition={{ duration: 0.6, delay: index * 0.06 }}
-              className="glass group rounded-[28px] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06]"
+              {...fadeUp}
+              transition={{ duration: 0.55, delay: index * 0.05, ease: 'easeOut' }}
+              className="group rounded-2xl border border-white/6 bg-white/[0.025] p-6 transition-all duration-300 hover:border-white/12 hover:bg-white/[0.04]"
             >
-              <div className="mb-4 flex items-center justify-between gap-4">
-                <h3 className="text-lg font-semibold text-white">
+              <div className="mb-5 flex items-center justify-between">
+                <h3 className="text-sm font-medium tracking-tight text-white">
                   {t(`skills.categories.${skillGroup.category}`)}
                 </h3>
-                <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-slate-500">
-                  {skillGroup.skills.length}
+                <span className="font-mono text-[10px] tracking-widest text-white/25">
+                  {String(skillGroup.skills.length).padStart(2, '0')}
                 </span>
               </div>
-
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {skillGroup.skills.map((skill) => (
-                  <li key={skill} className="flex items-start gap-3 text-sm text-slate-300">
-                    <FaCheck className="mt-1 flex-shrink-0 text-primary-400" />
+                  <li key={skill} className="flex items-start gap-3 text-sm text-white/50">
+                    <span className="mt-[5px] h-1 w-1 flex-shrink-0 rounded-full bg-primary-400/60" />
                     <span>{skill}</span>
                   </li>
                 ))}
@@ -316,97 +234,128 @@ export default function HomePage() {
         </div>
       </SectionShell>
 
+      {/* ── TECH STACK ────────────────────────────────────── */}
       <SectionShell
         id="tech-stack"
         eyebrow={isRu ? 'Технический стек' : 'Technical stack'}
         title={t('techStack.title')}
         subtitle={t('techStack.subtitle')}
       >
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {skillGroups.map((group) => (
-            <StackCard key={group.title} title={group.title} items={group.items} accent={group.accent} />
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {skillGroups.map((group, index) => (
+            <motion.div
+              key={group.title}
+              {...fadeUp}
+              transition={{ duration: 0.55, delay: index * 0.05, ease: 'easeOut' }}
+              className="rounded-2xl border border-white/6 bg-white/[0.025] p-6 transition-all duration-300 hover:border-white/12 hover:bg-white/[0.04]"
+            >
+              <div className="mb-5 flex items-center justify-between">
+                <h3 className="text-sm font-medium text-white">{group.title}</h3>
+                <span className="font-mono text-[10px] tracking-widest text-white/25">
+                  {String(group.items.length).padStart(2, '0')}
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-md border border-white/8 bg-white/[0.03] px-2.5 py-1 text-xs text-white/55"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
       </SectionShell>
 
+      {/* ── ACHIEVEMENTS ──────────────────────────────────── */}
       <SectionShell
         eyebrow={isRu ? 'Факты' : 'Proof'}
         title={t('achievements.title')}
-        subtitle={isRu ? 'Коротко о том, что уже было доведено до результата.' : 'Short proof of shipped work and responsibility.'}
+        subtitle={isRu ? 'Коротко — что было доведено до результата.' : 'Short proof of shipped work.'}
       >
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {achievements.map((item) => (
-            <div
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {achievements.map((item, i) => (
+            <motion.div
               key={item}
-              className="glass rounded-[24px] border-white/10 p-5 text-slate-300 shadow-[0_18px_60px_rgba(2,6,23,0.28)]"
+              {...fadeUp}
+              transition={{ duration: 0.5, delay: i * 0.04, ease: 'easeOut' }}
+              className="rounded-2xl border border-white/6 bg-white/[0.025] p-5 text-white/55 transition-all duration-300 hover:border-white/12"
             >
               <div className="flex items-start gap-3">
-                <div className="mt-1 rounded-full border border-primary-500/20 bg-primary-500/10 p-2 text-primary-300">
-                  <FaCheck className="text-xs" />
-                </div>
-                <p className="leading-7">{item}</p>
+                <FaCheck className="mt-1 flex-shrink-0 text-[10px] text-primary-400/70" />
+                <p className="text-sm leading-[1.7]">{item}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </SectionShell>
 
-      <section id="contact" className="px-6 pb-24 pt-8 md:pb-28">
-        <div className="container mx-auto max-w-6xl">
-          <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-slate-950/95 via-slate-950/90 to-slate-900/80 p-8 shadow-[0_30px_100px_rgba(2,6,23,0.55)] md:p-12">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(168,85,247,0.14),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(14,165,233,0.12),transparent_28%)]" />
-            <div className="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+      {/* ── CONTACT ───────────────────────────────────────── */}
+      <section id="contact" className="px-6 pb-32 pt-4">
+        <div className="container mx-auto max-w-5xl">
+          <motion.div
+            {...fadeUp}
+            className="relative overflow-hidden rounded-3xl border border-white/8 bg-white/[0.025] p-10 md:p-14"
+          >
+            {/* Subtle cyan glow inside card */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full"
+              style={{ background: 'radial-gradient(circle, rgba(34,211,238,0.07) 0%, transparent 70%)' }}
+            />
+
+            <div className="relative grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
               <div>
-                <p className="text-xs uppercase tracking-[0.32em] text-slate-500">
+                <p className="font-mono text-[11px] tracking-[0.3em] text-white/30 uppercase">
                   {isRu ? 'Контакт' : 'Contact'}
                 </p>
-                <h2 className="font-display mt-4 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
+                <h2 className="mt-5 text-4xl font-semibold tracking-[-0.03em] text-white md:text-5xl">
                   {t('contact.title')}
                 </h2>
-                <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-400">
+                <p className="mt-5 max-w-xl text-base leading-[1.75] text-white/45">
                   {t('contact.subtitle')}
                 </p>
 
-                <div className="mt-8 flex flex-wrap gap-3">
+                <div className="mt-9 flex flex-wrap gap-3">
                   <a
                     href={`mailto:${profile.email}`}
-                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-600 to-accent-600 px-6 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-0.5"
+                    className="group inline-flex items-center gap-2.5 rounded-full bg-primary-400 px-7 py-3.5 text-sm font-medium text-black transition-all duration-300 hover:bg-primary-300"
                   >
-                    <FaEnvelope />
+                    <FaEnvelope className="text-xs" />
                     {t('contact.email')}
                   </a>
                   <a
                     href={profile.social.telegram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 font-medium text-white backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/10"
+                    className="inline-flex items-center gap-2.5 rounded-full border border-white/10 px-7 py-3.5 text-sm font-medium text-white/70 transition-all duration-300 hover:border-white/20 hover:text-white"
                   >
-                    <FaTelegram />
+                    <FaTelegram className="text-xs" />
                     {t('contact.telegram')}
                   </a>
                 </div>
               </div>
 
-              <div className="grid gap-4">
-                <ContactLink icon={<FaEnvelope />} label="Email" value={profile.email} href={`mailto:${profile.email}`} />
+              <div className="grid gap-2.5">
+                <ContactLink icon={<FaEnvelope />} label="Email"    value={profile.email}    href={`mailto:${profile.email}`} />
                 <ContactLink icon={<FaTelegram />} label="Telegram" value={profile.telegram} href={profile.social.telegram} />
-                <ContactLink icon={<FaGithub />} label="GitHub" value="Glour" href={profile.social.github} />
-                <ContactLink icon={<FaLinkedin />} label="LinkedIn" value="Profile" href={profile.social.linkedin} />
+                <ContactLink icon={<FaGithub />}   label="GitHub"   value="Glour"             href={profile.social.github} />
+                <ContactLink icon={<FaLinkedin />} label="LinkedIn" value="Profile"           href={profile.social.linkedin} />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
   );
 }
 
+/* ── Section wrapper ──────────────────────────────────────── */
 function SectionShell({
-  eyebrow,
-  title,
-  subtitle,
-  id,
-  children,
+  eyebrow, title, subtitle, id, children,
 }: {
   eyebrow: string;
   title: string;
@@ -415,142 +364,93 @@ function SectionShell({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="px-6 py-16 md:py-20">
-      <div className="container mx-auto max-w-6xl">
-        <div className="mx-auto mb-10 max-w-3xl text-center">
-          <p className="text-xs uppercase tracking-[0.34em] text-slate-500">{eyebrow}</p>
-          <h2 className="font-display mt-4 text-3xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
+    <section id={id} className="px-6 py-20 md:py-24">
+      <div className="container mx-auto max-w-5xl">
+        <motion.div {...fadeUp} className="mb-12">
+          <p className="font-mono text-[11px] tracking-[0.3em] text-white/30 uppercase">{eyebrow}</p>
+          <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-[-0.03em] text-white md:text-4xl">
             {title}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-400 md:text-lg">
+          <p className="mt-3 max-w-xl text-base leading-[1.75] text-white/40">
             {subtitle}
           </p>
-        </div>
+        </motion.div>
         {children}
       </div>
     </section>
   );
 }
 
+/* ── Project card ─────────────────────────────────────────── */
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const t = useTranslations('projects');
   return (
     <motion.article
-      initial={{ opacity: 0, y: 18 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.55, delay: index * 0.07 }}
-      className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_80px_rgba(2,6,23,0.32)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06]"
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.55, delay: index * 0.07, ease: 'easeOut' }}
+      className="group relative rounded-2xl border border-white/6 bg-white/[0.025] p-7 transition-all duration-300 hover:border-white/12 hover:bg-white/[0.04]"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      <div className="relative">
-        <div className="mb-5 flex items-start justify-between gap-4">
-          <div>
-            <div className="mb-3 flex flex-wrap gap-2">
-              <span className="rounded-full border border-primary-500/20 bg-primary-500/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-primary-300">
-                {project.category}
-              </span>
-              {project.period && (
-                <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-slate-400">
-                  {project.period}
-                </span>
-              )}
-              {project.budget && (
-                <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-emerald-300">
-                  {project.budget}
-                </span>
-              )}
-            </div>
-            <h3 className="font-display text-2xl font-semibold tracking-[-0.03em] text-white transition-colors group-hover:text-primary-300">
-              {project.title}
-            </h3>
-            <p className="mt-2 text-sm text-slate-400">{project.role}</p>
-          </div>
-          {project.highlight && (
-            <span className="rounded-full bg-accent-500/15 px-3 py-1 text-xs font-medium text-accent-300">
-              TOP
-            </span>
-          )}
-        </div>
-
-        <p className="text-sm leading-7 text-slate-300 md:text-base">
-          {project.description}
-        </p>
-
-        {project.features && project.features.length > 0 && (
-          <div className="mt-5">
-            <p className="text-xs uppercase tracking-[0.24em] text-slate-500">{t('features')}</p>
-            <ul className="mt-3 space-y-3">
-              {project.features.slice(0, 4).map((feature) => (
-                <li key={feature} className="flex items-start gap-3 text-sm text-slate-300">
-                  <FaCheck className="mt-1 flex-shrink-0 text-primary-400" />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+      {/* Category + meta row */}
+      <div className="mb-6 flex flex-wrap items-center gap-2">
+        <span className="rounded-md border border-primary-400/20 bg-primary-400/8 px-2.5 py-1 font-mono text-[10px] tracking-wider text-primary-400/80 uppercase">
+          {project.category}
+        </span>
+        {project.period && (
+          <span className="font-mono text-[10px] tracking-wider text-white/25 uppercase">
+            {project.period}
+          </span>
         )}
+        {project.budget && (
+          <span className="ml-auto font-mono text-[10px] tracking-wider text-white/35 uppercase">
+            {project.budget}
+          </span>
+        )}
+        {project.highlight && (
+          <span className="ml-auto rounded-md border border-primary-400/25 bg-primary-400/8 px-2 py-0.5 font-mono text-[9px] tracking-widest text-primary-400/70 uppercase">
+            Featured
+          </span>
+        )}
+      </div>
 
-        <div className="mt-6 flex flex-wrap gap-2">
-          {project.tech.slice(0, 6).map((tech) => (
-            <span
-              key={tech}
-              className="rounded-full border border-white/10 bg-slate-900/60 px-3 py-1.5 text-xs text-slate-200"
-            >
-              {tech}
-            </span>
+      <h3 className="text-xl font-semibold tracking-tight text-white transition-colors duration-200 group-hover:text-primary-300">
+        {project.title}
+      </h3>
+      <p className="mt-1.5 text-sm text-white/35">{project.role}</p>
+
+      <p className="mt-4 text-sm leading-[1.75] text-white/55">
+        {project.description}
+      </p>
+
+      {project.features && project.features.length > 0 && (
+        <ul className="mt-5 space-y-2">
+          {project.features.slice(0, 3).map((feature) => (
+            <li key={feature} className="flex items-start gap-2.5 text-sm text-white/45">
+              <span className="mt-[6px] h-1 w-1 flex-shrink-0 rounded-full bg-primary-400/60" />
+              {feature}
+            </li>
           ))}
-        </div>
+        </ul>
+      )}
+
+      <div className="mt-6 flex flex-wrap gap-1.5">
+        {project.tech.slice(0, 6).map((tech) => (
+          <span
+            key={tech}
+            className="rounded-md border border-white/8 bg-white/[0.03] px-2.5 py-1 text-[11px] text-white/40"
+          >
+            {tech}
+          </span>
+        ))}
       </div>
     </motion.article>
   );
 }
 
-function StackCard({
-  title,
-  items,
-  accent,
-}: {
-  title: string;
-  items: string[];
-  accent: string;
-}) {
-  return (
-    <div className="glass group relative overflow-hidden rounded-[28px] p-6 shadow-[0_18px_70px_rgba(2,6,23,0.28)] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06]">
-      <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${accent}`} />
-      <div className="relative">
-        <div className="mb-4 flex items-center justify-between gap-4">
-          <h3 className="font-display text-lg font-semibold tracking-[-0.03em] text-white">{title}</h3>
-          <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-slate-500">
-            {items.length}
-          </span>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {items.map((item) => (
-            <span key={item} className="rounded-full border border-white/10 bg-slate-900/60 px-3 py-1.5 text-xs text-slate-200">
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function InfoCard({ title, text }: { title: string; text: string }) {
-  return (
-    <div className="rounded-[24px] border border-white/10 bg-white/[0.04] p-4">
-      <p className="text-sm font-semibold text-white">{title}</p>
-      <p className="mt-2 text-sm leading-6 text-slate-400">{text}</p>
-    </div>
-  );
-}
-
+/* ── Contact link row ─────────────────────────────────────── */
 function ContactLink({
-  icon,
-  label,
-  value,
-  href,
+  icon, label, value, href,
 }: {
   icon: ReactNode;
   label: string;
@@ -562,18 +462,18 @@ function ContactLink({
       href={href}
       target={href.startsWith('mailto:') ? undefined : '_blank'}
       rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-      className="flex items-center justify-between gap-4 rounded-[24px] border border-white/10 bg-white/[0.04] px-4 py-4 text-white transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07]"
+      className="group flex items-center justify-between rounded-xl border border-white/6 bg-white/[0.02] px-4 py-3.5 transition-all duration-200 hover:border-white/12 hover:bg-white/[0.04]"
     >
       <div className="flex items-center gap-3">
-        <div className="rounded-full border border-white/10 bg-slate-900/70 p-3 text-slate-300">
+        <div className="text-white/30 transition-colors duration-200 group-hover:text-primary-400">
           {icon}
         </div>
         <div>
-          <p className="text-sm text-slate-500">{label}</p>
-          <p className="text-sm font-medium text-white">{value}</p>
+          <p className="text-[11px] text-white/30">{label}</p>
+          <p className="text-sm font-medium text-white/70">{value}</p>
         </div>
       </div>
-      <FaArrowRight className="text-xs text-slate-500" />
+      <FaArrowRight className="text-[10px] text-white/20 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-primary-400/60" />
     </a>
   );
 }
