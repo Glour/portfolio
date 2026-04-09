@@ -29,14 +29,15 @@ const categoryColors: Record<string, string> = {
 
 export default function ProjectsPage() {
   const t = useTranslations('projects');
+  const tRoot = useTranslations();
   const locale = useLocale();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   // Get projects from translations
   const allProjects = useMemo(() => {
-    const projectsData = t.raw('projectsList') as unknown;
+    const projectsData = tRoot.raw('projectsList') as unknown;
     return Array.isArray(projectsData) ? projectsData as Project[] : [];
-  }, [t]);
+  }, [tRoot]);
 
   const categories = [
     { id: 'all', name: t('categories.all') },
