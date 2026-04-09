@@ -14,6 +14,7 @@ interface Project {
   budget?: string;
   period?: string;
   highlight?: boolean;
+  link?: string;
 }
 
 const THEMES: Record<string, { bg: string; accent: string; accentMuted: string; pill: string }> = {
@@ -172,11 +173,18 @@ export default function ProjectsCarousel({
     }
   };
 
-  // Tab strip ref for scroll-into-view
+  // Tab strip ref for scroll-into-view (horizontal only, no page scroll)
   const tabStripRef = useRef<HTMLDivElement>(null);
   const activeTabRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
-    activeTabRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const strip = tabStripRef.current;
+    const tab = activeTabRef.current;
+    if (!strip || !tab) return;
+    // Only scroll the strip container horizontally, never the page
+    const stripRect = strip.getBoundingClientRect();
+    const tabRect = tab.getBoundingClientRect();
+    const offset = tabRect.left - stripRect.left - stripRect.width / 2 + tabRect.width / 2;
+    strip.scrollBy({ left: offset, behavior: 'smooth' });
   }, [idx]);
 
   if (!project) return null;
@@ -304,8 +312,8 @@ export default function ProjectsCarousel({
               </motion.div>
             </AnimatePresence>
 
-            {/* Arrows */}
-            <div className="mt-8 flex items-center gap-2">
+            {/* Arrows + link */}
+            <div className="mt-8 flex items-center gap-3">
               <button
                 onClick={prev}
                 className="flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.04] text-white/40 transition-all duration-200 hover:border-white/20 hover:text-white/80"
@@ -318,6 +326,18 @@ export default function ProjectsCarousel({
               >
                 <FaArrowRight className="text-[10px]" />
               </button>
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-2 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-xs font-medium text-white/50 transition-all duration-200 hover:border-white/20 hover:text-white/80"
+                  style={{ borderColor: `${theme.accent}33` }}
+                >
+                  <span style={{ color: theme.accent }}>↗</span>
+                  {project.link.replace('https://', '')}
+                </a>
+              )}
             </div>
           </div>
         </div>

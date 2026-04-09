@@ -133,7 +133,8 @@
         "FastAPI + Next.js + PostgreSQL + Redis + Docker архитектура"
       ],
       "tech": ["Python", "FastAPI", "Next.js", "PostgreSQL", "Redis", "Docker", "Nginx", "Cloudflare", "OAuth2"],
-      "period": "2024–2025",
+      "period": "2025–2026",
+      "link": "https://viably.dev",
       "highlight": true
     },
     {
@@ -149,7 +150,8 @@
         "Воркер-ноды на Hetzner: remote Docker deploy, autoscaling, DB-трекинг"
       ],
       "tech": ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker", "Hetzner", "Aiogram", "Telegram Bot API"],
-      "period": "2024–2025",
+      "period": "2025–2026",
+      "link": "https://agents.viably.dev",
       "highlight": true
     },
     {
@@ -165,7 +167,7 @@
         "Security и audit слои, balance/credits механика"
       ],
       "tech": ["Python", "FastAPI", "asyncio", "Anthropic API", "Redis", "Docker"],
-      "period": "2024–2025",
+      "period": "2025–2026",
       "highlight": true
     },
     {
@@ -181,7 +183,7 @@
         "Node allocation logic и scheduling правила"
       ],
       "tech": ["Python", "Docker", "SSH", "Hetzner API", "PostgreSQL", "FastAPI"],
-      "period": "2024–2025",
+      "period": "2025–2026",
       "highlight": true
     },
     {
@@ -197,7 +199,7 @@
         "Production debugging: runtime, browser/auth, agent behavior fixes"
       ],
       "tech": ["OpenClaw", "Python", "Docker", "Nginx", "PostgreSQL", "Telegram Bot API"],
-      "period": "2024–2025",
+      "period": "2025–2026",
       "highlight": true
     },
     {
