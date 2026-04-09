@@ -1,17 +1,10 @@
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { Inter } from 'next/font/google'
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n/request';
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
-import '../globals.css'
-
-const inter = Inter({
-  subsets: ['latin', 'cyrillic'],
-  variable: '--font-inter',
-})
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -61,20 +54,16 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale });
 
   return (
-    <html lang={locale} className={`${inter.variable} bg-slate-950`}>
-      <body className="min-h-screen overflow-x-hidden bg-slate-950 font-sans antialiased text-white">
-        <NextIntlClientProvider
-          messages={messages}
-          locale={locale}
-          timeZone="Europe/Moscow"
-        >
-          <Header />
-          <main className="relative min-h-screen pt-24">
-            {children}
-          </main>
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider
+      messages={messages}
+      locale={locale}
+      timeZone="Europe/Moscow"
+    >
+      <Header />
+      <main className="relative min-h-screen pt-24">
+        {children}
+      </main>
+      <Footer />
+    </NextIntlClientProvider>
   );
 }

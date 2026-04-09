@@ -1,13 +1,13 @@
 export const profile = {
   name: 'Aleksandr Bogdanov',
   title: 'Backend Engineer / Tech Lead',
-  subtitle: 'Python • FastAPI • AI Systems • Telegram Products',
+  subtitle: 'AI • Telegram • Real-time Systems',
   email: 'alexdevguru@gmail.com',
   telegram: '@ne_stoit_togo',
   location: 'Remote',
   bio: [
-    'Backend engineer building systems that stay fast under real load: FastAPI services, AI workflows, Telegram products, and trading infrastructure.',
-    'Led small teams, shipped 30+ projects, and focus on delivery that looks clean, feels premium, and survives production.'
+    'Backend engineer building AI, Telegram, and real-time systems that stay clear and reliable under load.',
+    'Led small teams, shipped 30+ projects, and focus on delivery that feels premium and survives production.'
   ],
   social: {
     github: 'https://github.com/Glour',

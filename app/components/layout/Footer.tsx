@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold gradient-text">{profile.name}</h3>
+            <h3 className="font-display text-2xl font-semibold tracking-[-0.04em] text-white">{profile.name}</h3>
             <p className="mt-4 max-w-xl text-slate-400">{profile.bio[0]}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               {profile.social.github && (
@@ -39,7 +39,6 @@ export default function Footer() {
 
         <div className="mt-12 border-t border-white/8 pt-8 text-center text-sm text-slate-500">
           <p>© {currentYear} {profile.name}. {tf('rights')}</p>
-          <p className="mt-2">{tf('builtWith')}</p>
         </div>
       </div>
     </footer>

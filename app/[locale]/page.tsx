@@ -123,20 +123,21 @@ export default function HomePage() {
               {isRu ? 'Открыт к точечным проектам' : 'Available for selective projects'}
             </div>
 
-            <h1 className="mt-6 max-w-4xl text-balance text-5xl font-bold tracking-tight text-white md:text-7xl">
-              <span className="block">
-                {t('hero.greeting')} <span className="gradient-text">{profile.name}</span>
-              </span>
-              <span className="mt-4 block leading-[1.02]">
+            <p className="mt-6 text-xs uppercase tracking-[0.34em] text-slate-500">
+              {profile.name}
+            </p>
+
+            <h1 className="mt-4 max-w-4xl text-balance font-display text-[clamp(3rem,7.4vw,6.6rem)] font-semibold tracking-[-0.08em] text-white">
+              <span className="block leading-[0.92]">
                 {t('hero.title')}
               </span>
             </h1>
 
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl">
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl">
               {t('hero.subtitle')}
             </p>
 
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-400 md:text-lg">
+            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-400 md:text-lg">
               {t('hero.description')}
             </p>
 
@@ -316,6 +317,7 @@ export default function HomePage() {
       </SectionShell>
 
       <SectionShell
+        id="tech-stack"
         eyebrow={isRu ? 'Технический стек' : 'Technical stack'}
         title={t('techStack.title')}
         subtitle={t('techStack.subtitle')}
@@ -358,8 +360,8 @@ export default function HomePage() {
                 <p className="text-xs uppercase tracking-[0.32em] text-slate-500">
                   {isRu ? 'Контакт' : 'Contact'}
                 </p>
-                <h2 className="mt-4 text-4xl font-bold tracking-tight text-white md:text-5xl">
-                  <span className="gradient-text">{t('contact.title')}</span>
+                <h2 className="font-display mt-4 text-4xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
+                  {t('contact.title')}
                 </h2>
                 <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-400">
                   {t('contact.subtitle')}
@@ -417,8 +419,8 @@ function SectionShell({
       <div className="container mx-auto max-w-6xl">
         <div className="mx-auto mb-10 max-w-3xl text-center">
           <p className="text-xs uppercase tracking-[0.34em] text-slate-500">{eyebrow}</p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
-            <span className="gradient-text">{title}</span>
+          <h2 className="font-display mt-4 text-3xl font-semibold tracking-[-0.05em] text-white md:text-5xl">
+            {title}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-400 md:text-lg">
             {subtitle}
@@ -459,7 +461,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 </span>
               )}
             </div>
-            <h3 className="text-2xl font-semibold text-white transition-colors group-hover:text-primary-300">
+            <h3 className="font-display text-2xl font-semibold tracking-[-0.03em] text-white transition-colors group-hover:text-primary-300">
               {project.title}
             </h3>
             <p className="mt-2 text-sm text-slate-400">{project.role}</p>
@@ -518,7 +520,7 @@ function StackCard({
       <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${accent}`} />
       <div className="relative">
         <div className="mb-4 flex items-center justify-between gap-4">
-          <h3 className="text-lg font-semibold text-white">{title}</h3>
+          <h3 className="font-display text-lg font-semibold tracking-[-0.03em] text-white">{title}</h3>
           <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-slate-500">
             {items.length}
           </span>

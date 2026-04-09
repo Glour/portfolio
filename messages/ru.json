@@ -10,8 +10,8 @@
   "hero": {
     "greeting": "Привет, я",
     "title": "Backend-инженер / Tech Lead",
-    "subtitle": "Python • FastAPI • AI-системы • Telegram-продукты",
-    "description": "Делаю backend-системы, AI-воркфлоу и Telegram-продукты, которые держат реальную нагрузку. Фокус на Python, FastAPI, real-time и качественной доставке.",
+    "subtitle": "AI, Telegram и real-time системы",
+    "description": "Проектирую backend-продукты, которые выглядят просто, работают быстро и выдерживают реальную нагрузку.",
     "location": "Remote",
     "viewProjects": "Смотреть проекты",
     "downloadCV": "Скачать резюме"

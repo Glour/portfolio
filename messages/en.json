@@ -10,8 +10,8 @@
   "hero": {
     "greeting": "Hi, I'm",
     "title": "Backend Engineer / Tech Lead",
-    "subtitle": "Python • FastAPI • AI Systems • Telegram Products",
-    "description": "I build backend systems, AI workflows, and Telegram products that stay fast under real load. Focused on Python, FastAPI, real-time systems, and product delivery.",
+    "subtitle": "AI, Telegram, and real-time systems",
+    "description": "I design backend products that look simple, stay fast, and hold up under real load.",
     "location": "Remote",
     "viewProjects": "View Projects",
     "downloadCV": "Download CV"
