@@ -15,6 +15,7 @@ import {
   FaTelegram,
 } from 'react-icons/fa';
 import { profile, techStack, keySkills } from '../data/profile';
+import ProjectsCarousel from '../components/ui/ProjectsCarousel';
 
 interface Project {
   title: string;
@@ -201,12 +202,8 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          {/* Gallery list */}
-          <div className="divide-y divide-white/[0.07]">
-            {featuredProjects.map((project, index) => (
-              <ProjectRow key={project.title} project={project} index={index} />
-            ))}
-          </div>
+          {/* Infinity carousel */}
+          <ProjectsCarousel projects={featuredProjects} />
 
           <motion.div
             {...fadeUp}
@@ -402,92 +399,6 @@ function SectionShell({
   );
 }
 
-/* ── Project row (gallery style) ──────────────────────────── */
-function ProjectRow({ project, index }: { project: Project; index: number }) {
-  return (
-    <motion.article
-      initial={{ opacity: 0, x: -16 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.55, delay: index * 0.08, ease: 'easeOut' }}
-      className="group relative cursor-default py-8 transition-all duration-300"
-    >
-      {/* Animated left border on hover */}
-      <div className="pointer-events-none absolute top-0 left-0 h-full w-px bg-white/10 transition-all duration-400">
-        <div className="absolute left-0 top-0 h-0 w-px bg-primary-400 transition-all duration-500 group-hover:h-full" />
-      </div>
-
-      <div className="pl-8 md:pl-10">
-        {/* Row: number + category + period */}
-        <div className="flex flex-wrap items-center gap-3 mb-4">
-          <span className="font-mono text-[11px] text-white/20 tabular-nums">
-            {String(index + 1).padStart(2, '0')}
-          </span>
-          <span className="rounded-full border border-primary-400/25 bg-primary-400/8 px-2.5 py-0.5 font-mono text-[9px] tracking-[0.15em] text-primary-400/80 uppercase">
-            {project.category}
-          </span>
-          {project.period && (
-            <span className="font-mono text-[10px] tracking-wider text-white/30 uppercase">
-              {project.period}
-            </span>
-          )}
-          {project.budget && (
-            <span className="ml-auto font-mono text-[10px] tracking-wider text-white/45">
-              {project.budget}
-            </span>
-          )}
-        </div>
-
-        {/* Main content row */}
-        <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-start">
-          <div>
-            {/* Title */}
-            <h3 className="text-xl font-semibold tracking-[-0.02em] text-white transition-colors duration-200 group-hover:text-primary-300 md:text-2xl">
-              {project.title}
-            </h3>
-            <p className="mt-0.5 text-[11px] font-medium tracking-[0.12em] text-white/35 uppercase">
-              {project.role}
-            </p>
-
-            {/* Description — visible on hover with smooth expand */}
-            <div className="overflow-hidden">
-              <p className="mt-3 max-w-2xl text-sm leading-[1.8] text-white/60 transition-all duration-300 group-hover:text-white/80">
-                {project.description}
-              </p>
-
-              {/* Features — appear on hover */}
-              {project.features && project.features.length > 0 && (
-                <ul className="mt-3 space-y-1.5 max-h-0 overflow-hidden opacity-0 transition-all duration-400 group-hover:max-h-32 group-hover:opacity-100">
-                  {project.features.slice(0, 3).map((feature) => (
-                    <li key={feature} className="flex items-start gap-2.5 text-sm text-white/55">
-                      <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-primary-400/60" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
-
-          {/* Tech tags — right column on desktop */}
-          <div className="flex flex-wrap gap-1.5 md:flex-col md:items-end md:gap-1">
-            {project.tech.slice(0, 5).map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] text-white/40 transition-all duration-200 group-hover:border-primary-400/15 group-hover:text-white/65"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom line glow on hover */}
-      <div className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-primary-400/40 to-transparent transition-all duration-500 group-hover:w-full" />
-    </motion.article>
-  );
-}
 
 /* ── Contact link row ─────────────────────────────────────── */
 function ContactLink({
