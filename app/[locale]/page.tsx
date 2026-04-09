@@ -120,7 +120,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.22, ease: 'easeOut' }}
-            className="mt-7 max-w-2xl text-[1.05rem] leading-[1.75] text-white/50"
+            className="mt-7 max-w-2xl text-[1.05rem] leading-[1.75] text-white/65"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -211,20 +211,20 @@ export default function HomePage() {
               key={skillGroup.category}
               {...fadeUp}
               transition={{ duration: 0.55, delay: index * 0.05, ease: 'easeOut' }}
-              className="group rounded-2xl border border-white/6 bg-white/[0.025] p-6 transition-all duration-300 hover:border-white/12 hover:bg-white/[0.04]"
+              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400/20 hover:bg-white/[0.07] hover:shadow-[0_4px_24px_rgba(34,211,238,0.05)]"
             >
               <div className="mb-5 flex items-center justify-between">
-                <h3 className="text-sm font-medium tracking-tight text-white">
+                <h3 className="text-sm font-semibold tracking-tight text-white">
                   {t(`skills.categories.${skillGroup.category}`)}
                 </h3>
-                <span className="font-mono text-[10px] tracking-widest text-white/25">
+                <span className="font-mono text-[10px] tracking-widest text-white/35">
                   {String(skillGroup.skills.length).padStart(2, '0')}
                 </span>
               </div>
               <ul className="space-y-2.5">
                 {skillGroup.skills.map((skill) => (
-                  <li key={skill} className="flex items-start gap-3 text-sm text-white/50">
-                    <span className="mt-[5px] h-1 w-1 flex-shrink-0 rounded-full bg-primary-400/60" />
+                  <li key={skill} className="flex items-start gap-3 text-sm text-white/70">
+                    <span className="mt-[6px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary-400/70" />
                     <span>{skill}</span>
                   </li>
                 ))}
@@ -247,11 +247,11 @@ export default function HomePage() {
               key={group.title}
               {...fadeUp}
               transition={{ duration: 0.55, delay: index * 0.05, ease: 'easeOut' }}
-              className="rounded-2xl border border-white/6 bg-white/[0.025] p-6 transition-all duration-300 hover:border-white/12 hover:bg-white/[0.04]"
+              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400/20 hover:bg-white/[0.07] hover:shadow-[0_4px_24px_rgba(34,211,238,0.05)]"
             >
               <div className="mb-5 flex items-center justify-between">
-                <h3 className="text-sm font-medium text-white">{group.title}</h3>
-                <span className="font-mono text-[10px] tracking-widest text-white/25">
+                <h3 className="text-sm font-semibold text-white">{group.title}</h3>
+                <span className="font-mono text-[10px] tracking-widest text-white/35">
                   {String(group.items.length).padStart(2, '0')}
                 </span>
               </div>
@@ -259,7 +259,7 @@ export default function HomePage() {
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-md border border-white/8 bg-white/[0.03] px-2.5 py-1 text-xs text-white/55"
+                    className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-xs text-white/70 transition-colors duration-200 group-hover:border-primary-400/15 group-hover:text-white/85"
                   >
                     {item}
                   </span>
@@ -282,11 +282,11 @@ export default function HomePage() {
               key={item}
               {...fadeUp}
               transition={{ duration: 0.5, delay: i * 0.04, ease: 'easeOut' }}
-              className="rounded-2xl border border-white/6 bg-white/[0.025] p-5 text-white/55 transition-all duration-300 hover:border-white/12"
+              className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm transition-all duration-300 hover:border-primary-400/20 hover:bg-white/[0.07]"
             >
               <div className="flex items-start gap-3">
-                <FaCheck className="mt-1 flex-shrink-0 text-[10px] text-primary-400/70" />
-                <p className="text-sm leading-[1.7]">{item}</p>
+                <FaCheck className="mt-1 flex-shrink-0 text-xs text-primary-400" />
+                <p className="text-sm leading-[1.75] text-white/75">{item}</p>
               </div>
             </motion.div>
           ))}
@@ -298,7 +298,7 @@ export default function HomePage() {
         <div className="container mx-auto max-w-5xl">
           <motion.div
             {...fadeUp}
-            className="relative overflow-hidden rounded-3xl border border-white/8 bg-white/[0.025] p-10 md:p-14"
+            className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-10 backdrop-blur-sm md:p-14"
           >
             {/* Subtle cyan glow inside card */}
             <div
@@ -367,11 +367,11 @@ function SectionShell({
     <section id={id} className="px-6 py-20 md:py-24">
       <div className="container mx-auto max-w-5xl">
         <motion.div {...fadeUp} className="mb-12">
-          <p className="font-mono text-[11px] tracking-[0.3em] text-white/30 uppercase">{eyebrow}</p>
+          <p className="font-mono text-[11px] tracking-[0.3em] text-primary-400/60 uppercase">{eyebrow}</p>
           <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-[-0.03em] text-white md:text-4xl">
             {title}
           </h2>
-          <p className="mt-3 max-w-xl text-base leading-[1.75] text-white/40">
+          <p className="mt-3 max-w-xl text-base leading-[1.75] text-white/55">
             {subtitle}
           </p>
         </motion.div>
@@ -390,59 +390,65 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.55, delay: index * 0.07, ease: 'easeOut' }}
-      className="group relative rounded-2xl border border-white/6 bg-white/[0.025] p-7 transition-all duration-300 hover:border-white/12 hover:bg-white/[0.04]"
+      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-400/20 hover:bg-white/[0.07] hover:shadow-[0_8px_40px_rgba(34,211,238,0.06)]"
     >
+      {/* Subtle glow on hover */}
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+           style={{ background: 'radial-gradient(circle at top left, rgba(34,211,238,0.05) 0%, transparent 60%)' }} />
+
       {/* Category + meta row */}
-      <div className="mb-6 flex flex-wrap items-center gap-2">
-        <span className="rounded-md border border-primary-400/20 bg-primary-400/8 px-2.5 py-1 font-mono text-[10px] tracking-wider text-primary-400/80 uppercase">
+      <div className="relative mb-5 flex flex-wrap items-center gap-2">
+        <span className="rounded-full border border-primary-400/30 bg-primary-400/10 px-3 py-1 font-mono text-[10px] tracking-wider text-primary-300 uppercase">
           {project.category}
         </span>
         {project.period && (
-          <span className="font-mono text-[10px] tracking-wider text-white/25 uppercase">
+          <span className="font-mono text-[10px] tracking-wider text-white/40 uppercase">
             {project.period}
           </span>
         )}
         {project.budget && (
-          <span className="ml-auto font-mono text-[10px] tracking-wider text-white/35 uppercase">
+          <span className="ml-auto font-mono text-[10px] tracking-wider text-white/50 uppercase">
             {project.budget}
           </span>
         )}
         {project.highlight && (
-          <span className="ml-auto rounded-md border border-primary-400/25 bg-primary-400/8 px-2 py-0.5 font-mono text-[9px] tracking-widest text-primary-400/70 uppercase">
+          <span className="ml-auto rounded-full border border-primary-400/30 bg-primary-400/10 px-2.5 py-0.5 font-mono text-[9px] tracking-widest text-primary-300 uppercase">
             Featured
           </span>
         )}
       </div>
 
-      <h3 className="text-xl font-semibold tracking-tight text-white transition-colors duration-200 group-hover:text-primary-300">
-        {project.title}
-      </h3>
-      <p className="mt-1.5 text-sm text-white/35">{project.role}</p>
+      <div className="relative">
+        <h3 className="text-xl font-semibold leading-snug tracking-tight text-white transition-colors duration-200 group-hover:text-primary-300">
+          {project.title}
+        </h3>
+        <p className="mt-1.5 text-sm font-medium text-white/50">{project.role}</p>
 
-      <p className="mt-4 text-sm leading-[1.75] text-white/55">
-        {project.description}
-      </p>
+        <p className="mt-4 text-sm leading-[1.8] text-white/70">
+          {project.description}
+        </p>
 
-      {project.features && project.features.length > 0 && (
-        <ul className="mt-5 space-y-2">
-          {project.features.slice(0, 3).map((feature) => (
-            <li key={feature} className="flex items-start gap-2.5 text-sm text-white/45">
-              <span className="mt-[6px] h-1 w-1 flex-shrink-0 rounded-full bg-primary-400/60" />
-              {feature}
-            </li>
+        {project.features && project.features.length > 0 && (
+          <ul className="mt-5 space-y-2.5">
+            {project.features.slice(0, 3).map((feature) => (
+              <li key={feature} className="flex items-start gap-2.5 text-sm text-white/65">
+                <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-primary-400" />
+                {feature}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <div className="mt-6 flex flex-wrap gap-1.5">
+          {project.tech.slice(0, 6).map((tech) => (
+            <span
+              key={tech}
+              className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] text-white/60 transition-colors duration-200 group-hover:border-primary-400/15 group-hover:text-white/75"
+            >
+              {tech}
+            </span>
           ))}
-        </ul>
-      )}
-
-      <div className="mt-6 flex flex-wrap gap-1.5">
-        {project.tech.slice(0, 6).map((tech) => (
-          <span
-            key={tech}
-            className="rounded-md border border-white/8 bg-white/[0.03] px-2.5 py-1 text-[11px] text-white/40"
-          >
-            {tech}
-          </span>
-        ))}
+        </div>
       </div>
     </motion.article>
   );
@@ -462,18 +468,18 @@ function ContactLink({
       href={href}
       target={href.startsWith('mailto:') ? undefined : '_blank'}
       rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-      className="group flex items-center justify-between rounded-xl border border-white/6 bg-white/[0.02] px-4 py-3.5 transition-all duration-200 hover:border-white/12 hover:bg-white/[0.04]"
+      className="group flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.04] px-4 py-4 backdrop-blur-sm transition-all duration-250 hover:border-primary-400/25 hover:bg-white/[0.07] hover:shadow-[0_4px_20px_rgba(34,211,238,0.06)]"
     >
       <div className="flex items-center gap-3">
-        <div className="text-white/30 transition-colors duration-200 group-hover:text-primary-400">
+        <div className="rounded-lg border border-white/10 bg-white/[0.06] p-2.5 text-white/50 transition-all duration-200 group-hover:border-primary-400/20 group-hover:text-primary-400">
           {icon}
         </div>
         <div>
-          <p className="text-[11px] text-white/30">{label}</p>
-          <p className="text-sm font-medium text-white/70">{value}</p>
+          <p className="text-[11px] text-white/40">{label}</p>
+          <p className="text-sm font-medium text-white/80">{value}</p>
         </div>
       </div>
-      <FaArrowRight className="text-[10px] text-white/20 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-primary-400/60" />
+      <FaArrowRight className="text-xs text-white/25 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-primary-400" />
     </a>
   );
 }
