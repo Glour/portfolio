@@ -105,14 +105,25 @@ export default function HomePage() {
             {profile.name}
           </motion.p>
 
-          {/* Main headline */}
+          {/* Main headline — two lines, controlled size */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.12, ease: 'easeOut' }}
-            className="mt-4 max-w-4xl text-balance font-sans text-[clamp(2.8rem,7vw,6.5rem)] font-semibold leading-[0.93] tracking-[-0.04em] text-white"
+            className="mt-5 font-sans font-semibold tracking-[-0.03em]"
           >
-            {t('hero.title')}
+            {/* Line 1 — primary role, large */}
+            <span className="block text-[clamp(2.4rem,5.5vw,4.5rem)] leading-[1.05] text-white">
+              {t('hero.titleLine1')}
+            </span>
+            {/* Line 2 — secondary roles, slightly smaller + cyan accent on last word */}
+            <span className="mt-1 block text-[clamp(1.6rem,3.6vw,3rem)] leading-[1.1] text-white/55">
+              {isRu ? (
+                <>Tech Lead{' '}<span className="text-primary-400">/ AI Engineer</span></>
+              ) : (
+                <>Tech Lead{' '}<span className="text-primary-400">/ AI Engineer</span></>
+              )}
+            </span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -120,7 +131,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.22, ease: 'easeOut' }}
-            className="mt-7 max-w-2xl text-[1.05rem] leading-[1.75] text-white/65"
+            className="mt-6 max-w-xl text-base leading-[1.75] text-white/55"
           >
             {t('hero.subtitle')}
           </motion.p>
