@@ -1,13 +1,13 @@
 export const profile = {
   name: 'Aleksandr Bogdanov',
-  title: 'Backend Developer',
-  subtitle: 'Python • AI/ML • Blockchain • Telegram Bots',
-  email: 'alexdevguru@gmail.com', // Замените на ваш email
-  telegram: '@ne_stoit_togo', // Замените на ваш telegram
+  title: 'Backend Engineer / Tech Lead',
+  subtitle: 'Python • FastAPI • AI Systems • Telegram Products',
+  email: 'alexdevguru@gmail.com',
+  telegram: '@ne_stoit_togo',
   location: 'Remote',
   bio: [
-    'Backend-разработчик с опытом создания высоконагруженных систем, AI-интеграций и blockchain-решений. Специализируюсь на Python, FastAPI, микросервисной архитектуре и Telegram-экосистеме.',
-    'Руководил командами разработки, провел более 30 проектов различной сложности. Эксперт в интеграции LLM, создании трейдинг-ботов и разработке Telegram Mini Apps.',
+    'Backend engineer building systems that stay fast under real load: FastAPI services, AI workflows, Telegram products, and trading infrastructure.',
+    'Led small teams, shipped 30+ projects, and focus on delivery that looks clean, feels premium, and survives production.'
   ],
   social: {
     github: 'https://github.com/Glour',

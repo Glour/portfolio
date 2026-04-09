@@ -18,16 +18,16 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: 'Aleksandr Bogdanov | Backend Developer',
-  description: 'Backend-разработчик: Python, FastAPI, AI/ML, Blockchain, Telegram Bots. 30+ проектов, Tech Lead опыт, микросервисная архитектура.',
+  title: 'Aleksandr Bogdanov | Backend Engineer / Tech Lead',
+  description: 'Backend engineer building FastAPI, AI automation, Telegram products, and real-time systems. 30+ shipped projects, Tech Lead experience.',
   keywords: [
-    'Backend Developer',
+    'Backend Engineer',
+    'Tech Lead',
     'Python Developer',
     'FastAPI',
-    'AI/ML Integration',
+    'AI Automation',
     'Telegram Bots',
     'Blockchain',
-    'Tech Lead',
     'Microservices',
     'Portfolio',
     'Aleksandr Bogdanov',
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     icon: '/icon.svg',
   },
   openGraph: {
-    title: 'Aleksandr Bogdanov | Backend Developer',
-    description: 'Backend Developer: Python, FastAPI, AI/ML, Blockchain, Telegram Bots',
+    title: 'Aleksandr Bogdanov | Backend Engineer / Tech Lead',
+    description: 'FastAPI, AI automation, Telegram products, blockchain, and real-time backend systems.',
     type: 'website',
   },
 }
@@ -61,15 +61,15 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale });
 
   return (
-    <html lang={locale} className={inter.variable}>
-      <body className="antialiased">
+    <html lang={locale} className={`${inter.variable} bg-slate-950`}>
+      <body className="min-h-screen overflow-x-hidden bg-slate-950 font-sans antialiased text-white">
         <NextIntlClientProvider
           messages={messages}
           locale={locale}
           timeZone="Europe/Moscow"
         >
           <Header />
-          <main className="min-h-screen pt-20">
+          <main className="relative min-h-screen pt-24">
             {children}
           </main>
           <Footer />

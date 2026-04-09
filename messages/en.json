@@ -9,9 +9,9 @@
   },
   "hero": {
     "greeting": "Hi, I'm",
-    "title": "Backend Developer",
-    "subtitle": "Python • AI/ML • Blockchain • Telegram Bots",
-    "description": "Backend developer with experience in building high-load systems, AI integrations, and blockchain solutions. Specializing in Python, FastAPI, microservices architecture, and Telegram ecosystem.",
+    "title": "Backend Engineer / Tech Lead",
+    "subtitle": "Python • FastAPI • AI Systems • Telegram Products",
+    "description": "I build backend systems, AI workflows, and Telegram products that stay fast under real load. Focused on Python, FastAPI, real-time systems, and product delivery.",
     "location": "Remote",
     "viewProjects": "View Projects",
     "downloadCV": "Download CV"
@@ -94,7 +94,7 @@
   },
   "contact": {
     "title": "Get in Touch",
-    "subtitle": "Ready to discuss your project",
+    "subtitle": "Open to selective projects and product work",
     "name": "Name",
     "email": "Email",
     "message": "Message",
