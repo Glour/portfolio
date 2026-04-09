@@ -369,25 +369,25 @@ export default function ProjectsCarousel({
               key={p.title}
               ref={active ? activeTabRef : undefined}
               onClick={() => goTo(i, i > idx ? 1 : -1)}
-              className="group relative flex-shrink-0 rounded-xl px-3.5 py-2.5 text-left transition-all duration-200"
+              className="group relative flex-shrink-0 rounded-2xl px-5 py-3.5 text-left transition-all duration-200"
             >
               {active && (
                 <motion.div
                   layoutId="tab-bg"
-                  className="absolute inset-0 rounded-xl border border-white/[0.08] bg-white/[0.05]"
+                  className="absolute inset-0 rounded-2xl border border-white/[0.10] bg-white/[0.07]"
                   transition={{ duration: 0.22, ease: 'easeInOut' }}
                 />
               )}
               <div className="relative">
                 <p
-                  className="font-mono text-[8px] tracking-[0.15em] uppercase transition-colors duration-200"
-                  style={{ color: active ? t.accent : 'rgba(255,255,255,0.18)' }}
+                  className="font-mono text-[10px] tracking-[0.15em] uppercase transition-colors duration-200"
+                  style={{ color: active ? t.accent : 'rgba(255,255,255,0.22)' }}
                 >
                   {p.category}
                 </p>
                 <p
-                  className={`mt-0.5 max-w-[120px] truncate text-[11px] font-medium transition-colors duration-200 ${
-                    active ? 'text-white/90' : 'text-white/28'
+                  className={`mt-1 max-w-[150px] truncate text-sm font-medium transition-colors duration-200 ${
+                    active ? 'text-white' : 'text-white/35'
                   }`}
                 >
                   {p.title.split(' — ')[0].split(' - ')[0]}
