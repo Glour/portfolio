@@ -27,6 +27,8 @@ interface Project {
   budget?: string;
   period?: string;
   highlight?: boolean;
+  link?: string;
+  screenshots?: string[];
 }
 
 const HeroScene = dynamic(() => import('../components/3d/HeroScene'), {

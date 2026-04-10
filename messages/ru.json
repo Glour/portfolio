@@ -203,7 +203,8 @@
       "tech": ["Next.js 15", "FastAPI", "PostgreSQL", "Redis", "MinIO", "Docker Compose", "Nginx", "GitHub Actions", "YooKassa"],
       "period": "2025–2026",
       "link": "https://campus.fpv40.ru",
-      "highlight": true
+      "highlight": true,
+      "screenshots": ["/screenshots/fpv40-campus.png"]
     },
     {
       "title": "FPV40.ru — Корпоративный сайт школы пилотов",
@@ -219,7 +220,8 @@
       "tech": ["Next.js", "PostgreSQL", "Docker", "Nginx", "Nodemailer", "Tailwind CSS"],
       "period": "2025–2026",
       "link": "https://fpv40.ru",
-      "highlight": true
+      "highlight": true,
+      "screenshots": ["/screenshots/fpv40-ru.png"]
     },
     {
       "title": "Viably — AI Product Platform",
@@ -236,7 +238,8 @@
       "tech": ["Python", "FastAPI", "Next.js", "PostgreSQL", "Redis", "Docker", "Nginx", "Cloudflare", "OAuth2"],
       "period": "2025–2026",
       "link": "https://viably.dev",
-      "highlight": true
+      "highlight": true,
+      "screenshots": ["/screenshots/viably.png"]
     },
     {
       "title": "Vibegent — Мультитенантная AI-агент платформа",
@@ -253,7 +256,8 @@
       "tech": ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker", "Hetzner", "Aiogram", "Telegram Bot API"],
       "period": "2025–2026",
       "link": "https://agents.viably.dev",
-      "highlight": true
+      "highlight": true,
+      "screenshots": ["/screenshots/vibegent.png"]
     },
     {
       "title": "vibegent-proxy — LLM Infrastructure Layer",

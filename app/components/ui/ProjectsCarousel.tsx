@@ -312,7 +312,7 @@ export default function ProjectsCarousel({
       {/* ── MAIN CARD ── */}
       <div
         className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${theme.bg}`}
-        style={{ minHeight: 520 }}
+        style={{ height: 540 }}
       >
         {/* Ambient glow */}
         <div
@@ -333,10 +333,10 @@ export default function ProjectsCarousel({
           }}
         />
 
-        <div className="relative grid h-full lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_480px]" style={{ minHeight: 520 }}>
+        <div className="relative grid h-full lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_480px]">
 
           {/* ── LEFT: PROJECT INFO ── */}
-          <div className="flex flex-col justify-between p-8 md:p-10 lg:p-12">
+          <div className="flex flex-col justify-between p-8 md:p-10 lg:p-12 overflow-hidden">
             <AnimatePresence custom={dir} mode="wait">
               <motion.div
                 key={`content-${idx}`}
