@@ -98,7 +98,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 rounded-full border border-white/8 bg-white/4 px-4 py-2 text-xs tracking-widest text-white/50 uppercase"
+            className="inline-flex items-center gap-2.5 rounded-full border border-white/12 bg-white/6 px-4 py-2 text-xs tracking-widest text-white/65 uppercase"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-primary-400 shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
             {isRu ? 'Открыт к проектам' : 'Available for projects'}
@@ -140,7 +140,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.22, ease: 'easeOut' }}
-            className="mt-6 max-w-xl text-base leading-[1.75] text-white/55"
+            className="mt-6 max-w-xl text-base leading-[1.75] text-white/75"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -161,7 +161,7 @@ export default function HomePage() {
             </Link>
             <Link
               href={`${basePath}#contact`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-7 py-3.5 text-sm font-medium text-white/70 transition-all duration-300 hover:border-white/20 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-sm font-medium text-white/80 transition-all duration-300 hover:border-white/25 hover:text-white"
             >
               {t('nav.contact')}
             </Link>
@@ -205,7 +205,7 @@ export default function HomePage() {
             <h2 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-white md:text-4xl">
               {t('projects.title')}
             </h2>
-            <p className="mt-3 max-w-xl text-base leading-[1.75] text-white/55">
+            <p className="mt-3 max-w-xl text-base leading-[1.75] text-white/70">
               {t('projects.subtitle')}
             </p>
           </motion.div>
@@ -251,7 +251,7 @@ export default function HomePage() {
               </div>
               <ul className="space-y-2.5">
                 {skillGroup.skills.map((skill) => (
-                  <li key={skill} className="flex items-start gap-3 text-sm text-white/75">
+                  <li key={skill} className="flex items-start gap-3 text-sm text-white/85">
                     <span className="mt-[6px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white/20" />
                     <span>{skill}</span>
                   </li>
@@ -285,7 +285,7 @@ export default function HomePage() {
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-xs text-white/75 transition-colors duration-200 group-hover:border-primary-400/20 group-hover:text-white/90"
+                    className="rounded-full border border-white/12 bg-white/[0.06] px-2.5 py-1 text-xs text-white/80 transition-colors duration-200 group-hover:border-primary-400/25 group-hover:text-white"
                   >
                     {item}
                   </span>
@@ -312,7 +312,7 @@ export default function HomePage() {
             >
               <div className="flex items-start gap-3">
                 <FaCheck className="mt-1 flex-shrink-0 text-xs text-primary-400" />
-                <p className="text-sm leading-[1.75] text-white/75">{item}</p>
+                <p className="text-sm leading-[1.75] text-white/85">{item}</p>
               </div>
             </motion.div>
           ))}
@@ -341,7 +341,7 @@ export default function HomePage() {
                 <h2 className="mt-5 text-4xl font-semibold tracking-[-0.03em] text-white md:text-5xl">
                   {t('contact.title')}
                 </h2>
-                <p className="mt-5 max-w-xl text-base leading-[1.75] text-white/45">
+                <p className="mt-5 max-w-xl text-base leading-[1.75] text-white/70">
                   {t('contact.subtitle')}
                 </p>
 
@@ -397,7 +397,7 @@ function SectionShell({
           <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-[-0.03em] text-white md:text-4xl">
             {title}
           </h2>
-          <p className="mt-3 max-w-xl text-base leading-[1.75] text-white/55">
+          <p className="mt-3 max-w-xl text-base leading-[1.75] text-white/70">
             {subtitle}
           </p>
         </motion.div>
