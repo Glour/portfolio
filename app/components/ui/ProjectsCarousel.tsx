@@ -199,7 +199,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="flex flex-col gap-3"
+                className="flex flex-col gap-2.5 overflow-hidden"
               >
                 {/* Badge row */}
                 <div className="flex flex-shrink-0 items-center gap-3">
@@ -214,41 +214,38 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
                 {/* Title */}
                 <div className="flex-shrink-0">
                   <p className="mb-1 font-mono text-[10px] tracking-[0.18em] text-white/35 uppercase">{project.role}</p>
-                  <h3 className="text-xl font-semibold leading-[1.2] tracking-[-0.02em] text-white md:text-2xl">
+                  <h3 className="line-clamp-2 text-lg font-semibold leading-[1.2] tracking-[-0.02em] text-white md:text-xl lg:text-2xl">
                     {project.title}
                   </h3>
                 </div>
 
                 {/* Description */}
-                <p className="flex-shrink-0 text-[0.85rem] leading-[1.75] text-white/65 max-w-lg">
+                <p className="flex-shrink-0 line-clamp-2 text-[0.82rem] leading-[1.65] text-white/65 max-w-lg">
                   {project.description}
                 </p>
 
                 {/* Features */}
                 {project.features && project.features.length > 0 && (
                   <ul className="flex-shrink-0 space-y-1">
-                    {project.features.slice(0, hasShots ? 3 : 4).map(f => (
-                      <li key={f} className="flex items-start gap-3 text-[0.82rem] leading-[1.6] text-white/55">
-                        <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full" style={{ background: theme.accent }} />
-                        {f}
+                    {project.features.slice(0, hasShots ? 2 : 3).map(f => (
+                      <li key={f} className="flex items-start gap-2.5 text-[0.8rem] leading-[1.55] text-white/55">
+                        <span className="mt-[6px] h-1 w-1 flex-shrink-0 rounded-full" style={{ background: theme.accent }} />
+                        <span className="line-clamp-2">{f}</span>
                       </li>
                     ))}
                   </ul>
                 )}
 
-                {/* Spacer — pushes tech to bottom of content area */}
-                <div className="flex-1" />
-
                 {/* Tech */}
-                <div className="flex-shrink-0 flex flex-wrap gap-1.5">
-                  {project.tech.slice(0, hasShots ? 6 : 8).map(t => (
+                <div className="flex-shrink-0 flex flex-wrap gap-1.5 pt-1">
+                  {project.tech.slice(0, hasShots ? 5 : 7).map(t => (
                     <span key={t} className="rounded-full border border-white/[0.10] bg-black/30 px-2.5 py-0.5 text-[11px] font-medium text-white/60">
                       {t}
                     </span>
                   ))}
-                  {project.tech.length > (hasShots ? 6 : 8) && (
+                  {project.tech.length > (hasShots ? 5 : 7) && (
                     <span className="rounded-full border border-white/[0.08] bg-black/20 px-2.5 py-0.5 text-[11px] text-white/35">
-                      +{project.tech.length - (hasShots ? 6 : 8)}
+                      +{project.tech.length - (hasShots ? 5 : 7)}
                     </span>
                   )}
                 </div>
@@ -256,7 +253,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
             </AnimatePresence>
 
             {/* Controls — always at bottom */}
-            <div className="mt-4 flex flex-shrink-0 items-center gap-3">
+            <div className="mt-auto pt-4 flex flex-shrink-0 items-center gap-3">
               <button onClick={prev} aria-label="Prev" className="flex h-10 w-10 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.05] text-white/50 transition-all hover:border-white/25 hover:text-white">
                 <FaArrowLeft className="text-[11px]" />
               </button>
