@@ -44,42 +44,38 @@ function ScreenshotGallery({
   const total = screenshots.length;
 
   return (
-    <div className="relative h-full w-full overflow-hidden" style={{ borderRadius: '0 16px 0 16px' }}>
-      {/* Slides */}
+    <div className="relative h-full w-full rounded-xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.25)' }}>
+      {/* Slides — contain so full screenshot is always visible */}
       <AnimatePresence mode="wait">
         <motion.img
           key={screenshots[active]}
           src={screenshots[active]}
           alt={`Screenshot ${active + 1}`}
-          initial={{ opacity: 0, scale: 1.03 }}
-          animate={{ opacity: 0.88, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.98 }}
-          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="absolute inset-0 h-full w-full object-cover object-top"
+          initial={{ opacity: 0, scale: 1.02 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.99 }}
+          transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+          className="absolute inset-0 h-full w-full object-contain object-top"
           draggable={false}
         />
       </AnimatePresence>
 
-      {/* Bottom-left dots — only if multiple */}
+      {/* Dots */}
       {total > 1 && (
-        <div className="absolute bottom-3 left-3 flex gap-1 z-10">
+        <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1 z-10">
           {screenshots.map((_, i) => (
             <button
               key={i}
               onClick={e => { e.stopPropagation(); setActive(i); }}
               className="rounded-full transition-all duration-200"
-              style={{
-                width: i === active ? 14 : 4,
-                height: 4,
-                background: i === active ? accent : 'rgba(255,255,255,0.35)',
-              }}
+              style={{ width: i === active ? 14 : 4, height: 4, background: i === active ? accent : 'rgba(255,255,255,0.3)' }}
             />
           ))}
         </div>
       )}
 
-      {/* Subtle border */}
-      <div className="pointer-events-none absolute inset-0" style={{ borderRadius: '0 16px 0 16px', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.10)' }} />
+      {/* Border */}
+      <div className="pointer-events-none absolute inset-0 rounded-xl" style={{ boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.10)' }} />
     </div>
   );
 }
@@ -238,9 +234,9 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
         {/* Grid overlay */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.02]" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.5) 1px,transparent 1px)`, backgroundSize: '48px 48px' }} />
 
-        {/* Screenshot — absolute, top-right quarter */}
+        {/* Screenshot — absolute, top-right corner, fully contained */}
         {hasShots && (
-          <div className="pointer-events-none absolute right-0 top-0 hidden lg:block" style={{ width: '36%', height: '58%', zIndex: 2 }}>
+          <div className="pointer-events-none absolute right-5 top-5 hidden lg:block" style={{ width: '42%', height: '52%', zIndex: 2 }}>
             <AnimatePresence custom={dir} mode="wait">
               <motion.div
                 key={`gallery-${idx}`}
@@ -258,9 +254,6 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
                 />
               </motion.div>
             </AnimatePresence>
-            {/* Fades to blend with card */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-20" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.6), transparent)' }} />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16" style={{ background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.5))' }} />
           </div>
         )}
 
@@ -268,7 +261,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
         <div className="relative h-full">
 
           {/* ── PROJECT INFO ── */}
-          <div className={`flex h-full flex-col justify-between overflow-hidden p-8 md:p-10 lg:p-12 ${hasShots ? 'lg:pr-[42%]' : ''}`}>
+          <div className={`flex h-full flex-col justify-between overflow-hidden p-8 md:p-10 lg:p-12 ${hasShots ? 'lg:pr-[46%]' : ''}`}>
             <AnimatePresence custom={dir} mode="wait">
               <motion.div
                 key={`content-${idx}`}
@@ -316,12 +309,37 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
 
                 {/* Tech */}
                 <div className="flex flex-wrap gap-1.5 pt-1">
-                  {project.tech.slice(0, hasShots ? 7 : 12).map(t => (
+                  {project.tech.slice(0, hasShots ? 7 : 14).map(t => (
                     <span key={t} className="rounded-full border border-white/[0.10] bg-black/30 px-3 py-1 text-[11px] font-medium text-white/58">
                       {t}
                     </span>
                   ))}
                 </div>
+
+                {/* For backend projects without screenshots — show architecture flow */}
+                {!hasShots && project.tech.length > 2 && (
+                  <div
+                    className="mt-2 rounded-xl border border-white/[0.07] p-4"
+                    style={{ background: `rgba(${theme.accentRgb}, 0.05)` }}
+                  >
+                    <p className="mb-3 font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase">Architecture</p>
+                    <div className="flex flex-wrap items-center gap-2">
+                      {project.tech.slice(0, 6).map((t, i, arr) => (
+                        <span key={t} className="flex items-center gap-2">
+                          <span
+                            className="rounded-md px-2.5 py-1 font-mono text-[11px] font-medium"
+                            style={{ background: `rgba(${theme.accentRgb}, 0.12)`, color: theme.accent }}
+                          >
+                            {t}
+                          </span>
+                          {i < arr.length - 1 && (
+                            <span className="text-white/20 text-xs">→</span>
+                          )}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </motion.div>
             </AnimatePresence>
 
