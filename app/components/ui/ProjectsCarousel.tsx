@@ -121,18 +121,25 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
     }
   }, [idx]);
 
-  // Wheel
+  // Wheel — must use native addEventListener with passive:false to call preventDefault
   const wheelAccum = useRef(0);
   const wheelTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) * 0.7) return;
-    e.preventDefault();
-    wheelAccum.current += e.deltaX;
-    if (wheelTimer.current) clearTimeout(wheelTimer.current);
-    wheelTimer.current = setTimeout(() => {
-      if (Math.abs(wheelAccum.current) > 50) wheelAccum.current > 0 ? next() : prev();
-      wheelAccum.current = 0;
-    }, 60);
+  const containerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const handler = (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) * 0.7) return;
+      e.preventDefault();
+      wheelAccum.current += e.deltaX;
+      if (wheelTimer.current) clearTimeout(wheelTimer.current);
+      wheelTimer.current = setTimeout(() => {
+        if (Math.abs(wheelAccum.current) > 50) wheelAccum.current > 0 ? next() : prev();
+        wheelAccum.current = 0;
+      }, 60);
+    };
+    el.addEventListener('wheel', handler, { passive: false });
+    return () => el.removeEventListener('wheel', handler);
   }, [next, prev]);
 
   // Drag
@@ -163,12 +170,12 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
 
   return (
     <div
+      ref={containerRef}
       className="relative select-none"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onPointerDown={onPointerDown}
       onPointerUp={onPointerUp}
-      onWheel={handleWheel}
     >
       {/* ── MAIN CARD ── */}
       <div
