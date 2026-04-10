@@ -31,69 +31,18 @@ const THEMES: Record<string, {
 const DEFAULT_THEME = THEMES.ai;
 const AUTO_MS = 6000;
 
-/* ── Screenshot panel (top-right inset) ───────────────────────── */
-function ScreenshotGallery({
-  screenshots,
-  accent,
-}: {
-  screenshots: string[];
-  accent: string;
-  accentRgb: string;
-}) {
-  const [active, setActive] = useState(0);
-  const total = screenshots.length;
-
-  return (
-    <div className="relative h-full w-full rounded-xl overflow-hidden" style={{ background: 'rgba(0,0,0,0.25)' }}>
-      {/* Slides — contain so full screenshot is always visible */}
-      <AnimatePresence mode="wait">
-        <motion.img
-          key={screenshots[active]}
-          src={screenshots[active]}
-          alt={`Screenshot ${active + 1}`}
-          initial={{ opacity: 0, scale: 1.02 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.99 }}
-          transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-          className="absolute inset-0 h-full w-full object-contain object-top"
-          draggable={false}
-        />
-      </AnimatePresence>
-
-      {/* Dots */}
-      {total > 1 && (
-        <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1 z-10">
-          {screenshots.map((_, i) => (
-            <button
-              key={i}
-              onClick={e => { e.stopPropagation(); setActive(i); }}
-              className="rounded-full transition-all duration-200"
-              style={{ width: i === active ? 14 : 4, height: 4, background: i === active ? accent : 'rgba(255,255,255,0.3)' }}
-            />
-          ))}
-        </div>
-      )}
-
-      {/* Border */}
-      <div className="pointer-events-none absolute inset-0 rounded-xl" style={{ boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.10)' }} />
-    </div>
-  );
-}
-
-/* ── Animation variants ────────────────────────────────────────── */
 const contentVariants = {
   enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 24 : -24, filter: 'blur(4px)' }),
   center: { opacity: 1, x: 0, filter: 'blur(0px)', transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] as [number,number,number,number] } },
   exit:   (dir: number) => ({ opacity: 0, x: dir > 0 ? -20 : 20, filter: 'blur(3px)', transition: { duration: 0.3, ease: [0.4, 0, 1, 1] as [number,number,number,number] } }),
 };
 
-const visualVariants = {
-  enter: (dir: number) => ({ opacity: 0, scale: 0.96, x: dir > 0 ? 30 : -30 }),
-  center: { opacity: 1, scale: 1, x: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as [number,number,number,number], delay: 0.05 } },
-  exit:   (dir: number) => ({ opacity: 0, scale: 0.97, x: dir > 0 ? -20 : 20, transition: { duration: 0.3, ease: [0.4, 0, 1, 1] as [number,number,number,number] } }),
+const shotsVariants = {
+  enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 30 : -30, scale: 0.97 }),
+  center: { opacity: 1, x: 0, scale: 1, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as [number,number,number,number], delay: 0.06 } },
+  exit:   (dir: number) => ({ opacity: 0, x: dir > 0 ? -20 : 20, scale: 0.98, transition: { duration: 0.3, ease: [0.4, 0, 1, 1] as [number,number,number,number] } }),
 };
 
-/* ── Main carousel ─────────────────────────────────────────────── */
 export default function ProjectsCarousel({ featured, all }: { featured: Project[]; all: Project[] }) {
   const allOrdered = [
     ...featured,
@@ -114,15 +63,16 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
 
   useEffect(() => { pausedRef.current = paused; }, [paused]);
 
-  const project  = allOrdered[idx];
-  const theme    = THEMES[project?.category ?? 'ai'] ?? DEFAULT_THEME;
-  const hasShots = Boolean(project?.screenshots?.length);
+  const project = allOrdered[idx];
+  const theme   = THEMES[project?.category ?? 'ai'] ?? DEFAULT_THEME;
+  const shots   = project?.screenshots ?? [];
+  const hasShots = shots.length > 0;
 
   const goTo = useCallback((next: number, d: number) => {
     setDir(d);
     setIdx((next + total) % total);
-    accumulatedRef.current  = 0;
-    startTimeRef.current    = performance.now();
+    accumulatedRef.current = 0;
+    startTimeRef.current   = performance.now();
     setProgressPx(0);
   }, [total]);
 
@@ -131,9 +81,8 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
 
   // RAF loop
   useEffect(() => {
-    startTimeRef.current  = performance.now();
+    startTimeRef.current   = performance.now();
     accumulatedRef.current = 0;
-
     const tick = (now: number) => {
       if (pausedRef.current) {
         if (pauseTimeRef.current === 0) pauseTimeRef.current = now;
@@ -156,7 +105,6 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
       }
       rafRef.current = requestAnimationFrame(tick);
     };
-
     rafRef.current = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafRef.current);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -165,15 +113,15 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
   const prevIdxRef = useRef(idx);
   useEffect(() => {
     if (prevIdxRef.current !== idx) {
-      prevIdxRef.current      = idx;
-      accumulatedRef.current  = 0;
-      startTimeRef.current    = performance.now();
-      pauseTimeRef.current    = 0;
+      prevIdxRef.current     = idx;
+      accumulatedRef.current = 0;
+      startTimeRef.current   = performance.now();
+      pauseTimeRef.current   = 0;
       setProgressPx(0);
     }
   }, [idx]);
 
-  // Wheel / trackpad
+  // Wheel
   const wheelAccum = useRef(0);
   const wheelTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const handleWheel = useCallback((e: React.WheelEvent) => {
@@ -187,7 +135,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
     }, 60);
   }, [next, prev]);
 
-  // Pointer drag
+  // Drag
   const dragX = useRef<number | null>(null);
   const dragY = useRef<number | null>(null);
   const onPointerDown = (e: React.PointerEvent) => { dragX.current = e.clientX; dragY.current = e.clientY; };
@@ -225,43 +173,18 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
       {/* ── MAIN CARD ── */}
       <div
         className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${theme.bg}`}
-        style={{ height: 540 }}
+        style={{ height: 520 }}
       >
         {/* Ambient glow */}
         <div className="pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full blur-[120px] transition-colors duration-1000" style={{ background: theme.accentMuted, opacity: 0.5 }} />
         <div className="pointer-events-none absolute -bottom-20 -left-10 h-64 w-64 rounded-full blur-[80px] transition-colors duration-1000" style={{ background: theme.accentMuted, opacity: 0.25 }} />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.5) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
 
-        {/* Grid overlay */}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.02]" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.5) 1px,transparent 1px)`, backgroundSize: '48px 48px' }} />
+        {/* Grid layout: left text + right screenshots (only when exist) */}
+        <div className={`relative h-full ${hasShots ? 'grid lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_340px]' : 'flex'}`}>
 
-        {/* Screenshot — absolute, top-right corner, fully contained */}
-        {hasShots && (
-          <div className="pointer-events-none absolute right-5 top-5 hidden lg:block" style={{ width: '42%', height: '52%', zIndex: 2 }}>
-            <AnimatePresence custom={dir} mode="wait">
-              <motion.div
-                key={`gallery-${idx}`}
-                custom={dir}
-                variants={visualVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                className="pointer-events-auto h-full w-full"
-              >
-                <ScreenshotGallery
-                  screenshots={project.screenshots!}
-                  accent={theme.accent}
-                  accentRgb={theme.accentRgb}
-                />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        )}
-
-        {/* Layout: full-width text always */}
-        <div className="relative h-full">
-
-          {/* ── PROJECT INFO ── */}
-          <div className={`flex h-full flex-col justify-between overflow-hidden p-8 md:p-10 lg:p-12 ${hasShots ? 'lg:pr-[46%]' : ''}`}>
+          {/* ── LEFT: INFO ── */}
+          <div className="flex h-full flex-col justify-between overflow-hidden p-8 md:p-10 lg:p-12">
             <AnimatePresence custom={dir} mode="wait">
               <motion.div
                 key={`content-${idx}`}
@@ -272,7 +195,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
                 exit="exit"
                 className="flex flex-col gap-4 overflow-hidden"
               >
-                {/* Category + period */}
+                {/* Badge row */}
                 <div className="flex items-center gap-3">
                   <span className={`inline-flex items-center rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.14em] uppercase ${theme.pillBg} ${theme.pill}`}>
                     {project.category}
@@ -285,22 +208,22 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
                 {/* Title */}
                 <div>
                   <p className="mb-1.5 font-mono text-[10px] tracking-[0.18em] text-white/35 uppercase">{project.role}</p>
-                  <h3 className={`font-semibold leading-[1.2] tracking-[-0.02em] text-white ${hasShots ? 'text-2xl md:text-[1.8rem]' : 'text-2xl md:text-[2rem] lg:text-[2.2rem]'}`}>
+                  <h3 className="text-2xl font-semibold leading-[1.2] tracking-[-0.02em] text-white md:text-[1.9rem]">
                     {project.title}
                   </h3>
                 </div>
 
                 {/* Description */}
-                <p className={`leading-[1.85] text-white/70 ${hasShots ? 'max-w-xl text-[0.9rem]' : 'max-w-2xl text-[0.95rem]'}`}>
+                <p className="text-[0.9rem] leading-[1.85] text-white/70 max-w-xl">
                   {project.description}
                 </p>
 
                 {/* Features */}
                 {project.features && project.features.length > 0 && (
-                  <ul className="space-y-2">
-                    {project.features.slice(0, hasShots ? 3 : 5).map(f => (
-                      <li key={f} className="flex items-start gap-3 text-[0.875rem] leading-[1.7] text-white/58">
-                        <span className="mt-[9px] h-1 w-1 flex-shrink-0 rounded-full" style={{ background: theme.accent }} />
+                  <ul className="space-y-1.5">
+                    {project.features.slice(0, hasShots ? 3 : 4).map(f => (
+                      <li key={f} className="flex items-start gap-3 text-[0.85rem] leading-[1.65] text-white/60">
+                        <span className="mt-[8px] h-1 w-1 flex-shrink-0 rounded-full" style={{ background: theme.accent }} />
                         {f}
                       </li>
                     ))}
@@ -308,33 +231,25 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
                 )}
 
                 {/* Tech */}
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {project.tech.slice(0, hasShots ? 7 : 14).map(t => (
-                    <span key={t} className="rounded-full border border-white/[0.10] bg-black/30 px-3 py-1 text-[11px] font-medium text-white/58">
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tech.slice(0, hasShots ? 6 : 12).map(t => (
+                    <span key={t} className="rounded-full border border-white/[0.10] bg-black/30 px-3 py-1 text-[11px] font-medium text-white/60">
                       {t}
                     </span>
                   ))}
                 </div>
 
-                {/* For backend projects without screenshots — show architecture flow */}
+                {/* Architecture strip for backend projects */}
                 {!hasShots && project.tech.length > 2 && (
-                  <div
-                    className="mt-2 rounded-xl border border-white/[0.07] p-4"
-                    style={{ background: `rgba(${theme.accentRgb}, 0.05)` }}
-                  >
-                    <p className="mb-3 font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase">Architecture</p>
+                  <div className="rounded-xl border border-white/[0.07] p-4" style={{ background: `rgba(${theme.accentRgb}, 0.05)` }}>
+                    <p className="mb-2.5 font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase">Stack</p>
                     <div className="flex flex-wrap items-center gap-2">
-                      {project.tech.slice(0, 6).map((t, i, arr) => (
+                      {project.tech.slice(0, 7).map((t, i, arr) => (
                         <span key={t} className="flex items-center gap-2">
-                          <span
-                            className="rounded-md px-2.5 py-1 font-mono text-[11px] font-medium"
-                            style={{ background: `rgba(${theme.accentRgb}, 0.12)`, color: theme.accent }}
-                          >
+                          <span className="rounded-md px-2.5 py-1 font-mono text-[11px] font-medium" style={{ background: `rgba(${theme.accentRgb}, 0.12)`, color: theme.accent }}>
                             {t}
                           </span>
-                          {i < arr.length - 1 && (
-                            <span className="text-white/20 text-xs">→</span>
-                          )}
+                          {i < arr.length - 1 && <span className="text-white/20 text-[10px]">→</span>}
                         </span>
                       ))}
                     </div>
@@ -344,19 +259,16 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
             </AnimatePresence>
 
             {/* Controls */}
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-5 flex items-center gap-3">
               <button onClick={prev} aria-label="Prev" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.05] text-white/50 transition-all hover:border-white/25 hover:text-white">
                 <FaArrowLeft className="text-[11px]" />
               </button>
               <button onClick={next} aria-label="Next" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.05] text-white/50 transition-all hover:border-white/25 hover:text-white">
                 <FaArrowRight className="text-[11px]" />
               </button>
-
               {project.link && (
                 <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={project.link} target="_blank" rel="noopener noreferrer"
                   onClick={e => e.stopPropagation()}
                   className="ml-1 inline-flex items-center gap-2 rounded-full border px-5 py-2 text-xs font-semibold transition-all hover:opacity-90"
                   style={{ borderColor: `rgba(${theme.accentRgb},0.4)`, background: `rgba(${theme.accentRgb},0.1)`, color: theme.accent }}
@@ -365,13 +277,55 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
                   {project.link.replace(/^https?:\/\//, '')}
                 </a>
               )}
-
               <span className="ml-auto font-mono text-[11px] tabular-nums text-white/25">
                 {String(idx + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
               </span>
             </div>
           </div>
 
+          {/* ── RIGHT: TWO SCREENSHOTS STACKED ── */}
+          {hasShots && (
+            <div className="hidden lg:flex border-l border-white/[0.06] p-5 flex-col gap-3">
+              <AnimatePresence custom={dir} mode="wait">
+                <motion.div
+                  key={`shots-${idx}`}
+                  custom={dir}
+                  variants={shotsVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  className="flex flex-col gap-3 h-full"
+                >
+                  {/* Screenshot 1 */}
+                  <div className="relative flex-1 overflow-hidden rounded-xl" style={{ boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.08)' }}>
+                    <img
+                      src={shots[0]}
+                      alt="Screenshot 1"
+                      className="w-full h-full object-cover object-top"
+                      style={{ opacity: 0.9 }}
+                      draggable={false}
+                    />
+                    {/* Bottom fade */}
+                    <div className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.35) 100%)' }} />
+                  </div>
+
+                  {/* Screenshot 2 — only if exists */}
+                  {shots[1] && (
+                    <div className="relative flex-1 overflow-hidden rounded-xl" style={{ boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.08)' }}>
+                      <img
+                        src={shots[1]}
+                        alt="Screenshot 2"
+                        className="w-full h-full object-cover object-top"
+                        style={{ opacity: 0.9 }}
+                        draggable={false}
+                      />
+                      <div className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.35) 100%)' }} />
+                    </div>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          )}
         </div>
 
         {/* Progress bar */}

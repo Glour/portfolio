@@ -36,10 +36,6 @@ const HeroScene = dynamic(() => import('../components/3d/HeroScene'), {
   loading: () => null,
 });
 
-const PlasmaSphere = dynamic(() => import('../components/3d/PlasmaSphere'), {
-  ssr: false,
-  loading: () => null,
-});
 
 const fadeUp = {
   initial: { opacity: 0, y: 28 },
@@ -97,11 +93,7 @@ export default function HomePage() {
       </Suspense>
 
       {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="relative isolate flex min-h-[calc(100vh-5rem)] items-center px-6 py-20 md:py-32 overflow-hidden">
-        {/* Plasma sphere — right side decoration */}
-        <Suspense fallback={null}>
-          <PlasmaSphere />
-        </Suspense>
+      <section className="relative isolate flex min-h-[calc(100vh-5rem)] items-center px-6 py-20 md:py-32">
         <div className="container relative z-10 mx-auto max-w-5xl">
 
           {/* Available badge */}
