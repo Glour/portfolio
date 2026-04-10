@@ -1,251 +1,87 @@
-# Python Developer Portfolio
+# Aleksandr Bogdanov — Portfolio
 
-Modern, high-performance portfolio website showcasing Python backend development and trading systems expertise. Built with Next.js 14, Three.js, and cutting-edge web technologies.
+Personal portfolio of Aleksandr Bogdanov, Backend Engineer / Tech Lead / AI Engineer.
 
-![Portfolio Preview](https://via.placeholder.com/1200x600/0f172a/0ea5e9?text=Portfolio+Preview)
+**Live:** [https://bogdanov.dev](https://bogdanov.dev) (или текущий домен)
 
-## ✨ Features
+## Stack
 
-- 🎨 **Modern Design**: Dark theme with gradient accents and glass morphism effects
-- 🎭 **3D Animations**: Interactive Three.js scenes on hero and skills pages
-- 🚀 **High Performance**: Optimized with lazy loading, code splitting, and SSR
-- 📱 **Responsive**: Mobile-first design that works on all devices
-- ♿ **Accessible**: WCAG compliant with proper ARIA labels and keyboard navigation
-- 🎯 **SEO Optimized**: Meta tags, Open Graph, and semantic HTML
-- ⚡ **Fast Loading**: Under 3s load time with optimized assets
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **i18n:** next-intl (RU / EN)
+- **Deploy:** GitHub Actions → SSH → VPS
 
-## 🛠️ Tech Stack
+## Structure
 
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **3D Graphics**: Three.js + React Three Fiber
-- **Animations**: Framer Motion + GSAP
-- **Styling**: Tailwind CSS
-- **Deployment**: Vercel (recommended)
+```
+app/
+├── [locale]/          # RU / EN pages (next-intl)
+│   ├── page.tsx       # Main page (Hero, Projects, Skills, Contact)
+│   ├── layout.tsx     # Locale layout with NextIntlClientProvider
+│   └── projects/      # All projects page
+├── components/
+│   ├── 3d/HeroScene.tsx       # Cursor glow + ambient blobs (Three.js-free)
+│   ├── layout/Header.tsx
+│   ├── layout/Footer.tsx
+│   └── ui/ProjectsCarousel.tsx  # Projects carousel with tabs
+├── data/profile.ts    # Personal info, tech stack
+└── globals.css
 
-## 📦 Installation
+messages/
+├── ru.json            # Russian translations + project data
+└── en.json            # English translations + project data
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/portfolio.git
-   cd portfolio
-   ```
+public/screenshots/    # Project screenshots (2 per project)
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+.github/workflows/
+└── deploy.yml         # Auto-deploy on push to main
+```
 
-3. **Run development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-## 🚀 Build for Production
+## Local Development
 
 ```bash
-# Build the project
-npm run build
+npm install
+npm run dev
+# http://localhost:3000
+```
 
-# Start production server
+## Build
+
+```bash
+npm run build
 npm start
 ```
 
-## 📁 Project Structure
+## Deploy
 
-```
-portfolio/
-├── app/
-│   ├── (pages)/
-│   │   ├── page.tsx              # Home page
-│   │   ├── about/                # About page
-│   │   ├── projects/             # Projects page
-│   │   ├── skills/               # Skills page
-│   │   └── contact/              # Contact page
-│   ├── components/
-│   │   ├── 3d/                   # Three.js components
-│   │   │   ├── HeroScene.tsx
-│   │   │   └── SkillsScene.tsx
-│   │   ├── ui/                   # Reusable UI components
-│   │   │   ├── ProjectCard.tsx
-│   │   │   ├── SkillBar.tsx
-│   │   │   └── ContactForm.tsx
-│   │   └── layout/               # Layout components
-│   │       ├── Header.tsx
-│   │       └── Footer.tsx
-│   ├── data/                     # Data configuration
-│   │   ├── projects.ts
-│   │   ├── skills.ts
-│   │   └── profile.ts
-│   ├── lib/                      # Utilities
-│   ├── globals.css               # Global styles
-│   └── layout.tsx                # Root layout
-├── public/
-│   └── images/                   # Static images
-├── next.config.js                # Next.js config
-├── tailwind.config.ts            # Tailwind config
-└── tsconfig.json                 # TypeScript config
-```
+Push to `main` → GitHub Actions деплоит на VPS через SSH.
 
-## 🎨 Customization
+Requires GitHub secrets:
+- `DEPLOY_HOST` — server IP
+- `DEPLOY_USER` — SSH user
+- `DEPLOY_KEY` — private SSH key
 
-### Update Personal Information
+## Adding a Project
 
-Edit `app/data/profile.ts`:
+Edit `messages/ru.json` and `messages/en.json` — add entry to `projectsList`:
 
-```typescript
-export const profile = {
-  name: 'Your Name',
-  title: 'Your Title',
-  email: 'your.email@example.com',
-  // ... other fields
-};
-```
-
-### Modify Projects
-
-Edit `app/data/projects.ts`:
-
-```typescript
-export const projects: Project[] = [
-  {
-    id: 1,
-    title: 'Your Project',
-    description: 'Project description',
-    // ... other fields
-  },
-  // Add more projects
-];
-```
-
-### Adjust Skills
-
-Edit `app/data/skills.ts`:
-
-```typescript
-export const skills: Skill[] = [
-  { name: 'Python', level: 95, category: 'languages', years: 5 },
-  // Add your skills
-];
-```
-
-### Change Colors
-
-Edit `tailwind.config.ts`:
-
-```typescript
-colors: {
-  primary: {
-    // Your primary color shades
-  },
-  accent: {
-    // Your accent color shades
-  },
+```json
+{
+  "title": "Project Name",
+  "role": "Your Role",
+  "category": "ai|fullstack|blockchain|trading|telegram|automation",
+  "description": "Short description",
+  "features": ["Feature 1", "Feature 2"],
+  "tech": ["Next.js", "FastAPI", "PostgreSQL"],
+  "period": "2025–2026",
+  "link": "https://example.com",
+  "highlight": true,
+  "screenshots": ["/screenshots/proj-1.png", "/screenshots/proj-2.png"]
 }
 ```
 
-## 🌐 Deployment
+Place screenshots in `public/screenshots/` (recommended size: 1280×800).
 
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Import project in [Vercel](https://vercel.com)
-3. Deploy with one click
-
-### Netlify
-
-1. Build the project: `npm run build`
-2. Deploy the `.next` folder to Netlify
-
-### Docker
-
-```bash
-# Build Docker image
-docker build -t portfolio .
-
-# Run container
-docker run -p 3000:3000 portfolio
-```
-
-## 🎯 Performance Optimization
-
-- **Lazy Loading**: 3D components loaded only when needed
-- **Code Splitting**: Automatic route-based splitting
-- **Image Optimization**: Next.js Image component for optimized images
-- **Font Optimization**: Variable fonts with `next/font`
-- **Preloading**: Critical resources preloaded
-- **Caching**: Static assets cached with appropriate headers
-
-## ♿ Accessibility Features
-
-- Semantic HTML structure
-- ARIA labels on interactive elements
-- Keyboard navigation support
-- Focus indicators
-- Color contrast ratios meet WCAG AA standards
-- Screen reader friendly
-
-## 🧪 Testing
-
-```bash
-# Run tests (if you add them)
-npm test
-
-# Type checking
-npx tsc --noEmit
-
-# Linting
-npm run lint
-```
-
-## 📄 License
-
-MIT License - feel free to use this template for your own portfolio!
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-## 👤 Author
-
-**Alex Morrison**
-
-- GitHub: [@alexmorrison](https://github.com/alexmorrison)
-- LinkedIn: [@alexmorrison](https://linkedin.com/in/alexmorrison)
-- Email: alex.morrison.dev@example.com
-
-## ⭐ Show your support
-
-Give a ⭐️ if you like this project!
-
-## 📝 Notes
-
-- Replace placeholder images in `/public/images/` with your actual project screenshots
-- Update social media links in `app/data/profile.ts`
-- Consider adding Google Analytics or other analytics tools
-- Add your actual GitHub repository URL
-- Customize meta tags in `app/layout.tsx` for better SEO
-
-## 🔧 Troubleshooting
-
-### Three.js rendering issues
-- Make sure you're using a modern browser that supports WebGL
-- Check console for WebGL errors
-- Try disabling browser extensions that might interfere
-
-### Build errors
-- Clear `.next` folder and `node_modules`
-- Reinstall dependencies: `rm -rf node_modules && npm install`
-- Check Node.js version (requires Node 18+)
-
-### Slow performance
-- Enable production mode: `npm run build && npm start`
-- Check Network tab for large assets
-- Optimize 3D scenes by reducing polygon count
-
----
-
-Built with ❤️ using Next.js, Three.js, and modern web technologies.
+Projects without screenshots (`highlight: true`, no `screenshots` field) display as full-width text cards.
