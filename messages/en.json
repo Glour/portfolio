@@ -204,7 +204,7 @@
       "period": "2025–2026",
       "link": "https://campus.fpv40.ru",
       "highlight": true,
-      "screenshots": ["/screenshots/fpv40-campus.png"]
+      "screenshots": ["/screenshots/fpv40-campus-1.png", "/screenshots/fpv40-campus-2.png"]
     },
     {
       "title": "FPV40.ru — Corporate Website for Pilot School",
@@ -221,7 +221,7 @@
       "period": "2025–2026",
       "link": "https://fpv40.ru",
       "highlight": true,
-      "screenshots": ["/screenshots/fpv40-ru.png"]
+      "screenshots": ["/screenshots/fpv40-ru-1.png", "/screenshots/fpv40-ru-2.png"]
     },
     {
       "title": "Viably — AI Product Platform",
@@ -239,7 +239,7 @@
       "period": "2025–2026",
       "link": "https://viably.dev",
       "highlight": true,
-      "screenshots": ["/screenshots/viably.png"]
+      "screenshots": ["/screenshots/viably-1.png", "/screenshots/viably-2.png"]
     },
     {
       "title": "Vibegent — Multi-tenant AI Agent Platform",
@@ -257,7 +257,7 @@
       "period": "2025–2026",
       "link": "https://agents.viably.dev",
       "highlight": true,
-      "screenshots": ["/screenshots/vibegent.png"]
+      "screenshots": ["/screenshots/vibegent-1.png", "/screenshots/vibegent-2.png"]
     },
     {
       "title": "vibegent-proxy — LLM Infrastructure Layer",

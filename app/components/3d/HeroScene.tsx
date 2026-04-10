@@ -45,32 +45,22 @@ export default function HeroScene() {
 
   return (
     <>
-      {/* Cursor-following ambient orb — frosted glass effect */}
+      {/* Cursor-following ambient orb */}
       <div
         ref={glowRef}
         aria-hidden
         style={{
           position: 'fixed',
-          width: 700,
-          height: 700,
+          width: 600,
+          height: 600,
           borderRadius: '50%',
-          // Multi-layer: bright core + wide diffuse glow
-          background: `
-            radial-gradient(circle at 35% 35%,
-              rgba(255,255,255,0.08) 0%,
-              rgba(34,211,238,0.18) 20%,
-              rgba(34,211,238,0.10) 40%,
-              rgba(34,211,238,0.03) 65%,
-              transparent 80%
-            )
-          `,
+          background: 'radial-gradient(circle, rgba(34,211,238,0.13) 0%, rgba(34,211,238,0.05) 45%, transparent 70%)',
           pointerEvents: 'none',
           transform: 'translate(-50%, -50%)',
           zIndex: 0,
           willChange: 'left, top',
           top: '30%',
           left: '25%',
-          filter: 'blur(2px)',
         }}
       />
 
@@ -85,7 +75,7 @@ export default function HeroScene() {
           maxWidth: 800,
           maxHeight: 800,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(34,211,238,0.13) 0%, rgba(34,211,238,0.04) 50%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(34,211,238,0.10) 0%, rgba(34,211,238,0.03) 50%, transparent 70%)',
         }} />
         <div style={{
           position: 'absolute',
@@ -96,7 +86,7 @@ export default function HeroScene() {
           maxWidth: 600,
           maxHeight: 600,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(34,211,238,0.07) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(34,211,238,0.05) 0%, transparent 70%)',
         }} />
       </div>
     </>
