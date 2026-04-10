@@ -159,7 +159,8 @@
       "bots": "30+ Telegram bots and Mini Apps from MVP to scalable products",
       "team": "Tech Lead on multiple projects, teams of 2+ developers",
       "infra": "Deployed production infrastructure: Hetzner worker nodes, autoscaling, remote Docker orchestration",
-      "trading": "Real-time arbitrage and trading systems across 20+ exchanges"
+      "trading": "Real-time arbitrage and trading systems across 20+ exchanges",
+      "lms": "Built full-stack LMS platform for FPV40: microservice architecture (FastAPI, PostgreSQL, Redis, MinIO), corporate site on Next.js + PostgreSQL"
     }
   },
   "contact": {
@@ -187,6 +188,39 @@
     "back": "Back"
   },
   "projectsList": [
+    {
+      "title": "FPV40 Campus — LMS Platform for FPV Pilots",
+      "role": "Full-stack Developer / Tech Lead / Platform Architect",
+      "category": "fullstack",
+      "description": "Full-featured LMS platform with microservices architecture for online FPV drone pilot training. 16 modules, 134+ lessons, 30+ interactive React components, progress system, certificates, and YooKassa billing.",
+      "features": [
+        "4 microservices: auth (JWT/RBAC/Google OAuth), core (modules/quizzes/progress/XP), media (MinIO/S3), Telegram monitoring bot",
+        "30+ custom interactive React components: DroneDiagram, BetaflightMap, PidTuningViz, LipoChargeViz, and more",
+        "YooKassa payment integration: 'Pilot Start' (9,900 ₽) and 'Pilot Pro' (19,900 ₽) plans with webhook processing",
+        "Certificate generation with guilloche border, Russian coat of arms, custom CSS overlay",
+        "CI/CD: GitHub Actions (develop→dev, main→prod), 7 Docker containers, automated DB backup"
+      ],
+      "tech": ["Next.js 15", "FastAPI", "PostgreSQL", "Redis", "MinIO", "Docker Compose", "Nginx", "GitHub Actions", "YooKassa"],
+      "period": "2025–2026",
+      "link": "https://campus.fpv40.ru",
+      "highlight": true
+    },
+    {
+      "title": "FPV40.ru — Corporate Website for Pilot School",
+      "role": "Full-stack Developer",
+      "category": "fullstack",
+      "description": "Multi-page corporate website for FPV pilot school with full CMS admin panel for content, pricing, and SEO management. Next.js + PostgreSQL, SMTP integration, Docker deployment.",
+      "features": [
+        "Full CMS admin panel: manage pages, pricing, courses, SEO meta tags",
+        "SMTP integration for applications and notifications",
+        "Next.js + PostgreSQL + Docker Compose architecture",
+        "Responsive design, SEO optimization"
+      ],
+      "tech": ["Next.js", "PostgreSQL", "Docker", "Nginx", "Nodemailer", "Tailwind CSS"],
+      "period": "2025–2026",
+      "link": "https://fpv40.ru",
+      "highlight": true
+    },
     {
       "title": "Viably — AI Product Platform",
       "role": "Backend Engineer / Tech Lead / Platform Architect",

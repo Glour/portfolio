@@ -154,6 +154,7 @@
     "title": "Достижения",
     "items": {
       "platforms": "Построил AI-платформы Viably и Vibegent с нуля до production",
+      "lms": "Разработал полноценную LMS-платформу FPV40 Campus: 4 микросервиса, 134+ урока, интерактивные React-компоненты, биллинг",
       "agents": "Разработал мультитенантную платформу AI-агентов с биллингом, прокси и воркер-нодами",
       "proxy": "Создал LLM-прокси с ротацией токенов, backoff и credit-контролем для production-нагрузок",
       "bots": "30+ Telegram-ботов и Mini Apps от MVP до масштабируемых продуктов",
@@ -187,6 +188,39 @@
     "back": "Назад"
   },
   "projectsList": [
+    {
+      "title": "FPV40 Campus — LMS-платформа для FPV-пилотов",
+      "role": "Full-stack Developer / Tech Lead / Platform Architect",
+      "category": "fullstack",
+      "description": "Полноценная LMS-платформа с микросервисной архитектурой для онлайн-обучения управлению FPV-дронами. 16 модулей, 134+ урока, 30+ интерактивных React-компонентов, система прогресса, сертификаты, биллинг через ЮКассу.",
+      "features": [
+        "4 микросервиса: auth (JWT/RBAC/Google OAuth), core (модули/квизы/прогресс/XP), media (MinIO/S3), Telegram-мониторинг",
+        "30+ кастомных интерактивных React-компонентов: DroneDiagram, BetaflightMap, PidTuningViz, LipoChargeViz и др.",
+        "Платёжная система ЮКасса: тарифы «Пилот Старт» (9 900 ₽) и «Пилот Про» (19 900 ₽), webhook-обработка",
+        "Генерация сертификатов с гильошированной рамкой, герб РФ, кастомный CSS-overlay",
+        "CI/CD: GitHub Actions (develop→dev, main→prod), 7 Docker-контейнеров, автобэкап БД"
+      ],
+      "tech": ["Next.js 15", "FastAPI", "PostgreSQL", "Redis", "MinIO", "Docker Compose", "Nginx", "GitHub Actions", "YooKassa"],
+      "period": "2025–2026",
+      "link": "https://campus.fpv40.ru",
+      "highlight": true
+    },
+    {
+      "title": "FPV40.ru — Корпоративный сайт школы пилотов",
+      "role": "Full-stack Developer",
+      "category": "fullstack",
+      "description": "Многостраничный корпоративный сайт школы FPV-пилотов с полноценной CMS-админкой для управления контентом, ценами и SEO. Next.js + PostgreSQL, SMTP-интеграция, Docker-деплой.",
+      "features": [
+        "Полноценная CMS-админка: управление страницами, ценами, курсами, SEO-метатегами",
+        "SMTP-интеграция для заявок и уведомлений (campus@fpv40.ru)",
+        "Next.js + PostgreSQL + Docker Compose архитектура",
+        "Адаптивная вёрстка, SEO-оптимизация"
+      ],
+      "tech": ["Next.js", "PostgreSQL", "Docker", "Nginx", "Nodemailer", "Tailwind CSS"],
+      "period": "2025–2026",
+      "link": "https://fpv40.ru",
+      "highlight": true
+    },
     {
       "title": "Viably — AI Product Platform",
       "role": "Backend Engineer / Tech Lead / Platform Architect",
