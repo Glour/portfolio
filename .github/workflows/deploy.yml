@@ -1,0 +1,27 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            set -e
+            cd /root/home/portfolio
+            git fetch origin
+            git reset --hard origin/main
+            npm run build
+            fuser -k 3015/tcp 2>/dev/null || true
+            sleep 1
+            nohup sh -c 'cd /root/home/portfolio && npm start -- -p 3015' > /tmp/portfolio3015.log 2>&1 &
+            sleep 2
+            curl -sf http://localhost:3015 > /dev/null && echo "✓ Deploy OK" || (echo "✗ Health check failed" && exit 1)
