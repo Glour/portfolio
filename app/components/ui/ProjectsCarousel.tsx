@@ -173,7 +173,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
       {/* ── MAIN CARD ── */}
       <div
         className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${theme.bg}`}
-        style={{ minHeight: 480, height: 'auto' }}
+        style={{ height: 520 }}
       >
         {/* Ambient glow */}
         <div className="pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full blur-[120px] transition-colors duration-1000" style={{ background: theme.accentMuted, opacity: 0.5 }} />
@@ -181,10 +181,10 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
         <div className="pointer-events-none absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.5) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
 
         {/* Grid layout: left text + right screenshots (only when exist) */}
-        <div className={`relative ${hasShots ? 'grid lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_340px]' : 'flex'}`}>
+        <div className={`relative h-full ${hasShots ? 'grid lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_420px]' : 'flex'}`}>
 
           {/* ── LEFT: INFO ── */}
-          <div className="flex flex-col justify-between overflow-hidden p-8 md:p-10 lg:p-12">
+          <div className="flex h-full flex-col overflow-hidden p-8 lg:p-10">
             <AnimatePresence custom={dir} mode="wait">
               <motion.div
                 key={`content-${idx}`}
@@ -193,10 +193,10 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="flex flex-col gap-4 overflow-hidden"
+                className="flex min-h-0 flex-1 flex-col gap-3"
               >
                 {/* Badge row */}
-                <div className="flex items-center gap-3">
+                <div className="flex flex-shrink-0 items-center gap-3">
                   <span className={`inline-flex items-center rounded-full border px-3 py-1 font-mono text-[10px] tracking-[0.14em] uppercase ${theme.pillBg} ${theme.pill}`}>
                     {project.category}
                   </span>
@@ -206,48 +206,51 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
                 </div>
 
                 {/* Title */}
-                <div>
-                  <p className="mb-1.5 font-mono text-[10px] tracking-[0.18em] text-white/35 uppercase">{project.role}</p>
-                  <h3 className="text-2xl font-semibold leading-[1.2] tracking-[-0.02em] text-white md:text-[1.9rem]">
+                <div className="flex-shrink-0">
+                  <p className="mb-1 font-mono text-[10px] tracking-[0.18em] text-white/35 uppercase">{project.role}</p>
+                  <h3 className="text-xl font-semibold leading-[1.2] tracking-[-0.02em] text-white md:text-2xl">
                     {project.title}
                   </h3>
                 </div>
 
                 {/* Description */}
-                <p className="text-[0.9rem] leading-[1.85] text-white/70 max-w-xl">
+                <p className="flex-shrink-0 text-[0.85rem] leading-[1.75] text-white/65 max-w-lg">
                   {project.description}
                 </p>
 
                 {/* Features */}
                 {project.features && project.features.length > 0 && (
-                  <ul className="space-y-1.5">
+                  <ul className="flex-shrink-0 space-y-1">
                     {project.features.slice(0, hasShots ? 3 : 4).map(f => (
-                      <li key={f} className="flex items-start gap-3 text-[0.85rem] leading-[1.65] text-white/60">
-                        <span className="mt-[8px] h-1 w-1 flex-shrink-0 rounded-full" style={{ background: theme.accent }} />
+                      <li key={f} className="flex items-start gap-3 text-[0.82rem] leading-[1.6] text-white/55">
+                        <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full" style={{ background: theme.accent }} />
                         {f}
                       </li>
                     ))}
                   </ul>
                 )}
 
+                {/* Spacer — pushes tech to bottom of content area */}
+                <div className="flex-1" />
+
                 {/* Tech */}
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex-shrink-0 flex flex-wrap gap-1.5">
                   {project.tech.slice(0, hasShots ? 6 : 8).map(t => (
-                    <span key={t} className="rounded-full border border-white/[0.10] bg-black/30 px-3 py-1 text-[11px] font-medium text-white/60">
+                    <span key={t} className="rounded-full border border-white/[0.10] bg-black/30 px-2.5 py-0.5 text-[11px] font-medium text-white/60">
                       {t}
                     </span>
                   ))}
-                  {!hasShots && project.tech.length > 8 && (
-                    <span className="rounded-full border border-white/[0.08] bg-black/20 px-3 py-1 text-[11px] text-white/35">
-                      +{project.tech.length - 8}
+                  {project.tech.length > (hasShots ? 6 : 8) && (
+                    <span className="rounded-full border border-white/[0.08] bg-black/20 px-2.5 py-0.5 text-[11px] text-white/35">
+                      +{project.tech.length - (hasShots ? 6 : 8)}
                     </span>
                   )}
                 </div>
               </motion.div>
             </AnimatePresence>
 
-            {/* Controls */}
-            <div className="mt-5 flex items-center gap-3">
+            {/* Controls — always at bottom */}
+            <div className="mt-4 flex flex-shrink-0 items-center gap-3">
               <button onClick={prev} aria-label="Prev" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.05] text-white/50 transition-all hover:border-white/25 hover:text-white">
                 <FaArrowLeft className="text-[11px]" />
               </button>
@@ -273,7 +276,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
 
           {/* ── RIGHT: TWO SCREENSHOTS STACKED ── */}
           {hasShots && (
-            <div className="hidden lg:flex border-l border-white/[0.06] p-5 flex-col gap-3" style={{ minHeight: 480 }}>
+            <div className="hidden lg:flex h-full border-l border-white/[0.06] p-4 flex-col gap-3">
               <AnimatePresence custom={dir} mode="wait">
                 <motion.div
                   key={`shots-${idx}`}
