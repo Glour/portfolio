@@ -72,7 +72,7 @@ export default function Header() {
           </button>
 
           {/* Desktop nav */}
-          <ul className="hidden items-center gap-1 lg:flex">
+          <ul className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
               <li key={item.path}>
                 <button
@@ -99,7 +99,7 @@ export default function Header() {
           {/* Mobile burger */}
           <button
             onClick={() => setIsMobileMenuOpen((v) => !v)}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/8 text-white/50 transition-colors duration-200 hover:text-white/80 lg:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/8 text-white/50 transition-colors duration-200 hover:text-white/80 md:hidden"
             aria-label="Toggle menu"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24">
@@ -118,7 +118,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
-              className="mt-4 lg:hidden"
+              className="mt-4 md:hidden"
             >
               <div className="rounded-2xl border border-white/8 bg-black/90 p-4 backdrop-blur-2xl">
                 <ul className="space-y-1">

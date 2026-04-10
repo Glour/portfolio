@@ -157,14 +157,14 @@ export default function HomePage() {
           >
             <Link
               href={`${basePath}#projects`}
-              className="group inline-flex items-center gap-2.5 rounded-full bg-primary-400 px-7 py-3.5 text-sm font-medium text-black transition-all duration-300 hover:bg-primary-300 hover:shadow-[0_0_40px_rgba(34,211,238,0.25)]"
+              className="group inline-flex min-h-[44px] items-center gap-2.5 rounded-full bg-primary-400 px-7 py-3.5 text-sm font-medium text-black transition-all duration-300 hover:bg-primary-300 hover:shadow-[0_0_40px_rgba(34,211,238,0.25)]"
             >
               {t('hero.viewProjects')}
               <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-0.5" />
             </Link>
             <Link
               href={`${basePath}#contact`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-sm font-medium text-white/80 transition-all duration-300 hover:border-white/25 hover:text-white"
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-sm font-medium text-white/80 transition-all duration-300 hover:border-white/25 hover:text-white"
             >
               {t('nav.contact')}
             </Link>
@@ -175,7 +175,7 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="mt-20 flex flex-wrap items-end gap-x-12 gap-y-6 border-t border-white/6 pt-8"
+            className="mt-20 flex flex-wrap items-end gap-x-8 gap-y-6 border-t border-white/6 pt-8 md:gap-x-12"
           >
             {heroStats.map((stat) => (
               <div key={stat.label}>
@@ -327,7 +327,7 @@ export default function HomePage() {
         <div className="container mx-auto max-w-5xl">
           <motion.div
             {...fadeUp}
-            className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-10 backdrop-blur-sm md:p-14"
+            className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm sm:p-10 md:p-14"
           >
             {/* Subtle cyan glow inside card */}
             <div
@@ -341,7 +341,7 @@ export default function HomePage() {
                 <p className="font-mono text-[11px] tracking-[0.3em] text-white/30 uppercase">
                   {isRu ? 'Контакт' : 'Contact'}
                 </p>
-                <h2 className="mt-5 text-4xl font-semibold tracking-[-0.03em] text-white md:text-5xl">
+                <h2 className="mt-5 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl md:text-5xl">
                   {t('contact.title')}
                 </h2>
                 <p className="mt-5 max-w-xl text-base leading-[1.75] text-white/70">
@@ -351,7 +351,7 @@ export default function HomePage() {
                 <div className="mt-9 flex flex-wrap gap-3">
                   <a
                     href={`mailto:${profile.email}`}
-                    className="group inline-flex items-center gap-2.5 rounded-full bg-primary-400 px-7 py-3.5 text-sm font-medium text-black transition-all duration-300 hover:bg-primary-300"
+                    className="group inline-flex min-h-[44px] items-center gap-2.5 rounded-full bg-primary-400 px-7 py-3.5 text-sm font-medium text-black transition-all duration-300 hover:bg-primary-300"
                   >
                     <FaEnvelope className="text-xs" />
                     {t('contact.email')}

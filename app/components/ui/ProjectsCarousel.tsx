@@ -179,8 +179,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
     >
       {/* ── MAIN CARD ── */}
       <div
-        className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${theme.bg}`}
-        style={{ height: 520 }}
+        className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${theme.bg} h-auto min-h-[460px] md:h-[520px]`}
       >
         {/* Ambient glow */}
         <div className="pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full blur-[120px] transition-colors duration-1000" style={{ background: theme.accentMuted, opacity: 0.5 }} />
@@ -191,7 +190,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
         <div className={`relative h-full ${hasShots ? 'grid lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_420px]' : 'flex'}`}>
 
           {/* ── LEFT: INFO ── */}
-          <div className="flex h-full flex-col overflow-hidden p-8 lg:p-10">
+          <div className="flex h-full flex-col overflow-hidden p-5 sm:p-8 lg:p-10">
             <AnimatePresence custom={dir} mode="wait">
               <motion.div
                 key={`content-${idx}`}
@@ -200,7 +199,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="flex min-h-0 flex-1 flex-col gap-3"
+                className="flex flex-col gap-3"
               >
                 {/* Badge row */}
                 <div className="flex flex-shrink-0 items-center gap-3">
@@ -258,10 +257,10 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
 
             {/* Controls — always at bottom */}
             <div className="mt-4 flex flex-shrink-0 items-center gap-3">
-              <button onClick={prev} aria-label="Prev" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.05] text-white/50 transition-all hover:border-white/25 hover:text-white">
+              <button onClick={prev} aria-label="Prev" className="flex h-10 w-10 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.05] text-white/50 transition-all hover:border-white/25 hover:text-white">
                 <FaArrowLeft className="text-[11px]" />
               </button>
-              <button onClick={next} aria-label="Next" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.05] text-white/50 transition-all hover:border-white/25 hover:text-white">
+              <button onClick={next} aria-label="Next" className="flex h-10 w-10 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.05] text-white/50 transition-all hover:border-white/25 hover:text-white">
                 <FaArrowRight className="text-[11px]" />
               </button>
               {project.link && (
@@ -343,7 +342,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
               key={p.title}
               ref={active ? activeTabRef : undefined}
               onClick={() => goTo(i, i > idx ? 1 : -1)}
-              className="group relative flex-shrink-0 rounded-xl px-4 py-3 text-left transition-all duration-200"
+              className="group relative flex-shrink-0 rounded-xl px-4 py-3 min-h-[44px] text-left transition-all duration-200"
             >
               {active && (
                 <motion.div

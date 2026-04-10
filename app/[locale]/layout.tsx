@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -8,6 +8,11 @@ import Footer from '../components/layout/Footer'
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export const metadata: Metadata = {
