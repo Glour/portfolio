@@ -173,7 +173,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
       {/* ── MAIN CARD ── */}
       <div
         className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${theme.bg}`}
-        style={{ height: 520 }}
+        style={{ minHeight: 480, height: 'auto' }}
       >
         {/* Ambient glow */}
         <div className="pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full blur-[120px] transition-colors duration-1000" style={{ background: theme.accentMuted, opacity: 0.5 }} />
@@ -181,10 +181,10 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
         <div className="pointer-events-none absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.5) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
 
         {/* Grid layout: left text + right screenshots (only when exist) */}
-        <div className={`relative h-full ${hasShots ? 'grid lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_340px]' : 'flex'}`}>
+        <div className={`relative ${hasShots ? 'grid lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_340px]' : 'flex'}`}>
 
           {/* ── LEFT: INFO ── */}
-          <div className="flex h-full flex-col justify-between overflow-hidden p-8 md:p-10 lg:p-12">
+          <div className="flex flex-col justify-between overflow-hidden p-8 md:p-10 lg:p-12">
             <AnimatePresence custom={dir} mode="wait">
               <motion.div
                 key={`content-${idx}`}
@@ -232,29 +232,17 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
 
                 {/* Tech */}
                 <div className="flex flex-wrap gap-1.5">
-                  {project.tech.slice(0, hasShots ? 6 : 12).map(t => (
+                  {project.tech.slice(0, hasShots ? 6 : 8).map(t => (
                     <span key={t} className="rounded-full border border-white/[0.10] bg-black/30 px-3 py-1 text-[11px] font-medium text-white/60">
                       {t}
                     </span>
                   ))}
+                  {!hasShots && project.tech.length > 8 && (
+                    <span className="rounded-full border border-white/[0.08] bg-black/20 px-3 py-1 text-[11px] text-white/35">
+                      +{project.tech.length - 8}
+                    </span>
+                  )}
                 </div>
-
-                {/* Architecture strip for backend projects */}
-                {!hasShots && project.tech.length > 2 && (
-                  <div className="rounded-xl border border-white/[0.07] p-4" style={{ background: `rgba(${theme.accentRgb}, 0.05)` }}>
-                    <p className="mb-2.5 font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase">Stack</p>
-                    <div className="flex flex-wrap items-center gap-2">
-                      {project.tech.slice(0, 7).map((t, i, arr) => (
-                        <span key={t} className="flex items-center gap-2">
-                          <span className="rounded-md px-2.5 py-1 font-mono text-[11px] font-medium" style={{ background: `rgba(${theme.accentRgb}, 0.12)`, color: theme.accent }}>
-                            {t}
-                          </span>
-                          {i < arr.length - 1 && <span className="text-white/20 text-[10px]">→</span>}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </motion.div>
             </AnimatePresence>
 
@@ -285,7 +273,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
 
           {/* ── RIGHT: TWO SCREENSHOTS STACKED ── */}
           {hasShots && (
-            <div className="hidden lg:flex border-l border-white/[0.06] p-5 flex-col gap-3">
+            <div className="hidden lg:flex border-l border-white/[0.06] p-5 flex-col gap-3" style={{ minHeight: 480 }}>
               <AnimatePresence custom={dir} mode="wait">
                 <motion.div
                   key={`shots-${idx}`}
@@ -297,29 +285,26 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
                   className="flex flex-col gap-3 h-full"
                 >
                   {/* Screenshot 1 */}
-                  <div className="relative flex-1 overflow-hidden rounded-xl" style={{ boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.08)' }}>
+                  <div className="relative flex-1 overflow-hidden rounded-xl" style={{ background: 'rgba(0,0,0,0.3)', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.08)' }}>
                     <img
                       src={shots[0]}
                       alt="Screenshot 1"
-                      className="w-full h-full object-cover object-top"
-                      style={{ opacity: 0.9 }}
+                      className="absolute inset-0 w-full h-full object-contain object-top"
+                      style={{ opacity: 0.92 }}
                       draggable={false}
                     />
-                    {/* Bottom fade */}
-                    <div className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.35) 100%)' }} />
                   </div>
 
                   {/* Screenshot 2 — only if exists */}
                   {shots[1] && (
-                    <div className="relative flex-1 overflow-hidden rounded-xl" style={{ boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.08)' }}>
+                    <div className="relative flex-1 overflow-hidden rounded-xl" style={{ background: 'rgba(0,0,0,0.3)', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.08)' }}>
                       <img
                         src={shots[1]}
                         alt="Screenshot 2"
-                        className="w-full h-full object-cover object-top"
-                        style={{ opacity: 0.9 }}
+                        className="absolute inset-0 w-full h-full object-contain object-top"
+                        style={{ opacity: 0.92 }}
                         draggable={false}
                       />
-                      <div className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.35) 100%)' }} />
                     </div>
                   )}
                 </motion.div>
