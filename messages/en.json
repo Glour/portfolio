@@ -207,6 +207,22 @@
       "screenshots": ["/screenshots/fpv40-campus-1.png", "/screenshots/fpv40-campus-2.png"]
     },
     {
+      "title": "Signal.FPV40 — LMS for UAS Operators",
+      "role": "Full-stack Developer / Platform Architect",
+      "category": "fullstack",
+      "description": "Educational platform for training Unmanned Aircraft System (UAS) operators. 15+ modules, interactive lessons, quizzes, progress dashboard, and role-based access control.",
+      "features": [
+        "15+ learning modules: from UAS introduction to flight controller programming",
+        "Interactive lessons with video, quizzes and progress tracking",
+        "Role model: student, instructor, administrator",
+        "Dashboard with UAV market analytics and progress statistics"
+      ],
+      "tech": ["Next.js", "FastAPI", "PostgreSQL", "Redis", "Docker", "Nginx"],
+      "period": "2025–2026",
+      "highlight": true,
+      "screenshots": ["/screenshots/signal-fpv40-1.png", "/screenshots/signal-fpv40-2.png"]
+    },
+    {
       "title": "FPV40.ru — Corporate Website for Pilot School",
       "role": "Full-stack Developer",
       "category": "fullstack",

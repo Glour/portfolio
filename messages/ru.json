@@ -207,6 +207,22 @@
       "screenshots": ["/screenshots/fpv40-campus-1.png", "/screenshots/fpv40-campus-2.png"]
     },
     {
+      "title": "Signal.FPV40 — LMS для операторов БАС",
+      "role": "Full-stack Developer / Platform Architect",
+      "category": "fullstack",
+      "description": "Образовательная платформа для обучения операторов беспилотных авиационных систем (БАС). 15+ модулей, интерактивные уроки, тесты, дашборд прогресса, ролевая модель доступа.",
+      "features": [
+        "15+ учебных модулей: от введения в систему БАС до программирования FC",
+        "Интерактивные уроки с видео, тестами и отслеживанием прогресса",
+        "Ролевая модель: ученик, инструктор, администратор",
+        "Дашборд с аналитикой рынка БПЛА и статистикой прогресса"
+      ],
+      "tech": ["Next.js", "FastAPI", "PostgreSQL", "Redis", "Docker", "Nginx"],
+      "period": "2025–2026",
+      "highlight": true,
+      "screenshots": ["/screenshots/signal-fpv40-1.png", "/screenshots/signal-fpv40-2.png"]
+    },
+    {
       "title": "FPV40.ru — Корпоративный сайт школы пилотов",
       "role": "Full-stack Developer",
       "category": "fullstack",
