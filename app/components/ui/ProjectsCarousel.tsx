@@ -31,11 +31,10 @@ const THEMES: Record<string, {
 const DEFAULT_THEME = THEMES.ai;
 const AUTO_MS = 6000;
 
-/* ── 3D Screenshot Gallery ─────────────────────────────────────── */
+/* ── Screenshot panel (top-right inset) ───────────────────────── */
 function ScreenshotGallery({
   screenshots,
   accent,
-  accentRgb,
 }: {
   screenshots: string[];
   accent: string;
@@ -44,113 +43,43 @@ function ScreenshotGallery({
   const [active, setActive] = useState(0);
   const total = screenshots.length;
 
-  const goNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setActive(i => (i + 1) % total);
-  };
-  const goPrev = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setActive(i => (i - 1 + total) % total);
-  };
-
-  // Positions for stacked 3D look: front, mid-right, back-right
-  const getTransform = (offset: number) => {
-    // offset: 0=front, 1=next, 2=after that, etc.
-    const o = ((offset % total) + total) % total;
-    if (o === 0) return { x: 0, y: 0, scale: 1, rotate: 0, zIndex: 30, opacity: 1 };
-    if (o === 1) return { x: 28, y: -12, scale: 0.91, rotate: 2, zIndex: 20, opacity: 0.65 };
-    if (o === 2) return { x: 48, y: -22, scale: 0.83, rotate: 4, zIndex: 10, opacity: 0.35 };
-    return { x: 60, y: -28, scale: 0.76, rotate: 6, zIndex: 5, opacity: 0.15 };
-  };
-
   return (
-    <div className="relative flex flex-col h-full" style={{ padding: '12px 16px 0' }}>
-      {/* Stack container */}
-      <div className="relative flex-1" style={{ perspective: '900px', minHeight: 180 }}>
-        {screenshots.map((src, i) => {
-          const offset = (i - active + total) % total;
-          const t = getTransform(offset);
-          return (
-            <motion.div
-              key={src}
-              animate={{
-                x: t.x,
-                y: t.y,
-                scale: t.scale,
-                rotate: t.rotate,
-                opacity: t.opacity,
-                zIndex: t.zIndex,
-              }}
-              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-              style={{
-                position: 'absolute',
-                inset: 0,
-                cursor: offset === 0 ? 'default' : 'pointer',
-                transformOrigin: 'left center',
-              }}
-              onClick={offset === 0 ? undefined : (e) => { e.stopPropagation(); setActive(i); }}
-            >
-              <div
-                className="relative h-full w-full overflow-hidden rounded-xl"
-                style={{ boxShadow: offset === 0 ? `0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08)` : '0 4px 16px rgba(0,0,0,0.3)' }}
-              >
-                <img
-                  src={src}
-                  alt={`Screenshot ${i + 1}`}
-                  className="w-full h-full object-cover object-top"
-                  style={{ opacity: offset === 0 ? 0.9 : 0.7 }}
-                  draggable={false}
-                />
-                {/* Bottom fade */}
-                {offset === 0 && (
-                  <div
-                    className="pointer-events-none absolute inset-0"
-                    style={{
-                      background: `linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.45) 100%)`,
-                    }}
-                  />
-                )}
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
+    <div className="relative h-full w-full overflow-hidden" style={{ borderRadius: '0 16px 0 16px' }}>
+      {/* Slides */}
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={screenshots[active]}
+          src={screenshots[active]}
+          alt={`Screenshot ${active + 1}`}
+          initial={{ opacity: 0, scale: 1.03 }}
+          animate={{ opacity: 0.88, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.98 }}
+          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          className="absolute inset-0 h-full w-full object-cover object-top"
+          draggable={false}
+        />
+      </AnimatePresence>
 
-      {/* Controls */}
+      {/* Bottom-left dots — only if multiple */}
       {total > 1 && (
-        <div className="flex items-center justify-between pt-3 pb-1">
-          {/* Dots */}
-          <div className="flex gap-1.5">
-            {screenshots.map((_, i) => (
-              <button
-                key={i}
-                onClick={e => { e.stopPropagation(); setActive(i); }}
-                className="rounded-full transition-all duration-200"
-                style={{
-                  width: i === active ? 18 : 5,
-                  height: 5,
-                  background: i === active ? accent : 'rgba(255,255,255,0.2)',
-                }}
-              />
-            ))}
-          </div>
-          {/* Arrows */}
-          <div className="flex gap-1.5">
+        <div className="absolute bottom-3 left-3 flex gap-1 z-10">
+          {screenshots.map((_, i) => (
             <button
-              onClick={goPrev}
-              className="flex h-7 w-7 items-center justify-center rounded-full border border-white/[0.10] bg-black/30 text-white/50 transition-all hover:text-white"
-            >
-              <FaArrowLeft className="text-[9px]" />
-            </button>
-            <button
-              onClick={goNext}
-              className="flex h-7 w-7 items-center justify-center rounded-full border border-white/[0.10] bg-black/30 text-white/50 transition-all hover:text-white"
-            >
-              <FaArrowRight className="text-[9px]" />
-            </button>
-          </div>
+              key={i}
+              onClick={e => { e.stopPropagation(); setActive(i); }}
+              className="rounded-full transition-all duration-200"
+              style={{
+                width: i === active ? 14 : 4,
+                height: 4,
+                background: i === active ? accent : 'rgba(255,255,255,0.35)',
+              }}
+            />
+          ))}
         </div>
       )}
+
+      {/* Subtle border */}
+      <div className="pointer-events-none absolute inset-0" style={{ borderRadius: '0 16px 0 16px', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.10)' }} />
     </div>
   );
 }
@@ -309,11 +238,37 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
         {/* Grid overlay */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.02]" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.5) 1px,transparent 1px)`, backgroundSize: '48px 48px' }} />
 
-        {/* Layout: text always left, screenshot panel only when screenshots exist */}
-        <div className={`relative grid h-full ${hasShots ? 'lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_440px]' : ''}`}>
+        {/* Screenshot — absolute, top-right quarter */}
+        {hasShots && (
+          <div className="pointer-events-none absolute right-0 top-0 hidden lg:block" style={{ width: '36%', height: '58%', zIndex: 2 }}>
+            <AnimatePresence custom={dir} mode="wait">
+              <motion.div
+                key={`gallery-${idx}`}
+                custom={dir}
+                variants={visualVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="pointer-events-auto h-full w-full"
+              >
+                <ScreenshotGallery
+                  screenshots={project.screenshots!}
+                  accent={theme.accent}
+                  accentRgb={theme.accentRgb}
+                />
+              </motion.div>
+            </AnimatePresence>
+            {/* Fades to blend with card */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-20" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.6), transparent)' }} />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16" style={{ background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.5))' }} />
+          </div>
+        )}
 
-          {/* ── LEFT: PROJECT INFO ── */}
-          <div className="flex flex-col justify-between overflow-hidden p-8 md:p-10 lg:p-12">
+        {/* Layout: full-width text always */}
+        <div className="relative h-full">
+
+          {/* ── PROJECT INFO ── */}
+          <div className={`flex h-full flex-col justify-between overflow-hidden p-8 md:p-10 lg:p-12 ${hasShots ? 'lg:pr-[42%]' : ''}`}>
             <AnimatePresence custom={dir} mode="wait">
               <motion.div
                 key={`content-${idx}`}
@@ -399,28 +354,6 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
             </div>
           </div>
 
-          {/* ── RIGHT: SCREENSHOT GALLERY (only if has screenshots) ── */}
-          {hasShots && (
-            <div className="hidden lg:flex flex-col border-l border-white/[0.06]">
-              <AnimatePresence custom={dir} mode="wait">
-                <motion.div
-                  key={`gallery-${idx}`}
-                  custom={dir}
-                  variants={visualVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  className="h-full"
-                >
-                  <ScreenshotGallery
-                    screenshots={project.screenshots!}
-                    accent={theme.accent}
-                    accentRgb={theme.accentRgb}
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          )}
         </div>
 
         {/* Progress bar */}
