@@ -179,7 +179,7 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
     >
       {/* ── MAIN CARD ── */}
       <div
-        className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${theme.bg} h-auto min-h-[460px] md:h-[520px]`}
+        className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${theme.bg} h-auto min-h-[520px] md:h-[520px]`}
       >
         {/* Ambient glow */}
         <div className="pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full blur-[120px] transition-colors duration-1000" style={{ background: theme.accentMuted, opacity: 0.5 }} />
@@ -220,9 +220,29 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
                 </div>
 
                 {/* Description */}
-                <p className="flex-shrink-0 line-clamp-2 text-[0.82rem] leading-[1.65] text-white/65 max-w-lg">
+                <p className="flex-shrink-0 text-[0.82rem] leading-[1.65] text-white/65 max-w-lg sm:line-clamp-2">
                   {project.description}
                 </p>
+
+                {/* Mobile screenshots */}
+                {hasShots && (
+                  <div className="-mx-1 flex gap-3 overflow-x-auto px-1 py-2 lg:hidden" style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" } as React.CSSProperties}>
+                    {shots.map((shot, shotIdx) => (
+                      <div
+                        key={shot}
+                        className="relative aspect-[16/10] min-h-[190px] w-[min(82vw,320px)] min-w-[min(82vw,320px)] snap-center overflow-hidden rounded-xl border border-white/10 bg-black/30 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
+                      >
+                        <img
+                          src={shot}
+                          alt={`Screenshot ${shotIdx + 1}`}
+                          className="absolute inset-0 h-full w-full object-contain object-top"
+                          style={{ opacity: 0.96 }}
+                          draggable={false}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {/* Features */}
                 {project.features && project.features.length > 0 && (
