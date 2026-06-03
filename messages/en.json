@@ -68,7 +68,24 @@
       "blockchain": "Blockchain",
       "fullstack": "Fullstack",
       "automation": "Automation"
-    }
+    },
+    "backToProjects": "Back to all projects",
+    "openProject": "Open project",
+    "caseStudy": "View case study",
+    "gallery": "Project gallery",
+    "gallerySubtitle": "All available screens and visual materials for this project.",
+    "overview": "Overview",
+    "whatBuilt": "What was built",
+    "stack": "Stack",
+    "externalProject": "Open website",
+    "screenshots": "Screenshots",
+    "noScreenshots": "This project does not have public screenshots yet. Details are shown through the description, stack, and key tasks.",
+    "previousShot": "Previous screenshot",
+    "nextShot": "Next screenshot",
+    "closeGallery": "Close gallery",
+    "openFullSize": "Open large view",
+    "relatedProjects": "Related projects",
+    "projectMeta": "Project profile"
   },
   "skills": {
     "title": "Skills & Competencies",
@@ -216,8 +233,12 @@
       "highlight": true,
       "screenshots": [
         "/screenshots/fpv40-campus-2.png",
-        "/screenshots/fpv40-campus-1.png"
-      ]
+        "/screenshots/fpv40-campus-1.png",
+        "/screenshots/fpv40-campus-live-01.png",
+        "/screenshots/fpv40-campus-live-02.png",
+        "/screenshots/fpv40-campus-live-03.png"
+      ],
+      "slug": "fpv40-campus"
     },
     {
       "title": "Signal.FPV40 — LMS for UAS Operators",
@@ -243,7 +264,8 @@
       "screenshots": [
         "/screenshots/signal-fpv40-1.png",
         "/screenshots/signal-fpv40-2.png"
-      ]
+      ],
+      "slug": "signal-fpv40"
     },
     {
       "title": "FPV40.ru — Corporate Website for Pilot School",
@@ -269,8 +291,12 @@
       "highlight": true,
       "screenshots": [
         "/screenshots/fpv40-ru-2.png",
-        "/screenshots/fpv40-ru-1.png"
-      ]
+        "/screenshots/fpv40-ru-1.png",
+        "/screenshots/fpv40-ru-live-01.png",
+        "/screenshots/fpv40-ru-live-02.png",
+        "/screenshots/fpv40-ru-live-03.png"
+      ],
+      "slug": "fpv40-ru"
     },
     {
       "title": "Viably — AI Product Platform",
@@ -299,8 +325,13 @@
       "link": "https://viably.dev",
       "highlight": true,
       "screenshots": [
-        "/screenshots/viably-1.png"
-      ]
+        "/screenshots/viably-1.png",
+        "/screenshots/viably-2.png",
+        "/screenshots/viably-live-01.png",
+        "/screenshots/viably-live-02.png",
+        "/screenshots/viably-live-03.png"
+      ],
+      "slug": "viably"
     },
     {
       "title": "AI Dev Office - AI agent command center",
@@ -331,8 +362,14 @@
       "screenshots": [
         "/screenshots/ai-dev-office-01.png",
         "/screenshots/ai-dev-office-02.png",
-        "/screenshots/ai-dev-office-03.png"
-      ]
+        "/screenshots/ai-dev-office-03.png",
+        "/screenshots/ai-dev-office-04.png",
+        "/screenshots/ai-dev-office-05.png",
+        "/screenshots/ai-dev-office-06.png",
+        "/screenshots/ai-dev-office-07.png",
+        "/screenshots/ai-dev-office-08.png"
+      ],
+      "slug": "ai-dev-office"
     },
     {
       "title": "whynotai Telegram Agents - Telegram AI agents platform",
@@ -366,7 +403,48 @@
       "screenshots": [
         "/screenshots/whynotai-01.png",
         "/screenshots/whynotai-02.png",
-        "/screenshots/whynotai-04.png"
+        "/screenshots/whynotai-04.png",
+        "/screenshots/whynotai-03.png",
+        "/screenshots/whynotai-05.png",
+        "/screenshots/whynotai-06.png",
+        "/screenshots/whynotai-platform-live-01.png",
+        "/screenshots/whynotai-platform-live-02.png",
+        "/screenshots/whynotai-platform-live-03.png"
+      ],
+      "slug": "whynotai-telegram-agents"
+    },
+    {
+      "slug": "whynotai-studio",
+      "title": "WhyNotAI Studio — Public AI Studio Landing Page",
+      "role": "Product Engineer / Frontend Developer / AI Studio Owner",
+      "category": "ai",
+      "description": "A public website for a practical AI studio: a premium dark landing page with clear positioning, service blocks, implementation method, use cases, and a consultation request form. The site explains AI audits, AI agents, and team training in plain language and leads visitors toward a first conversation.",
+      "features": [
+        "Hero section with clear positioning, consultation CTA, and a futuristic AI visual",
+        "Landing structure: studio overview, services, method, use cases, final CTA, and request form",
+        "Premium dark visual system with large typography, gold accent, fine lines, and calm studio tone",
+        "Consultative funnel without aggressive selling: visitors understand what they can bring and what happens next",
+        "Dedicated consultation page with name, contact, topic, and task description fields"
+      ],
+      "tech": [
+        "HTML",
+        "CSS",
+        "Responsive UI",
+        "UX writing",
+        "Nginx",
+        "Landing page"
+      ],
+      "period": "2026",
+      "link": "https://whynotai.ru",
+      "highlight": true,
+      "screenshots": [
+        "/screenshots/whynotai-studio-01.png",
+        "/screenshots/whynotai-studio-02.png",
+        "/screenshots/whynotai-studio-03.png",
+        "/screenshots/whynotai-studio-04.png",
+        "/screenshots/whynotai-studio-05.png",
+        "/screenshots/whynotai-studio-06.png",
+        "/screenshots/whynotai-studio-07.png"
       ]
     },
     {
@@ -400,10 +478,14 @@
       "highlight": true,
       "screenshots": [
         "/screenshots/ai-office-x-one-01.png",
+        "/screenshots/ai-office-x-one-02.png",
         "/screenshots/ai-office-x-one-03.png",
-        "/screenshots/ai-office-x-one-07.png",
-        "/screenshots/ai-office-x-one-06.png"
-      ]
+        "/screenshots/ai-office-x-one-04.png",
+        "/screenshots/ai-office-x-one-05.png",
+        "/screenshots/ai-office-x-one-06.png",
+        "/screenshots/ai-office-x-one-07.png"
+      ],
+      "slug": "ai-office-x-one"
     },
     {
       "title": "Transoff AI Sales QA Platform - call quality control",
@@ -435,11 +517,14 @@
       "highlight": true,
       "screenshots": [
         "/screenshots/transoff-ai-sales-qa-01.png",
+        "/screenshots/transoff-ai-sales-qa-02.png",
         "/screenshots/transoff-ai-sales-qa-03.png",
         "/screenshots/transoff-ai-sales-qa-04.png",
         "/screenshots/transoff-ai-sales-qa-05.png",
+        "/screenshots/transoff-ai-sales-qa-06.png",
         "/screenshots/transoff-ai-sales-qa-07.png"
-      ]
+      ],
+      "slug": "transoff-ai-sales-qa"
     },
     {
       "title": "HeadHunter CRM Agent - job search and application agent",
@@ -467,7 +552,8 @@
         "LLM drafting"
       ],
       "period": "2026",
-      "highlight": true
+      "highlight": true,
+      "slug": "headhunter-crm-agent"
     },
     {
       "title": "Vibegent — Multi-tenant AI Agent Platform",
@@ -496,8 +582,12 @@
       "highlight": true,
       "screenshots": [
         "/screenshots/vibegent-1.png",
-        "/screenshots/vibegent-2.png"
-      ]
+        "/screenshots/vibegent-2.png",
+        "/screenshots/vibegent-live-01.png",
+        "/screenshots/vibegent-live-02.png",
+        "/screenshots/vibegent-live-03.png"
+      ],
+      "slug": "vibegent"
     },
     {
       "title": "vibegent-proxy — LLM Infrastructure Layer",
@@ -520,7 +610,8 @@
         "Docker"
       ],
       "period": "2025–2026",
-      "highlight": true
+      "highlight": true,
+      "slug": "vibegent-proxy"
     },
     {
       "title": "Agent Cloud — Hetzner Deploy Infrastructure",
@@ -543,7 +634,8 @@
         "FastAPI"
       ],
       "period": "2025–2026",
-      "highlight": true
+      "highlight": true,
+      "slug": "agent-cloud-hetzner"
     },
     {
       "title": "OpenClaw — Agent Runtime Operations",
@@ -566,7 +658,8 @@
         "Telegram Bot API"
       ],
       "period": "2025–2026",
-      "highlight": true
+      "highlight": true,
+      "slug": "openclaw-runtime-operations"
     },
     {
       "title": "ChainAlert - Blockchain Transaction Monitoring",
@@ -597,7 +690,8 @@
       ],
       "period": "2.5 weeks",
       "budget": "MVP project",
-      "highlight": true
+      "highlight": true,
+      "slug": "chainalert"
     },
     {
       "title": "Telegram Chat Analyzer - AI Portfolio Generator",
@@ -622,7 +716,8 @@
         "Markdown generation",
         "asyncio"
       ],
-      "highlight": true
+      "highlight": true,
+      "slug": "telegram-chat-analyzer"
     },
     {
       "title": "Crypto Arbitrage Platform",
@@ -648,7 +743,8 @@
         "Prometheus",
         "Grafana"
       ],
-      "highlight": true
+      "highlight": true,
+      "slug": "crypto-arbitrage-platform"
     },
     {
       "title": "Auto Trading Bot",
@@ -670,7 +766,8 @@
         "PostgreSQL",
         "Telegram Bot API"
       ],
-      "highlight": true
+      "highlight": true,
+      "slug": "auto-trading-bot"
     },
     {
       "title": "ChatGPT Telegram Bot (@AI_apps_bot)",
@@ -693,7 +790,8 @@
         "YooKassa",
         "UnitPay",
         "Telegram Stars"
-      ]
+      ],
+      "slug": "ai-apps-telegram-bot"
     },
     {
       "title": "MEXC Trade Synchronizer",
@@ -715,7 +813,8 @@
         "Proxy"
       ],
       "period": "2 months",
-      "highlight": true
+      "highlight": true,
+      "slug": "mexc-trade-synchronizer"
     },
     {
       "title": "Magnet - Dating/Networking Mini App",
@@ -740,7 +839,8 @@
         "Docker",
         "Nginx"
       ],
-      "highlight": true
+      "highlight": true,
+      "slug": "magnet-mini-app"
     },
     {
       "title": "BOP (Battle of Planets)",
@@ -765,7 +865,8 @@
         "JWT",
         "CI/CD"
       ],
-      "period": "2 months"
+      "period": "2 months",
+      "slug": "battle-of-planets"
     },
     {
       "title": "GOST AI Assistant (GostAssistent.ru)",
@@ -788,7 +889,8 @@
         "Gemma 2",
         "Python"
       ],
-      "highlight": true
+      "highlight": true,
+      "slug": "gost-assistant"
     },
     {
       "title": "Sqrow Idle - Eco-friendly Mining",
@@ -809,7 +911,8 @@
         "Full-featured backend for bot and web app",
         "RESTful API development",
         "Unique protection systems implemented"
-      ]
+      ],
+      "slug": "sqrow-idle"
     },
     {
       "title": "Rhyme Generation Web Service",
@@ -830,7 +933,8 @@
         "7+ API integration",
         "Parsing ~4000 quatrains",
         "Similar line search system"
-      ]
+      ],
+      "slug": "rhyme-generator"
     },
     {
       "title": "Radugadesign Brief Bot",
@@ -847,7 +951,8 @@
       "features": [
         "Full automation of request intake with validation",
         "CRM and notification integration"
-      ]
+      ],
+      "slug": "radugadesign-brief-bot"
     },
     {
       "title": "Wildberries Description Generator",
@@ -864,7 +969,8 @@
         "Migration to new API versions",
         "Blocking issue resolution",
         "Cost optimization"
-      ]
+      ],
+      "slug": "wildberries-description-generator"
     },
     {
       "title": "Sqrow Chain (Blockchain)",
@@ -881,7 +987,8 @@
       "features": [
         "Web3/blockchain learning from scratch",
         "Chain architecture development"
-      ]
+      ],
+      "slug": "sqrow-chain"
     },
     {
       "title": "Generative Gallery Bot (Rotor Reviews)",
@@ -897,7 +1004,8 @@
       "features": [
         "Voting-based moderation system",
         "Data visualization"
-      ]
+      ],
+      "slug": "generative-gallery-bot"
     },
     {
       "title": "@techgenai - Autonomous Neural Network",
@@ -912,7 +1020,8 @@
       ],
       "features": [
         "Fully autonomous system without human intervention"
-      ]
+      ],
+      "slug": "techgenai"
     },
     {
       "title": "Fine-tuned ML Models",
@@ -926,7 +1035,8 @@
       ],
       "features": [
         "Model fine-tuning for specific tasks"
-      ]
+      ],
+      "slug": "fine-tuned-ml-models"
     },
     {
       "title": "Traffaldino Bot",
@@ -939,7 +1049,8 @@
       ],
       "features": [
         "Subscription verification and event system implementation"
-      ]
+      ],
+      "slug": "traffaldino-bot"
     },
     {
       "title": "Geymonitor Game Bot",
@@ -953,7 +1064,8 @@
       "features": [
         "Rapid development (several days)",
         "Personalized results"
-      ]
+      ],
+      "slug": "geymonitor-game-bot"
     },
     {
       "title": "Monitoring and Reporting System",
@@ -969,7 +1081,8 @@
       "features": [
         "Service operation control automation",
         "Early problem detection"
-      ]
+      ],
+      "slug": "monitoring-reporting-system"
     },
     {
       "title": "API Abuse Protection",
@@ -985,7 +1098,8 @@
       "features": [
         "Unauthorized API usage prevention",
         "Budget overrun prevention"
-      ]
+      ],
+      "slug": "api-abuse-protection"
     },
     {
       "title": "CRM Integrations",
@@ -1001,7 +1115,8 @@
       ],
       "features": [
         "Successful integration with Bitrix24 and AmoCRM"
-      ]
+      ],
+      "slug": "crm-integrations"
     },
     {
       "title": "Advertising Bot Assistant",
@@ -1016,7 +1131,8 @@
       ],
       "features": [
         "Complex statistics and analytics system implementation"
-      ]
+      ],
+      "slug": "advertising-bot-assistant"
     },
     {
       "title": "Delivery Bot (@rs_dostavka_bot)",
@@ -1031,7 +1147,8 @@
       "features": [
         "Routing and architecture issue identification",
         "Optimization solution proposals"
-      ]
+      ],
+      "slug": "delivery-bot-rs"
     }
   ]
 }

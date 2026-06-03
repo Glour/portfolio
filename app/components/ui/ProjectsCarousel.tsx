@@ -2,9 +2,12 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
 import { FaArrowLeft, FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
 
 interface Project {
+  slug?: string;
   title: string;
   role: string;
   description: string;
@@ -44,6 +47,9 @@ const shotsVariants = {
 };
 
 export default function ProjectsCarousel({ featured, all }: { featured: Project[]; all: Project[] }) {
+  const locale = useLocale();
+  const isRu = locale === 'ru';
+
   const allOrdered = [
     ...(featured.length ? featured : all),
   ];
@@ -279,6 +285,16 @@ export default function ProjectsCarousel({ featured, all }: { featured: Project[
               <button onClick={next} aria-label="Next" className="flex h-10 w-10 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.05] text-white/50 transition-all hover:border-white/25 hover:text-white">
                 <FaArrowRight className="text-[11px]" />
               </button>
+              {project.slug && (
+                <Link
+                  href={`/${locale}/projects/${project.slug}`}
+                  onClick={e => e.stopPropagation()}
+                  className="ml-1 inline-flex items-center gap-2 rounded-full border border-primary-400/30 bg-primary-400/10 px-5 py-2 text-xs font-semibold text-primary-300 transition-all hover:border-primary-400/45 hover:bg-primary-400/15 hover:text-primary-200"
+                >
+                  {isRu ? 'Кейс' : 'Case study'}
+                  <FaArrowRight className="text-[9px]" />
+                </Link>
+              )}
               {project.link && (
                 <a
                   href={project.link} target="_blank" rel="noopener noreferrer"
