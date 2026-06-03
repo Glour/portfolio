@@ -43,11 +43,13 @@ function FloatingSkill({ text, position, color }: FloatingSkillProps) {
 
 export default function SkillsScene() {
   const skills = [
-    { text: 'Python', position: [-2, 0, 0] as [number, number, number], color: '#0ea5e9' },
-    { text: 'FastAPI', position: [0, 1, -1] as [number, number, number], color: '#a855f7' },
-    { text: 'PostgreSQL', position: [2, -0.5, 0] as [number, number, number], color: '#ec4899' },
-    { text: 'Docker', position: [-1, -1, 1] as [number, number, number], color: '#10b981' },
-    { text: 'Redis', position: [1, 1, 1] as [number, number, number], color: '#f59e0b' },
+    { text: 'Python', position: [-2.4, 0.4, 0] as [number, number, number], color: '#0ea5e9' },
+    { text: 'FastAPI', position: [-0.8, 1.1, -0.8] as [number, number, number], color: '#38bdf8' },
+    { text: 'PostgreSQL', position: [1.4, 0.7, 0.2] as [number, number, number], color: '#ec4899' },
+    { text: 'AI Agents', position: [2.6, -0.4, -0.6] as [number, number, number], color: '#a855f7' },
+    { text: 'Telegram', position: [-1.7, -1.0, 0.8] as [number, number, number], color: '#60a5fa' },
+    { text: 'Docker', position: [0.2, -1.25, 0.5] as [number, number, number], color: '#f59e0b' },
+    { text: 'Next.js', position: [1.8, -1.1, 1] as [number, number, number], color: '#fb923c' },
   ];
 
   return (

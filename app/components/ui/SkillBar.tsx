@@ -9,12 +9,17 @@ interface SkillBarProps {
 }
 
 export default function SkillBar({ skill, index }: SkillBarProps) {
-  const categoryColors = {
+  const categoryColors: Record<Skill['category'], string> = {
     languages: 'from-primary-500 to-primary-600',
-    frameworks: 'from-accent-500 to-accent-600',
+    backend: 'from-sky-500 to-cyan-500',
+    ai: 'from-accent-500 to-accent-600',
+    telegram: 'from-blue-500 to-sky-500',
+    frontend: 'from-orange-500 to-amber-500',
     databases: 'from-pink-500 to-pink-600',
+    devops: 'from-amber-500 to-yellow-500',
+    cloud: 'from-emerald-500 to-teal-500',
     tools: 'from-green-500 to-green-600',
-    devops: 'from-amber-500 to-amber-600',
+    blockchain: 'from-purple-500 to-violet-500',
   };
 
   return (

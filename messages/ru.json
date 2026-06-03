@@ -10,7 +10,7 @@
   "hero": {
     "greeting": "Привет, я",
     "title": "Backend-инженер / Tech Lead / AI Engineer",
-    "subtitle": "Backend-инженер и Tech Lead, строящий AI-платформы, агентные системы и Telegram-продукты, которые выдерживают production",
+    "subtitle": "Backend-инженер и Tech Lead: Python/FastAPI, AI-агенты, Telegram-продукты, SaaS-кабинеты и production-инфраструктура",
     "description": "Проектирую backend-продукты, которые выглядят просто, работают быстро и выдерживают реальную нагрузку.",
     "location": "Remote",
     "viewProjects": "Смотреть проекты",
@@ -26,7 +26,7 @@
   },
   "techStack": {
     "title": "Технический стек",
-    "subtitle": "Технологии и инструменты, с которыми я работаю",
+    "subtitle": "Мой рабочий стек по backend, AI, Telegram, frontend, инфраструктуре и интеграциям",
     "languages": "Языки программирования",
     "backend": "Backend",
     "ai": "AI/ML",
@@ -97,87 +97,103 @@
       "Telegram Ecosystem": "Экосистема Telegram",
       "AI Platform & Agents": "AI-платформы & Агенты",
       "DevOps & Infrastructure": "DevOps & Инфраструктура",
-      "Blockchain": "Blockchain"
+      "Blockchain": "Blockchain",
+      "Frontend / Product UI": "Frontend и интерфейсы",
+      "Data & Automation": "Данные и автоматизация"
     }
   },
   "keySkills": [
     {
       "category": "Backend Development",
       "skills": [
-        "Python Web Development (FastAPI, Flask)",
-        "REST API Design & Architecture",
-        "Микросервисная архитектура",
-        "Асинхронное программирование (asyncio)",
-        "Database Design & Optimization",
-        "WebSocket & Real-time системы",
-        "Authentication & Security (JWT)"
+        "Python 3.12+, FastAPI, Django/DRF, Flask",
+        "REST API, WebSocket, async workers и фоновые задачи",
+        "SQLAlchemy 2.*, Alembic, Pydantic, JWT/RBAC",
+        "PostgreSQL: схемы, индексы, транзакции, оптимизация",
+        "Интеграции с внешними API, платежами, CRM и отчетами"
       ]
     },
     {
       "category": "AI/ML Integration",
       "skills": [
-        "Интеграция LLM (GPT-4, Claude, YaGPT, Gemini)",
-        "RAG системы и векторный поиск",
-        "Fine-tuning нейросетей",
-        "Prompt engineering",
-        "Векторные БД (Pinecone, Milvus, Chroma)"
+        "OpenAI, Anthropic Claude, Gemini, Mistral, Ollama",
+        "RAG, векторный поиск, Qdrant/Chroma, базы знаний",
+        "LLM routing, proxy, token rotation, backoff и fallback",
+        "Prompt engineering, quality gates, безопасные ответы",
+        "STT и AI-разбор звонков, заявок, чатов и документов"
       ]
     },
     {
       "category": "Telegram Ecosystem",
       "skills": [
-        "Telegram Bot Development (Aiogram 3.x)",
-        "Telegram Mini Apps",
-        "User Bot Development (Telethon/Pyrogram)",
-        "WebApp API интеграция"
+        "Aiogram 3.*, Telegram Bot API, Telethon, Pyrogram",
+        "Telegram Mini Apps и WebApp API",
+        "Userbot automation, аккаунты, прокси, лимиты, антиспам",
+        "Рассылки, реакции, AI-диалоги, комментарии и отчеты",
+        "Интеграции Telegram с CRM, таблицами, сайтами и backend-сервисами"
       ]
     },
     {
       "category": "AI Platform & Agents",
       "skills": [
-        "Оркестрация агентов и мультиагентные системы",
-        "Мультитенантные агент-платформы",
-        "LLM proxy инфраструктура",
-        "Кредитная система и биллинг",
-        "Деплой воркер-нод",
-        "Memory-aware агентные воркфлоу"
+        "Оркестрация агентов, роли, задачи, память, артефакты",
+        "Мультитенантные AI-платформы, биллинг, credits, plans",
+        "AgentOps: run logs, status ledger, QC, ручные approve-gates",
+        "Worker nodes, remote Docker deploy, node allocation",
+        "Owner-facing отчеты без технического шума"
+      ]
+    },
+    {
+      "category": "Frontend / Product UI",
+      "skills": [
+        "Next.js, React, TypeScript, Tailwind CSS",
+        "SaaS-кабинеты, админки, dashboards, таблицы и фильтры",
+        "Лендинги, продуктовая подача, CTA, формы заявок",
+        "Recharts, KPI, аналитические экраны и визуальные отчеты",
+        "Адаптивная верстка и аккуратная презентация кейсов"
       ]
     },
     {
       "category": "DevOps & Infrastructure",
       "skills": [
-        "Docker & контейнеризация",
-        "Администрирование Linux серверов",
-        "CI/CD (GitHub Actions)",
-        "Nginx / HTTPS / Cloudflare",
-        "Мониторинг (Prometheus, Grafana)",
-        "Hetzner / провижининг облаков",
-        "Remote Docker orchestration",
-        "Автоскейлинг инфраструктура",
-        "Hardening серверов"
+        "Docker, Docker Compose, Linux, systemd",
+        "Nginx, Caddy, HTTPS, Cloudflare",
+        "Hetzner, Timeweb Cloud, Yandex Cloud, Vercel, Render, Fly.io",
+        "GitHub Actions, CI/CD, pytest, smoke checks",
+        "Prometheus, Grafana, Dozzle, cron, health checks, alerts"
+      ]
+    },
+    {
+      "category": "Data & Automation",
+      "skills": [
+        "Playwright, BeautifulSoup, Selenium, Scrapy",
+        "Google Sheets API, XLSX-отчеты, CSV/JSON pipelines",
+        "AmoCRM, Bitrix24, RetailCRM, Yandex Direct API",
+        "SQLite/PostgreSQL CRM, scoring, dedupe, dry-run/live gates",
+        "Парсинг, нормализация, отчеты и операционные панели"
       ]
     },
     {
       "category": "Blockchain",
       "skills": [
-        "Bitcoin L2 решения",
-        "Smart Contracts",
-        "TON Blockchain",
-        "Wallet Connect интеграция"
+        "TON Blockchain, Wallet Connect, Telegram crypto flows",
+        "Bitcoin L2, Runes protocol, мониторинг транзакций",
+        "Hardhat, Web3.py, smart contracts",
+        "Арбитражные и торговые системы для 20+ бирж"
       ]
     }
   ],
   "achievements": {
     "title": "Достижения",
     "items": {
-      "platforms": "Построил AI-платформы Viably и Vibegent с нуля до production",
-      "lms": "Разработал полноценную LMS-платформу FPV40 Campus: 4 микросервиса, 134+ урока, интерактивные React-компоненты, биллинг",
-      "agents": "Разработал мультитенантную платформу AI-агентов с биллингом, прокси и воркер-нодами",
-      "proxy": "Создал LLM-прокси с ротацией токенов, backoff и credit-контролем для production-нагрузок",
-      "bots": "30+ Telegram-ботов и Mini Apps от MVP до масштабируемых продуктов",
-      "team": "Tech Lead на нескольких проектах, команда от 2 разработчиков",
-      "infra": "Развернул production-инфраструктуру: Hetzner воркер-ноды, autoscaling, remote Docker deploy",
-      "trading": "Арбитражные и торговые системы реального времени для 20+ бирж"
+      "platforms": "Построил AI-платформы Viably, Vibegent, AI Dev Office и AI-office X-ONE до рабочих продуктовых контуров",
+      "lms": "Разработал FPV40 Campus: LMS, микросервисы, 134+ урока, интерактивные React-компоненты, биллинг",
+      "telegram": "Собирал Telegram-продукты: боты, Mini Apps, userbot automation, рассылки, реакции, AI-диалоги и отчеты",
+      "agents": "Разработал мультитенантные AI-agent системы с ролями, памятью, tasks ledger, QC и ручными approve-gates",
+      "proxy": "Создал LLM-прокси и маршрутизацию моделей с token rotation, backoff, fallback и credit-контролем",
+      "infra": "Развернул production-инфраструктуру: Docker, Nginx/Caddy, Hetzner worker nodes, autoscaling, monitoring",
+      "crm": "Собирал CRM и операционные панели на SQLite/PostgreSQL, Playwright, scoring, dry-run/live gates",
+      "trading": "Делал арбитражные и торговые системы реального времени для 20+ бирж и blockchain-мониторинг"
     }
   },
   "contact": {
@@ -219,14 +235,19 @@
       ],
       "tech": [
         "Next.js 15",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
         "FastAPI",
         "PostgreSQL",
         "Redis",
-        "MinIO",
+        "MinIO/S3",
         "Docker Compose",
         "Nginx",
         "GitHub Actions",
-        "YooKassa"
+        "YooKassa",
+        "JWT/RBAC",
+        "Google OAuth"
       ],
       "period": "2025–2026",
       "link": "https://campus.fpv40.ru",
@@ -279,11 +300,16 @@
       ],
       "tech": [
         "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
         "PostgreSQL",
         "Docker",
         "Nginx",
         "Nodemailer",
-        "Tailwind CSS"
+        "SMTP",
+        "CMS admin",
+        "SEO"
       ],
       "period": "2025–2026",
       "link": "https://fpv40.ru",
@@ -312,12 +338,17 @@
         "Python",
         "FastAPI",
         "Next.js",
+        "React",
+        "TypeScript",
         "PostgreSQL",
         "Redis",
         "Docker",
         "Nginx",
         "Cloudflare",
-        "OAuth2"
+        "OAuth2",
+        "LLM generation",
+        "Preview runtime",
+        "Billing/credits"
       ],
       "period": "2025–2026",
       "link": "https://viably.dev",
@@ -344,15 +375,19 @@
       ],
       "tech": [
         "Python",
+        "FastAPI",
         "Next.js",
         "React",
         "TypeScript",
         "PostgreSQL",
+        "SQLAlchemy",
         "Hermes Agent",
         "Codex CLI",
         "Playwright",
         "Docker",
-        "Linux"
+        "Linux",
+        "AgentOps",
+        "Task ledger"
       ],
       "period": "2026",
       "highlight": true,
@@ -385,13 +420,14 @@
         "Redis",
         "Celery",
         "Telethon",
-        "Docker",
+        "Telegram Bot API",
         "SQLAlchemy",
         "Alembic",
+        "Docker",
+        "Nginx",
         "OpenAI-compatible API",
-        "Landing page",
-        "UX writing",
-        "Nginx"
+        "XLSX reporting",
+        "Proxy/account workflows"
       ],
       "period": "2026",
       "link": "https://tg.whynotai.ru",
@@ -432,8 +468,11 @@
         "CSS",
         "Responsive UI",
         "UX writing",
+        "Landing page",
+        "Lead form",
         "Nginx",
-        "Landing page"
+        "Telegram CTA",
+        "Premium visual system"
       ],
       "period": "2026",
       "link": "https://whynotai.ru",
@@ -465,13 +504,15 @@
         "React",
         "TypeScript",
         "PostgreSQL",
+        "SQLAlchemy",
         "Qdrant",
         "RAG",
         "n8n",
         "Docker Compose",
         "Caddy",
         "Telegram",
-        "LLM routing"
+        "LLM routing",
+        "AgentOps"
       ],
       "period": "2026",
       "highlight": true,
@@ -497,17 +538,20 @@
       ],
       "tech": [
         "Python",
+        "FastAPI",
         "Next.js",
         "React",
         "TypeScript",
         "PostgreSQL",
+        "SQLAlchemy",
         "Telegram Bot API",
         "Google Sheets API",
         "STT",
         "OpenAI-compatible API",
         "Linux",
         "systemd",
-        "Recharts"
+        "Recharts",
+        "Worker pipeline"
       ],
       "period": "2026",
       "highlight": true,
@@ -543,7 +587,9 @@
         "Cron",
         "Linux",
         "BeautifulSoup",
-        "LLM drafting"
+        "LLM drafting",
+        "Scoring",
+        "Dry-run/live gates"
       ],
       "period": "2026",
       "highlight": true,
@@ -567,9 +613,16 @@
         "PostgreSQL",
         "Redis",
         "Docker",
+        "Docker Compose",
+        "Nginx",
         "Hetzner",
         "Aiogram",
-        "Telegram Bot API"
+        "Telegram Bot API",
+        "YooKassa",
+        "Telegram Stars",
+        "LLM proxy",
+        "Worker nodes",
+        "Billing/credits"
       ],
       "period": "2025–2026",
       "link": "https://agents.viably.dev",
@@ -600,7 +653,12 @@
         "asyncio",
         "Anthropic API",
         "Redis",
-        "Docker"
+        "Docker",
+        "httpx",
+        "Token pool",
+        "Per-token backoff",
+        "Credit control",
+        "Audit logs"
       ],
       "period": "2025–2026",
       "highlight": true,
@@ -620,11 +678,16 @@
       ],
       "tech": [
         "Python",
+        "FastAPI",
+        "PostgreSQL",
         "Docker",
+        "Remote Docker API",
         "SSH",
         "Hetzner API",
-        "PostgreSQL",
-        "FastAPI"
+        "Nginx",
+        "Node allocation",
+        "Autoscaling",
+        "Health checks"
       ],
       "period": "2025–2026",
       "highlight": true,
@@ -644,11 +707,16 @@
       ],
       "tech": [
         "OpenClaw",
+        "Hermes Agent",
         "Python",
         "Docker",
         "Nginx",
         "PostgreSQL",
-        "Telegram Bot API"
+        "Telegram Bot API",
+        "Gateway",
+        "Browser automation",
+        "Persistent sessions",
+        "Runtime debugging"
       ],
       "period": "2025–2026",
       "highlight": true,
@@ -673,13 +741,14 @@
         "Python",
         "FastAPI",
         "PostgreSQL",
-        "WebSocket",
         "Alchemy API",
-        "Telegram Bot API",
-        "Aiogram",
+        "Web3.py",
         "Stripe API",
+        "Telegram Bot API",
         "Docker",
-        "Web3.py"
+        "Nginx",
+        "Cron",
+        "Blockchain monitoring"
       ],
       "period": "2.5 недели",
       "budget": "MVP проект",
@@ -703,11 +772,13 @@
       ],
       "tech": [
         "Python",
-        "Claude API (Sonnet 4.5)",
         "Anthropic SDK",
+        "Claude API",
+        "Telegram export",
         "JSON processing",
         "Markdown generation",
-        "asyncio"
+        "Portfolio generation",
+        "Prompt pipeline"
       ],
       "highlight": true,
       "slug": "telegram-chat-analyzer"
@@ -726,15 +797,16 @@
       ],
       "tech": [
         "Python",
-        "asyncio",
-        "httpx",
-        "WebSocket",
-        "Redis",
-        "PostgreSQL",
-        "Aiogram",
         "FastAPI",
+        "PostgreSQL",
+        "Redis",
+        "WebSocket",
+        "ClickHouse",
+        "Docker",
         "Prometheus",
-        "Grafana"
+        "Grafana",
+        "20+ exchanges",
+        "Real-time analytics"
       ],
       "highlight": true,
       "slug": "crypto-arbitrage-platform"
@@ -753,11 +825,16 @@
       ],
       "tech": [
         "Python",
-        "asyncio",
-        "WebSocket",
-        "Redis",
+        "Telegram Bot API",
         "PostgreSQL",
-        "Telegram Bot API"
+        "Redis",
+        "OpenAI API",
+        "DALL-E 3",
+        "UnitPay",
+        "Telegram Stars",
+        "Proxy",
+        "Docker",
+        "Risk controls"
       ],
       "highlight": true,
       "slug": "auto-trading-bot"
@@ -800,10 +877,17 @@
       ],
       "tech": [
         "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "SQLAlchemy 2.*",
+        "Redis",
+        "Elasticsearch",
+        "Aiogram 3.*",
         "WebSocket",
-        "asyncio",
-        "Telegram Bot API",
-        "Proxy"
+        "SQLAdmin",
+        "Docker",
+        "TON blockchain",
+        "CI/CD"
       ],
       "period": "2 месяца",
       "highlight": true,
@@ -822,15 +906,16 @@
         "Настройка dev/prod окружений"
       ],
       "tech": [
+        "Python",
         "FastAPI",
+        "React",
+        "TypeScript",
+        "Telegram Mini App",
         "PostgreSQL",
-        "SQLAlchemy 2.*",
         "Redis",
-        "Elasticsearch",
-        "Aiogram 3.*",
-        "WebSockets",
         "Docker",
-        "Nginx"
+        "Telegram WebApp API",
+        "Matching logic"
       ],
       "highlight": true,
       "slug": "magnet-mini-app"
@@ -874,13 +959,18 @@
         "Снижение стоимости API"
       ],
       "tech": [
-        "GPT-4-turbo-128k",
+        "Python",
+        "FastAPI",
         "OpenAI API",
+        "GPT-4-turbo-128k",
+        "RAG",
         "Chroma",
+        "PostgreSQL",
         "ClickHouse",
         "Ollama",
         "Gemma 2",
-        "Python"
+        "Docker",
+        "Document search"
       ],
       "highlight": true,
       "slug": "gost-assistant"

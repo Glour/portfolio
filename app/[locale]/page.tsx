@@ -18,6 +18,7 @@ import { profile, techStack } from '../data/profile';
 import ProjectsCarousel from '../components/ui/ProjectsCarousel';
 
 interface Project {
+  slug: string;
   title: string;
   role: string;
   description: string;
@@ -56,7 +57,23 @@ export default function HomePage() {
   }, [t]);
 
   const featuredProjects = useMemo(() => {
-    return allProjects.filter((project) => project.highlight && project.screenshots?.length);
+    const latestFirst = [
+      'ai-dev-office',
+      'whynotai-telegram-agents',
+      'whynotai-studio',
+      'ai-office-x-one',
+      'transoff-ai-sales-qa',
+      'headhunter-crm-agent',
+      'vibegent',
+      'vibegent-proxy',
+      'agent-cloud-hetzner',
+      'openclaw-runtime-operations',
+    ];
+    const rank = new Map(latestFirst.map((slug, index) => [slug, index]));
+
+    return allProjects
+      .filter((project) => project.highlight && project.screenshots?.length)
+      .sort((a, b) => (rank.get(a.slug) ?? 1000) - (rank.get(b.slug) ?? 1000));
   }, [allProjects]);
 
   const achievements = useMemo(() => {
@@ -70,12 +87,17 @@ export default function HomePage() {
   }, [t]);
 
   const skillGroups = [
-    { title: t('techStack.languages'), items: techStack.languages },
-    { title: t('techStack.backend'),   items: techStack.backend },
-    { title: t('techStack.ai'),        items: techStack.ai },
-    { title: t('techStack.telegram'),  items: techStack.telegram },
-    { title: t('techStack.databases'), items: techStack.databases },
-    { title: t('techStack.devops'),    items: techStack.devops },
+    { title: t('techStack.languages'),  items: techStack.languages },
+    { title: t('techStack.backend'),    items: techStack.backend },
+    { title: t('techStack.ai'),         items: techStack.ai },
+    { title: t('techStack.telegram'),   items: techStack.telegram },
+    { title: t('techStack.frontend'),   items: techStack.frontend },
+    { title: t('techStack.databases'),  items: techStack.databases },
+    { title: t('techStack.devops'),     items: techStack.devops },
+    { title: t('techStack.cloud'),      items: techStack.cloud },
+    { title: t('techStack.monitoring'), items: techStack.monitoring },
+    { title: t('techStack.blockchain'), items: techStack.blockchain },
+    { title: t('techStack.other'),      items: techStack.other },
   ];
 
   const heroStats = [
@@ -93,7 +115,7 @@ export default function HomePage() {
       </Suspense>
 
       {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="relative isolate flex min-h-[calc(100vh-5rem)] items-center px-6 py-20 md:py-32">
+      <section className="relative isolate flex min-h-[calc(100vh-5rem)] items-start px-6 pb-16 pt-4 md:pb-20 md:pt-8">
         <div className="container relative z-10 mx-auto max-w-5xl">
 
           {/* Available badge */}

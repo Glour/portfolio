@@ -1,13 +1,13 @@
 export const profile = {
   name: 'Aleksandr Bogdanov',
-  title: 'Backend Engineer / Tech Lead',
-  subtitle: 'AI • Telegram • Real-time Systems',
+  title: 'Python Backend / AI Platform Engineer',
+  subtitle: 'FastAPI • AI Agents • Telegram Products • AgentOps',
   email: 'alexdevguru@gmail.com',
   telegram: '@ne_stoit_togo',
   location: 'Remote',
   bio: [
-    'Backend engineer building AI, Telegram, and real-time systems that stay clear and reliable under load.',
-    'Led small teams, shipped 30+ projects, and focus on delivery that feels premium and survives production.'
+    'Python Backend / AI Platform engineer building FastAPI services, agent systems, Telegram products, SaaS dashboards, and production infrastructure.',
+    'Led small teams, shipped 30+ projects, and focus on product delivery that stays clear for users and stable under real production load.'
   ],
   social: {
     github: 'https://github.com/Glour',
@@ -272,17 +272,17 @@ export const featuredProjects = allProjects.filter(p => p.highlight);
 
 // Технический стек
 export const techStack = {
-  languages: ['Python 3.12+', 'TypeScript', 'JavaScript', 'SQL'],
-  backend: ['FastAPI', 'Flask', 'SQLAlchemy 2.*', 'Pydantic', 'Alembic'],
-  ai: ['Langchain', 'OpenAI API', 'Anthropic Claude', 'Mistral API', 'Ollama', 'RAG'],
-  telegram: ['Aiogram 3.*', 'python-telegram-bot', 'Telethon', 'Pyrogram'],
-  frontend: ['Next.js', 'React'],
-  databases: ['PostgreSQL', 'Redis', 'MongoDB', 'SQLite', 'ClickHouse', 'Chroma', 'Elasticsearch'],
-  devops: ['Docker', 'Docker Compose', 'Nginx', 'Git/GitHub', 'GitHub Actions', 'CI/CD'],
-  cloud: ['Yandex Cloud', 'Google Cloud', 'Timeweb Cloud', 'Fly.io', 'Vercel', 'Render.com'],
-  blockchain: ['Hardhat', 'TON Blockchain', 'Bitcoin L2', 'Smart Contracts'],
-  monitoring: ['Prometheus', 'Grafana', 'Dozzle'],
-  other: ['Kafka', 'Kubernetes', 'WebSockets', 'Scrapy', 'Selenium', 'Swagger/OpenAPI'],
+  languages: ['Python 3.12+', 'TypeScript', 'JavaScript', 'SQL', 'HTML', 'CSS'],
+  backend: ['FastAPI', 'Django/DRF', 'Flask', 'SQLAlchemy 2.*', 'Pydantic', 'Alembic', 'Celery', 'REST API', 'WebSocket'],
+  ai: ['OpenAI API', 'Anthropic Claude', 'Gemini', 'Mistral API', 'Ollama', 'LangChain', 'RAG', 'LLM routing', 'AgentOps', 'Prompt engineering', 'STT'],
+  telegram: ['Aiogram 3.*', 'Telethon', 'Pyrogram', 'Telegram Bot API', 'Telegram Mini Apps', 'Telegram WebApp API', 'Userbot automation'],
+  frontend: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Recharts', 'Responsive UI', 'Landing pages', 'SaaS dashboards'],
+  databases: ['PostgreSQL', 'Redis', 'SQLite', 'MongoDB', 'ClickHouse', 'Chroma', 'Qdrant', 'Elasticsearch', 'MinIO/S3'],
+  devops: ['Docker', 'Docker Compose', 'Nginx', 'Caddy', 'Linux', 'systemd', 'Git/GitHub', 'GitHub Actions', 'CI/CD', 'pytest'],
+  cloud: ['Hetzner', 'Yandex Cloud', 'Timeweb Cloud', 'Vercel', 'Render.com', 'Fly.io', 'Cloudflare'],
+  blockchain: ['Hardhat', 'TON Blockchain', 'Bitcoin L2', 'Runes protocol', 'Web3.py', 'Smart Contracts', 'Wallet Connect'],
+  monitoring: ['Prometheus', 'Grafana', 'Dozzle', 'Cron', 'Operational logs', 'Alerts', 'Health checks'],
+  other: ['Playwright', 'BeautifulSoup', 'Selenium', 'Scrapy', 'Swagger/OpenAPI', 'Google Sheets API', 'AmoCRM API', 'Bitrix24', 'Yandex Direct API'],
 };
 
 // Ключевые навыки
@@ -290,81 +290,79 @@ export const keySkills = [
   {
     category: 'Backend Development',
     skills: [
-      'Python Web Development (FastAPI, Flask)',
-      'REST API Design & Architecture',
-      'Микросервисная архитектура',
-      'Асинхронное программирование (asyncio)',
-      'Database Design & Optimization',
-      'WebSocket & Real-time системы',
-      'Authentication & Security (JWT)',
-    ],
-  },
-  {
-    category: 'AI/ML Integration',
-    skills: [
-      'Интеграция LLM (GPT-4, Claude, YaGPT, Gemini)',
-      'RAG системы и векторный поиск',
-      'Fine-tuning нейросетей',
-      'Prompt engineering',
-      'Векторные БД (Pinecone, Milvus, Chroma)',
-    ],
-  },
-  {
-    category: 'Telegram Ecosystem',
-    skills: [
-      'Telegram Bot Development (Aiogram 3.x)',
-      'Telegram Mini Apps',
-      'User Bot Development (Telethon/Pyrogram)',
-      'WebApp API интеграция',
+      'Python 3.12+ / FastAPI / Django / Flask',
+      'REST API, WebSocket, async workers',
+      'SQLAlchemy 2.*, Alembic, Pydantic',
+      'PostgreSQL schemas, indexes, transactions',
+      'Auth, JWT/RBAC, external API integrations',
     ],
   },
   {
     category: 'AI Platform & Agents',
     skills: [
-      'Agent orchestration',
-      'Multi-tenant agent platforms',
-      'LLM proxy infrastructure',
-      'Credit/billing systems',
-      'Worker node deployment',
-      'Memory-aware workflows',
+      'OpenAI, Anthropic Claude, Gemini, Mistral, Ollama',
+      'RAG, vector search, Qdrant/Chroma',
+      'LLM proxy, routing, token rotation, backoff',
+      'Agent orchestration, task ledger, memory, QC',
+      'STT and AI analysis pipelines',
+    ],
+  },
+  {
+    category: 'Telegram Ecosystem',
+    skills: [
+      'Aiogram 3.*, Telegram Bot API, Telethon, Pyrogram',
+      'Telegram Mini Apps and WebApp API',
+      'Userbot automation, accounts, proxies, limits',
+      'Broadcasts, reactions, AI dialogs, comments, reports',
+    ],
+  },
+  {
+    category: 'Frontend / Product UI',
+    skills: [
+      'Next.js, React, TypeScript, Tailwind CSS',
+      'SaaS dashboards, admin panels, tables, filters',
+      'Landing pages, product flows, lead forms',
+      'Recharts, KPI views, analytics screens',
     ],
   },
   {
     category: 'DevOps & Infrastructure',
     skills: [
-      'Docker & Containerization',
-      'Linux server administration',
-      'CI/CD (GitHub Actions)',
-      'Nginx configuration',
-      'Мониторинг (Prometheus, Grafana)',
-      'Hetzner / Cloud provisioning',
-      'Remote Docker orchestration',
-      'Nginx / HTTPS / Cloudflare',
-      'Autoscaling infrastructure',
-      'Production debugging',
-      'Server hardening',
+      'Docker, Docker Compose, Linux, systemd',
+      'Nginx, Caddy, HTTPS, Cloudflare',
+      'Hetzner, Timeweb Cloud, Yandex Cloud, Vercel, Render, Fly.io',
+      'GitHub Actions, CI/CD, pytest, smoke checks',
+      'Prometheus, Grafana, cron, health checks, alerts',
+    ],
+  },
+  {
+    category: 'Integrations & Automation',
+    skills: [
+      'Playwright, BeautifulSoup, Selenium, Scrapy',
+      'Google Sheets API, AmoCRM, Bitrix24, RetailCRM',
+      'SQLite/PostgreSQL CRM, scoring, dedupe',
+      'Dry-run/live gates and operational reporting',
     ],
   },
   {
     category: 'Blockchain',
     skills: [
-      'Bitcoin L2 решения',
-      'Smart Contracts',
-      'TON Blockchain',
-      'Wallet Connect integration',
+      'TON Blockchain, Bitcoin L2, Runes protocol',
+      'Hardhat, Web3.py, smart contracts',
+      'Transaction monitoring and trading systems',
     ],
   },
 ];
 
 // Достижения
 export const achievements = [
-  '30+ Telegram-ботов различной сложности',
-  'Руководство командой от 2 разработчиков',
-  'Полный рефакторинг legacy проектов (2300+ строк → модульная архитектура)',
-  'Оптимизация производительности (15s → приемлемые значения)',
-  'Работа с большими бюджетами на проект',
-  'Опыт Tech Lead на нескольких проектах',
-  'Быстрый деплой (backend за 1 день)',
+  '30+ production projects across Python backend, AI platforms, Telegram products, and automation',
+  '30+ Telegram bots, Mini Apps, userbot automations, broadcasts, reactions, and AI dialogs',
+  'Tech Lead experience across multiple projects with teams of 2+ developers',
+  'AI platforms with billing, LLM proxying, worker nodes, AgentOps, QC, and approve gates',
+  'Production infrastructure: Docker, Linux, Nginx/Caddy, Hetzner, monitoring, health checks',
+  'CRM and automation systems with Playwright, scoring, dry-run/live gates, and reports',
+  'Real-time trading and blockchain monitoring systems for 20+ exchanges',
 ];
 
 export interface Experience {
@@ -378,7 +376,50 @@ export interface Experience {
   type: 'remote' | 'onsite' | 'hybrid';
 }
 
-export const experience: Experience[] = [];
+export const experience: Experience[] = [
+  {
+    id: 1,
+    title: 'Tech Lead / Python Backend / AI AgentOps',
+    company: 'Freelance and product projects',
+    period: '2023 - now',
+    location: 'Remote',
+    type: 'remote',
+    description: [
+      'Led backend and AI-platform delivery across production projects: Telegram products, AI agents, CRM automation, dashboards and internal tools.',
+      'Built Python/FastAPI services, Postgres data layers, task ledgers, AI workflows, Telegram integrations and reporting pipelines.',
+      'Owned delivery process: decomposition, code review, QA, deployment, monitoring, client handoff and production fixes.',
+    ],
+    technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker', 'Telegram Bot API', 'Telethon', 'OpenAI API', 'Next.js', 'React', 'TypeScript'],
+  },
+  {
+    id: 2,
+    title: 'AI Platform Engineer',
+    company: 'Viably / Vibegent / Agent platforms',
+    period: '2025 - 2026',
+    location: 'Remote',
+    type: 'remote',
+    description: [
+      'Built multi-tenant AI-agent platforms with billing, LLM proxying, worker-node deployment, prompt routing and operational dashboards.',
+      'Designed agent orchestration, credit control, token rotation, backoff, fallback logic and production monitoring around model APIs.',
+      'Connected backend, Telegram, web dashboards and deployment infrastructure into one product flow.',
+    ],
+    technologies: ['FastAPI', 'PostgreSQL', 'Redis', 'Docker', 'Hetzner', 'LLM routing', 'Anthropic API', 'OpenAI-compatible API', 'Aiogram'],
+  },
+  {
+    id: 3,
+    title: 'Full-stack / Product Engineer',
+    company: 'FPV40 / WhyNotAI / Transoff',
+    period: '2025 - 2026',
+    location: 'Remote',
+    type: 'remote',
+    description: [
+      'Shipped LMS, corporate sites, Telegram SaaS surfaces and sales-call QA dashboards with real data, integrations and admin workflows.',
+      'Built landing pages, cabinets, galleries, analytics views, source collection, report exports and safe automation controls.',
+      'Worked across backend, frontend, infrastructure, UX text and production support when the product needed end-to-end ownership.',
+    ],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'FastAPI', 'PostgreSQL', 'Celery', 'STT', 'Google Sheets API', 'Nginx'],
+  },
+];
 
 export interface Education {
   degree: string;

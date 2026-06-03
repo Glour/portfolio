@@ -1,10 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { profile, experience, education, certifications } from '../../data/profile';
 import { expertise } from '../../data/skills';
 
 export default function AboutPage() {
+  const locale = useLocale();
+  const isRu = locale === 'ru';
+
   return (
     <div className="pt-24 pb-20">
       <div className="container mx-auto px-6">
@@ -16,10 +20,12 @@ export default function AboutPage() {
           className="max-w-4xl mx-auto text-center mb-20"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            About <span className="gradient-text">Me</span>
+            {isRu ? 'Обо ' : 'About '}<span className="gradient-text">{isRu ? 'мне' : 'Me'}</span>
           </h1>
           <p className="text-xl text-gray-400">
-            Passionate developer building the future of trading systems
+            {isRu
+              ? 'Python Backend, AI-платформы, Telegram-продукты и production-инфраструктура'
+              : 'Python Backend, AI platforms, Telegram products, and production infrastructure'}
           </p>
         </motion.div>
 
@@ -50,7 +56,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
-            Areas of <span className="gradient-text">Expertise</span>
+            {isRu ? 'Зоны ' : 'Areas of '}<span className="gradient-text">{isRu ? 'экспертизы' : 'Expertise'}</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -81,7 +87,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
-            Work <span className="gradient-text">Experience</span>
+            {isRu ? 'Опыт ' : 'Work '}<span className="gradient-text">{isRu ? 'работы' : 'Experience'}</span>
           </motion.h2>
 
           <div className="space-y-8">
@@ -141,8 +147,9 @@ export default function AboutPage() {
         </div>
 
         {/* Education & Certifications */}
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {(education.length > 0 || certifications.length > 0) && (
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Education */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -190,8 +197,9 @@ export default function AboutPage() {
                 ))}
               </div>
             </motion.div>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
