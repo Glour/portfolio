@@ -379,6 +379,111 @@
       ]
     },
     {
+      "title": "AI-office X-ONE - платформа управления AI-офисом",
+      "role": "Python Backend / AI Platform Engineer / Product Engineer",
+      "category": "ai",
+      "description": "Self-hosted web-центр для управления AI-офисом: задачи, агенты, маршруты, согласования, QC, база знаний, библиотека материалов, модельные маршруты и аналитика собраны в одном owner-facing интерфейсе.",
+      "features": [
+        "Главный дашборд состояния, визуальная карта офиса и зоны внимания",
+        "Агентные профили с ролями, маршрутами, знаниями, памятью и QC",
+        "Backend/API и Postgres как источник истины для задач, событий, материалов и статусов",
+        "n8n как execution-layer для workflow и интеграций под контролем backend/runtime",
+        "RAG-контур, библиотека материалов, модельные маршруты, fallback-логика и контроль затрат"
+      ],
+      "tech": [
+        "Python",
+        "FastAPI",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "Qdrant",
+        "RAG",
+        "n8n",
+        "Docker Compose",
+        "Caddy",
+        "Telegram",
+        "LLM routing"
+      ],
+      "period": "2026",
+      "highlight": true,
+      "screenshots": [
+        "/screenshots/ai-office-x-one-01.png",
+        "/screenshots/ai-office-x-one-02.png",
+        "/screenshots/ai-office-x-one-03.png",
+        "/screenshots/ai-office-x-one-04.png",
+        "/screenshots/ai-office-x-one-05.png",
+        "/screenshots/ai-office-x-one-06.png",
+        "/screenshots/ai-office-x-one-07.png"
+      ]
+    },
+    {
+      "title": "Transoff AI Sales QA Platform - контроль качества звонков",
+      "role": "Python Backend / AI Automation Engineer / Full-stack Developer",
+      "category": "automation",
+      "description": "Production-контур для контроля качества звонков отдела продаж: система забирает звонки из телефонии, фильтрует значимые разговоры, расшифровывает аудио, оценивает диалог по бизнес-рубрикам и выводит результат в web-дашборд, Telegram и Google Sheets.",
+      "features": [
+        "Worker для получения звонков, фильтрации, STT, AI-разбора и записи в PostgreSQL",
+        "Классификация сценариев: продажи, сервис, логистика, внутренние коммуникации и нерелевантные звонки",
+        "Оценка качества: балл, сильные стороны, слабые места, риск, следующий шаг и управленческий вывод",
+        "Next.js-дашборд с KPI, таблицей звонков, проблемной очередью, сильными звонками и статистикой сотрудников",
+        "Telegram-алерты только по важным сигналам и Google Sheets-отчеты с ежемесячной ротацией"
+      ],
+      "tech": [
+        "Python",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "Telegram Bot API",
+        "Google Sheets API",
+        "STT",
+        "OpenAI-compatible API",
+        "Linux",
+        "systemd",
+        "Recharts"
+      ],
+      "period": "2026",
+      "highlight": true,
+      "screenshots": [
+        "/screenshots/transoff-ai-sales-qa-01.png",
+        "/screenshots/transoff-ai-sales-qa-02.png",
+        "/screenshots/transoff-ai-sales-qa-03.png",
+        "/screenshots/transoff-ai-sales-qa-04.png",
+        "/screenshots/transoff-ai-sales-qa-05.png",
+        "/screenshots/transoff-ai-sales-qa-06.png",
+        "/screenshots/transoff-ai-sales-qa-07.png"
+      ]
+    },
+    {
+      "title": "HeadHunter CRM Agent - агент для поиска работы и откликов",
+      "role": "Python Backend / AgentOps / Automation Engineer",
+      "category": "automation",
+      "description": "Личный HH-агент для поиска вакансий, скоринга, генерации сопроводительных, безопасного автоотклика через browser-runner, CRM-учета, анализа воронки и контроля ответов в чатах HH.",
+      "features": [
+        "CRM на SQLite для вакансий, заявок, статусов, feedback events и run logs",
+        "Скоринг вакансий по ролям, стеку, зарплате, формату, stop keywords и learned weights",
+        "Генерация vacancy-first сопроводительных с proof-пулом и quality gates",
+        "Browser-assisted автоотклик с dry-run по умолчанию, двойным live-gate, daily caps и duplicate guards",
+        "HH chat lane: dry-run анализ чатов, external handoff, ручной контроль и защита от неправильных автоответов"
+      ],
+      "tech": [
+        "Python",
+        "SQLite",
+        "Playwright",
+        "FastAPI",
+        "Telegram Bot API",
+        "pytest",
+        "Hermes Agent",
+        "Cron",
+        "Linux",
+        "BeautifulSoup",
+        "LLM drafting"
+      ],
+      "period": "2026",
+      "highlight": true
+    },
+    {
       "title": "Vibegent — Мультитенантная AI-агент платформа",
       "role": "Platform Architect / Backend Engineer / AI Infrastructure",
       "category": "ai",

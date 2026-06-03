@@ -379,6 +379,111 @@
       ]
     },
     {
+      "title": "AI-office X-ONE - AI office management platform",
+      "role": "Python Backend / AI Platform Engineer / Product Engineer",
+      "category": "ai",
+      "description": "Self-hosted web center for managing an AI office: tasks, agents, routes, approvals, QC, knowledge base, material library, model routing, and analytics in one owner-facing interface.",
+      "features": [
+        "Main status dashboard, visual office map, and attention zones",
+        "Agent profiles with roles, routes, knowledge, memory, and QC",
+        "Backend/API and Postgres as the source of truth for tasks, events, materials, and statuses",
+        "n8n as an execution layer for workflows and integrations controlled by backend/runtime",
+        "RAG layer, material library, model routes, fallback logic, and cost control"
+      ],
+      "tech": [
+        "Python",
+        "FastAPI",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "Qdrant",
+        "RAG",
+        "n8n",
+        "Docker Compose",
+        "Caddy",
+        "Telegram",
+        "LLM routing"
+      ],
+      "period": "2026",
+      "highlight": true,
+      "screenshots": [
+        "/screenshots/ai-office-x-one-01.png",
+        "/screenshots/ai-office-x-one-02.png",
+        "/screenshots/ai-office-x-one-03.png",
+        "/screenshots/ai-office-x-one-04.png",
+        "/screenshots/ai-office-x-one-05.png",
+        "/screenshots/ai-office-x-one-06.png",
+        "/screenshots/ai-office-x-one-07.png"
+      ]
+    },
+    {
+      "title": "Transoff AI Sales QA Platform - call quality control",
+      "role": "Python Backend / AI Automation Engineer / Full-stack Developer",
+      "category": "automation",
+      "description": "Production call-quality platform for a sales team: the system fetches calls from telephony, filters meaningful conversations, transcribes audio, evaluates dialogs with business rubrics, and delivers the result to a web dashboard, Telegram, and Google Sheets.",
+      "features": [
+        "Worker for call ingestion, filtering, STT, AI analysis, and PostgreSQL persistence",
+        "Scenario classification: sales, service, logistics, internal calls, and irrelevant contacts",
+        "Quality evaluation: score, strengths, weak points, risk, next step, and management summary",
+        "Next.js dashboard with KPI, calls table, problem queue, strong calls, and employee statistics",
+        "Telegram alerts only for important signals and Google Sheets reports with monthly rotation"
+      ],
+      "tech": [
+        "Python",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "Telegram Bot API",
+        "Google Sheets API",
+        "STT",
+        "OpenAI-compatible API",
+        "Linux",
+        "systemd",
+        "Recharts"
+      ],
+      "period": "2026",
+      "highlight": true,
+      "screenshots": [
+        "/screenshots/transoff-ai-sales-qa-01.png",
+        "/screenshots/transoff-ai-sales-qa-02.png",
+        "/screenshots/transoff-ai-sales-qa-03.png",
+        "/screenshots/transoff-ai-sales-qa-04.png",
+        "/screenshots/transoff-ai-sales-qa-05.png",
+        "/screenshots/transoff-ai-sales-qa-06.png",
+        "/screenshots/transoff-ai-sales-qa-07.png"
+      ]
+    },
+    {
+      "title": "HeadHunter CRM Agent - job search and application agent",
+      "role": "Python Backend / AgentOps / Automation Engineer",
+      "category": "automation",
+      "description": "Personal HH.ru agent for vacancy search, scoring, cover-letter drafting, safe browser-assisted applications, CRM tracking, funnel analysis, and controlled HH chat handling.",
+      "features": [
+        "SQLite CRM for vacancies, applications, statuses, feedback events, and run logs",
+        "Vacancy scoring by roles, stack, salary, work format, stop keywords, and learned weights",
+        "Vacancy-first cover-letter generation with proof pool and quality gates",
+        "Browser-assisted auto-apply with dry-run default, double live gate, daily caps, and duplicate guards",
+        "HH chat lane: dry-run chat analysis, external handoff, manual control, and protection from wrong auto-replies"
+      ],
+      "tech": [
+        "Python",
+        "SQLite",
+        "Playwright",
+        "FastAPI",
+        "Telegram Bot API",
+        "pytest",
+        "Hermes Agent",
+        "Cron",
+        "Linux",
+        "BeautifulSoup",
+        "LLM drafting"
+      ],
+      "period": "2026",
+      "highlight": true
+    },
+    {
       "title": "Vibegent — Multi-tenant AI Agent Platform",
       "role": "Platform Architect / Backend Engineer / AI Infrastructure",
       "category": "ai",
