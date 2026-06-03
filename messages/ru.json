@@ -232,9 +232,8 @@
       "link": "https://campus.fpv40.ru",
       "highlight": true,
       "screenshots": [
-        "/screenshots/fpv40-campus-2.png",
         "/screenshots/fpv40-campus-1.png",
-        "/screenshots/fpv40-campus-live-01.png",
+        "/screenshots/fpv40-campus-2.png",
         "/screenshots/fpv40-campus-live-02.png",
         "/screenshots/fpv40-campus-live-03.png"
       ],
@@ -260,7 +259,7 @@
         "Nginx"
       ],
       "period": "2025–2026",
-      "highlight": true,
+      "highlight": false,
       "screenshots": [
         "/screenshots/signal-fpv40-1.png",
         "/screenshots/signal-fpv40-2.png"
@@ -290,10 +289,9 @@
       "link": "https://fpv40.ru",
       "highlight": true,
       "screenshots": [
-        "/screenshots/fpv40-ru-2.png",
         "/screenshots/fpv40-ru-1.png",
-        "/screenshots/fpv40-ru-live-01.png",
         "/screenshots/fpv40-ru-live-02.png",
+        "/screenshots/fpv40-ru-2.png",
         "/screenshots/fpv40-ru-live-03.png"
       ],
       "slug": "fpv40-ru"
@@ -325,11 +323,10 @@
       "link": "https://viably.dev",
       "highlight": true,
       "screenshots": [
-        "/screenshots/viably-1.png",
         "/screenshots/viably-2.png",
+        "/screenshots/viably-1.png",
         "/screenshots/viably-live-01.png",
-        "/screenshots/viably-live-02.png",
-        "/screenshots/viably-live-03.png"
+        "/screenshots/viably-live-02.png"
       ],
       "slug": "viably"
     },
@@ -361,13 +358,9 @@
       "highlight": true,
       "screenshots": [
         "/screenshots/ai-dev-office-01.png",
-        "/screenshots/ai-dev-office-02.png",
         "/screenshots/ai-dev-office-03.png",
-        "/screenshots/ai-dev-office-04.png",
-        "/screenshots/ai-dev-office-05.png",
         "/screenshots/ai-dev-office-06.png",
-        "/screenshots/ai-dev-office-07.png",
-        "/screenshots/ai-dev-office-08.png"
+        "/screenshots/ai-dev-office-07.png"
       ],
       "slug": "ai-dev-office"
     },
@@ -405,19 +398,12 @@
       "highlight": true,
       "screenshots": [
         "/screenshots/tg-whynotai-landing-01.png",
-        "/screenshots/whynotai-platform-live-01.png",
         "/screenshots/tg-whynotai-landing-02.png",
-        "/screenshots/tg-whynotai-landing-04.png",
         "/screenshots/tg-whynotai-landing-03.png",
+        "/screenshots/tg-whynotai-landing-04.png",
         "/screenshots/tg-whynotai-landing-05.png",
-        "/screenshots/tg-whynotai-landing-06.png",
-        "/screenshots/whynotai-platform-live-02.png",
-        "/screenshots/whynotai-platform-live-03.png",
         "/screenshots/whynotai-01.png",
         "/screenshots/whynotai-02.png",
-        "/screenshots/whynotai-04.png",
-        "/screenshots/whynotai-03.png",
-        "/screenshots/whynotai-05.png",
         "/screenshots/whynotai-06.png"
       ],
       "slug": "whynotai-telegram-agents",
@@ -455,11 +441,9 @@
       "screenshots": [
         "/screenshots/whynotai-studio-01.png",
         "/screenshots/whynotai-studio-02.png",
-        "/screenshots/whynotai-studio-03.png",
         "/screenshots/whynotai-studio-04.png",
-        "/screenshots/whynotai-studio-05.png",
-        "/screenshots/whynotai-studio-06.png",
-        "/screenshots/whynotai-studio-07.png"
+        "/screenshots/whynotai-studio-03.png",
+        "/screenshots/whynotai-studio-05.png"
       ]
     },
     {
@@ -492,11 +476,8 @@
       "period": "2026",
       "highlight": true,
       "screenshots": [
-        "/screenshots/ai-office-x-one-01.png",
         "/screenshots/ai-office-x-one-02.png",
         "/screenshots/ai-office-x-one-03.png",
-        "/screenshots/ai-office-x-one-04.png",
-        "/screenshots/ai-office-x-one-05.png",
         "/screenshots/ai-office-x-one-06.png",
         "/screenshots/ai-office-x-one-07.png"
       ],
@@ -531,13 +512,11 @@
       "period": "2026",
       "highlight": true,
       "screenshots": [
-        "/screenshots/transoff-ai-sales-qa-01.png",
-        "/screenshots/transoff-ai-sales-qa-02.png",
-        "/screenshots/transoff-ai-sales-qa-03.png",
-        "/screenshots/transoff-ai-sales-qa-04.png",
-        "/screenshots/transoff-ai-sales-qa-05.png",
+        "/screenshots/transoff-ai-sales-qa-preview-01.png",
+        "/screenshots/transoff-ai-sales-qa-preview-02.png",
+        "/screenshots/transoff-ai-sales-qa-07.png",
         "/screenshots/transoff-ai-sales-qa-06.png",
-        "/screenshots/transoff-ai-sales-qa-07.png"
+        "/screenshots/transoff-ai-sales-qa-03.png"
       ],
       "slug": "transoff-ai-sales-qa"
     },
@@ -597,10 +576,9 @@
       "highlight": true,
       "screenshots": [
         "/screenshots/vibegent-1.png",
-        "/screenshots/vibegent-2.png",
         "/screenshots/vibegent-live-01.png",
-        "/screenshots/vibegent-live-02.png",
-        "/screenshots/vibegent-live-03.png"
+        "/screenshots/vibegent-2.png",
+        "/screenshots/vibegent-live-02.png"
       ],
       "slug": "vibegent"
     },
