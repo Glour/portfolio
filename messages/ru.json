@@ -200,11 +200,24 @@
         "Генерация сертификатов с гильошированной рамкой, герб РФ, кастомный CSS-overlay",
         "CI/CD: GitHub Actions (develop→dev, main→prod), 7 Docker-контейнеров, автобэкап БД"
       ],
-      "tech": ["Next.js 15", "FastAPI", "PostgreSQL", "Redis", "MinIO", "Docker Compose", "Nginx", "GitHub Actions", "YooKassa"],
+      "tech": [
+        "Next.js 15",
+        "FastAPI",
+        "PostgreSQL",
+        "Redis",
+        "MinIO",
+        "Docker Compose",
+        "Nginx",
+        "GitHub Actions",
+        "YooKassa"
+      ],
       "period": "2025–2026",
       "link": "https://campus.fpv40.ru",
       "highlight": true,
-      "screenshots": ["/screenshots/fpv40-campus-1.png", "/screenshots/fpv40-campus-2.png"]
+      "screenshots": [
+        "/screenshots/fpv40-campus-1.png",
+        "/screenshots/fpv40-campus-2.png"
+      ]
     },
     {
       "title": "Signal.FPV40 — LMS для операторов БАС",
@@ -217,10 +230,20 @@
         "Ролевая модель: ученик, инструктор, администратор",
         "Дашборд с аналитикой рынка БПЛА и статистикой прогресса"
       ],
-      "tech": ["Next.js", "FastAPI", "PostgreSQL", "Redis", "Docker", "Nginx"],
+      "tech": [
+        "Next.js",
+        "FastAPI",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "Nginx"
+      ],
       "period": "2025–2026",
       "highlight": true,
-      "screenshots": ["/screenshots/signal-fpv40-1.png", "/screenshots/signal-fpv40-2.png"]
+      "screenshots": [
+        "/screenshots/signal-fpv40-1.png",
+        "/screenshots/signal-fpv40-2.png"
+      ]
     },
     {
       "title": "FPV40.ru — Корпоративный сайт школы пилотов",
@@ -233,11 +256,21 @@
         "Next.js + PostgreSQL + Docker Compose архитектура",
         "Адаптивная вёрстка, SEO-оптимизация"
       ],
-      "tech": ["Next.js", "PostgreSQL", "Docker", "Nginx", "Nodemailer", "Tailwind CSS"],
+      "tech": [
+        "Next.js",
+        "PostgreSQL",
+        "Docker",
+        "Nginx",
+        "Nodemailer",
+        "Tailwind CSS"
+      ],
       "period": "2025–2026",
       "link": "https://fpv40.ru",
       "highlight": true,
-      "screenshots": ["/screenshots/fpv40-ru-1.png", "/screenshots/fpv40-ru-2.png"]
+      "screenshots": [
+        "/screenshots/fpv40-ru-1.png",
+        "/screenshots/fpv40-ru-2.png"
+      ]
     },
     {
       "title": "Viably — AI Product Platform",
@@ -251,11 +284,99 @@
         "dev/prod окружения, nginx/HTTPS/Cloudflare production hardening",
         "FastAPI + Next.js + PostgreSQL + Redis + Docker архитектура"
       ],
-      "tech": ["Python", "FastAPI", "Next.js", "PostgreSQL", "Redis", "Docker", "Nginx", "Cloudflare", "OAuth2"],
+      "tech": [
+        "Python",
+        "FastAPI",
+        "Next.js",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "Nginx",
+        "Cloudflare",
+        "OAuth2"
+      ],
       "period": "2025–2026",
       "link": "https://viably.dev",
       "highlight": true,
-      "screenshots": ["/screenshots/viably-1.png", "/screenshots/viably-2.png"]
+      "screenshots": [
+        "/screenshots/viably-1.png",
+        "/screenshots/viably-2.png"
+      ]
+    },
+    {
+      "title": "AI Dev Office - центр управления AI-агентами",
+      "role": "Python Backend / AI Platform Engineer / AgentOps",
+      "category": "ai",
+      "description": "Персональный command center для команды AI-агентов: постановка задач через web-интерфейс и Telegram, маршрутизация по ролям, Postgres task ledger, Codex CLI для кодовых задач, QA-gates, артефакты, база знаний и vault metadata для секретов.",
+      "features": [
+        "Единый интерфейс для задач, статусов, шагов, результатов и артефактов",
+        "Оргструктура AI-офиса: management, development, QA, marketing, security, knowledge",
+        "Postgres ledger для tasks, events, agent_runs, artifacts и qc_results",
+        "Codex-only policy для разработки: controlled wrappers, review flow, audit trail",
+        "Owner-facing результат без технического шума: отчеты, файлы, статусы и блокеры"
+      ],
+      "tech": [
+        "Python",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "Hermes Agent",
+        "Codex CLI",
+        "Playwright",
+        "Docker",
+        "Linux"
+      ],
+      "period": "2026",
+      "highlight": true,
+      "screenshots": [
+        "/screenshots/ai-dev-office-01.png",
+        "/screenshots/ai-dev-office-02.png",
+        "/screenshots/ai-dev-office-03.png",
+        "/screenshots/ai-dev-office-04.png",
+        "/screenshots/ai-dev-office-05.png",
+        "/screenshots/ai-dev-office-06.png",
+        "/screenshots/ai-dev-office-07.png",
+        "/screenshots/ai-dev-office-08.png"
+      ]
+    },
+    {
+      "title": "whynotai Telegram Agents - платформа Telegram AI-агентов",
+      "role": "Python Backend / Product Engineer / Telegram Automation",
+      "category": "telegram",
+      "description": "SaaS-панель для управления Telegram-аккаунтами, прокси, прогревом, источниками и AI-кампаниями: комментарии, реакции, диалоги, чаты и рассылки. Runtime фиксирует лимиты, статусы, ошибки и отчеты, чтобы оператор видел управляемую систему, а не черный ящик.",
+      "features": [
+        "Импорт Telegram-сессий, контроль статусов, spam block, карантин и архив",
+        "Proxy manager с проверкой Telegram-доступности, гео, пингом и лимитом аккаунтов на прокси",
+        "AI-кампании с источниками, промптом, частотой, стоп-словами, лимитами и XLSX-отчетами",
+        "Telethon live-listener для событийной обработки новых постов без тяжелого пакетного обхода",
+        "Панели риска, operational events, heartbeat и прозрачные причины пропусков"
+      ],
+      "tech": [
+        "Python",
+        "FastAPI",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "Redis",
+        "Celery",
+        "Telethon",
+        "Docker",
+        "SQLAlchemy",
+        "Alembic",
+        "OpenAI-compatible API"
+      ],
+      "period": "2026",
+      "link": "https://tg.whynotai.ru",
+      "highlight": true,
+      "screenshots": [
+        "/screenshots/whynotai-01.png",
+        "/screenshots/whynotai-02.png",
+        "/screenshots/whynotai-03.png",
+        "/screenshots/whynotai-04.png",
+        "/screenshots/whynotai-05.png",
+        "/screenshots/whynotai-06.png"
+      ]
     },
     {
       "title": "Vibegent — Мультитенантная AI-агент платформа",
@@ -269,11 +390,23 @@
         "Telegram bot + support bot + канальная инфраструктура",
         "Воркер-ноды на Hetzner: remote Docker deploy, autoscaling, DB-трекинг"
       ],
-      "tech": ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker", "Hetzner", "Aiogram", "Telegram Bot API"],
+      "tech": [
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "Hetzner",
+        "Aiogram",
+        "Telegram Bot API"
+      ],
       "period": "2025–2026",
       "link": "https://agents.viably.dev",
       "highlight": true,
-      "screenshots": ["/screenshots/vibegent-1.png", "/screenshots/vibegent-2.png"]
+      "screenshots": [
+        "/screenshots/vibegent-1.png",
+        "/screenshots/vibegent-2.png"
+      ]
     },
     {
       "title": "vibegent-proxy — LLM Infrastructure Layer",
@@ -287,7 +420,14 @@
         "Retry/fallback при rate-limit, stop-on-zero balance",
         "Security и audit слои, balance/credits механика"
       ],
-      "tech": ["Python", "FastAPI", "asyncio", "Anthropic API", "Redis", "Docker"],
+      "tech": [
+        "Python",
+        "FastAPI",
+        "asyncio",
+        "Anthropic API",
+        "Redis",
+        "Docker"
+      ],
       "period": "2025–2026",
       "highlight": true
     },
@@ -303,7 +443,14 @@
         "Трекинг деплоев в БД, изоляция воркнагрузок (сайты vs агенты)",
         "Node allocation logic и scheduling правила"
       ],
-      "tech": ["Python", "Docker", "SSH", "Hetzner API", "PostgreSQL", "FastAPI"],
+      "tech": [
+        "Python",
+        "Docker",
+        "SSH",
+        "Hetzner API",
+        "PostgreSQL",
+        "FastAPI"
+      ],
       "period": "2025–2026",
       "highlight": true
     },
@@ -319,7 +466,14 @@
         "Настройка model auth и agent defaults",
         "Production debugging: runtime, browser/auth, agent behavior fixes"
       ],
-      "tech": ["OpenClaw", "Python", "Docker", "Nginx", "PostgreSQL", "Telegram Bot API"],
+      "tech": [
+        "OpenClaw",
+        "Python",
+        "Docker",
+        "Nginx",
+        "PostgreSQL",
+        "Telegram Bot API"
+      ],
       "period": "2025–2026",
       "highlight": true
     },
