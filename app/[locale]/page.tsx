@@ -56,7 +56,7 @@ export default function HomePage() {
   }, [t]);
 
   const featuredProjects = useMemo(() => {
-    return allProjects.filter((project) => project.highlight).slice(0, 6);
+    return allProjects.filter((project) => project.highlight && project.screenshots?.length);
   }, [allProjects]);
 
   const achievements = useMemo(() => {

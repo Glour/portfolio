@@ -45,8 +45,7 @@ const shotsVariants = {
 
 export default function ProjectsCarousel({ featured, all }: { featured: Project[]; all: Project[] }) {
   const allOrdered = [
-    ...featured,
-    ...all.filter(p => !featured.find(f => f.title === p.title)),
+    ...(featured.length ? featured : all),
   ];
   const total = allOrdered.length;
 

@@ -215,8 +215,8 @@
       "link": "https://campus.fpv40.ru",
       "highlight": true,
       "screenshots": [
-        "/screenshots/fpv40-campus-1.png",
-        "/screenshots/fpv40-campus-2.png"
+        "/screenshots/fpv40-campus-2.png",
+        "/screenshots/fpv40-campus-1.png"
       ]
     },
     {
@@ -268,8 +268,8 @@
       "link": "https://fpv40.ru",
       "highlight": true,
       "screenshots": [
-        "/screenshots/fpv40-ru-1.png",
-        "/screenshots/fpv40-ru-2.png"
+        "/screenshots/fpv40-ru-2.png",
+        "/screenshots/fpv40-ru-1.png"
       ]
     },
     {
@@ -299,8 +299,7 @@
       "link": "https://viably.dev",
       "highlight": true,
       "screenshots": [
-        "/screenshots/viably-1.png",
-        "/screenshots/viably-2.png"
+        "/screenshots/viably-1.png"
       ]
     },
     {
@@ -332,12 +331,7 @@
       "screenshots": [
         "/screenshots/ai-dev-office-01.png",
         "/screenshots/ai-dev-office-02.png",
-        "/screenshots/ai-dev-office-03.png",
-        "/screenshots/ai-dev-office-04.png",
-        "/screenshots/ai-dev-office-05.png",
-        "/screenshots/ai-dev-office-06.png",
-        "/screenshots/ai-dev-office-07.png",
-        "/screenshots/ai-dev-office-08.png"
+        "/screenshots/ai-dev-office-03.png"
       ]
     },
     {
@@ -372,10 +366,7 @@
       "screenshots": [
         "/screenshots/whynotai-01.png",
         "/screenshots/whynotai-02.png",
-        "/screenshots/whynotai-03.png",
-        "/screenshots/whynotai-04.png",
-        "/screenshots/whynotai-05.png",
-        "/screenshots/whynotai-06.png"
+        "/screenshots/whynotai-04.png"
       ]
     },
     {
@@ -409,12 +400,9 @@
       "highlight": true,
       "screenshots": [
         "/screenshots/ai-office-x-one-01.png",
-        "/screenshots/ai-office-x-one-02.png",
         "/screenshots/ai-office-x-one-03.png",
-        "/screenshots/ai-office-x-one-04.png",
-        "/screenshots/ai-office-x-one-05.png",
-        "/screenshots/ai-office-x-one-06.png",
-        "/screenshots/ai-office-x-one-07.png"
+        "/screenshots/ai-office-x-one-07.png",
+        "/screenshots/ai-office-x-one-06.png"
       ]
     },
     {
@@ -447,11 +435,9 @@
       "highlight": true,
       "screenshots": [
         "/screenshots/transoff-ai-sales-qa-01.png",
-        "/screenshots/transoff-ai-sales-qa-02.png",
         "/screenshots/transoff-ai-sales-qa-03.png",
         "/screenshots/transoff-ai-sales-qa-04.png",
         "/screenshots/transoff-ai-sales-qa-05.png",
-        "/screenshots/transoff-ai-sales-qa-06.png",
         "/screenshots/transoff-ai-sales-qa-07.png"
       ]
     },
