@@ -372,16 +372,16 @@
       "slug": "ai-dev-office"
     },
     {
-      "title": "whynotai Telegram Agents - платформа Telegram AI-агентов",
+      "title": "whynotai TG - лендинг и кабинет Telegram AI-платформы",
       "role": "Python Backend / Product Engineer / Telegram Automation",
       "category": "telegram",
-      "description": "SaaS-панель для управления Telegram-аккаунтами, прокси, прогревом, источниками и AI-кампаниями: комментарии, реакции, диалоги, чаты и рассылки. Runtime фиксирует лимиты, статусы, ошибки и отчеты, чтобы оператор видел управляемую систему, а не черный ящик.",
+      "description": "Единый продуктовый кейс: публичный лендинг и SaaS-кабинет для Telegram-операций. Лендинг объясняет AI-комментарии, рассылки, реакции, прогрев, прокси, источники и тарифы, а кабинет продолжает сценарий: аккаунты, кампании, лимиты, статусы, логи и XLSX-отчеты в управляемой системе.",
       "features": [
-        "Импорт Telegram-сессий, контроль статусов, spam block, карантин и архив",
-        "Proxy manager с проверкой Telegram-доступности, гео, пингом и лимитом аккаунтов на прокси",
-        "AI-кампании с источниками, промптом, частотой, стоп-словами, лимитами и XLSX-отчетами",
+        "Публичный лендинг tg.whynotai.ru с позиционированием Telegram SaaS, модулями, тарифами, workflow и блоком безопасности",
+        "SaaS-кабинет для Telegram-аккаунтов, прокси, прогрева, источников и AI-кампаний",
+        "AI-комментарии, рассылки и реакции с промптом, частотой, стоп-словами, лимитами и XLSX-отчетами",
         "Telethon live-listener для событийной обработки новых постов без тяжелого пакетного обхода",
-        "Панели риска, operational events, heartbeat и прозрачные причины пропусков"
+        "Контроль риска: spam block, карантин, heartbeat, operational events и прозрачные причины пропусков"
       ],
       "tech": [
         "Python",
@@ -395,23 +395,38 @@
         "Docker",
         "SQLAlchemy",
         "Alembic",
-        "OpenAI-compatible API"
+        "OpenAI-compatible API",
+        "Landing page",
+        "UX writing",
+        "Nginx"
       ],
       "period": "2026",
       "link": "https://tg.whynotai.ru",
       "highlight": true,
       "screenshots": [
+        "/screenshots/tg-whynotai-landing-01.png",
+        "/screenshots/whynotai-platform-live-01.png",
+        "/screenshots/tg-whynotai-landing-02.png",
+        "/screenshots/tg-whynotai-landing-04.png",
+        "/screenshots/tg-whynotai-landing-03.png",
+        "/screenshots/tg-whynotai-landing-05.png",
+        "/screenshots/tg-whynotai-landing-06.png",
+        "/screenshots/whynotai-platform-live-02.png",
+        "/screenshots/whynotai-platform-live-03.png",
         "/screenshots/whynotai-01.png",
         "/screenshots/whynotai-02.png",
         "/screenshots/whynotai-04.png",
         "/screenshots/whynotai-03.png",
         "/screenshots/whynotai-05.png",
-        "/screenshots/whynotai-06.png",
-        "/screenshots/whynotai-platform-live-01.png",
-        "/screenshots/whynotai-platform-live-02.png",
-        "/screenshots/whynotai-platform-live-03.png"
+        "/screenshots/whynotai-06.png"
       ],
-      "slug": "whynotai-telegram-agents"
+      "slug": "whynotai-telegram-agents",
+      "caseFlowTitle": "Как связаны лендинг и кабинет",
+      "caseFlow": [
+        "Лендинг объясняет продукт, тарифы, безопасность и путь запуска без входа в кабинет.",
+        "Пользователь переходит в рабочую панель, где добавляет аккаунты, прокси, источники и правила кампании.",
+        "Кабинет запускает Telegram-сценарии с лимитами, AI-промптом, логами, статусами и XLSX-отчетом."
+      ]
     },
     {
       "slug": "whynotai-studio",

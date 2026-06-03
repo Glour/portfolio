@@ -372,16 +372,16 @@
       "slug": "ai-dev-office"
     },
     {
-      "title": "whynotai Telegram Agents - Telegram AI agents platform",
+      "title": "whynotai TG - Telegram AI platform landing and dashboard",
       "role": "Python Backend / Product Engineer / Telegram Automation",
       "category": "telegram",
-      "description": "SaaS dashboard for managing Telegram accounts, proxies, warmup, sources, and AI campaigns: comments, reactions, dialogs, chats, and broadcasts. The runtime records limits, statuses, errors, and reports so the operator sees a controlled system instead of a black box.",
+      "description": "One product case: a public landing page and SaaS dashboard for Telegram operations. The landing page explains AI comments, broadcasts, reactions, warmup, proxies, sources, and pricing, while the dashboard continues the workflow with accounts, campaigns, limits, statuses, logs, and XLSX reports in one controlled system.",
       "features": [
-        "Telegram session import, status control, spam block handling, quarantine, and archive",
-        "Proxy manager with Telegram availability checks, geo, ping, and account-per-proxy limits",
-        "AI campaigns with sources, prompts, frequency, stop words, limits, and XLSX reports",
+        "Public tg.whynotai.ru landing page with Telegram SaaS positioning, modules, pricing, workflow, and safety blocks",
+        "SaaS dashboard for Telegram accounts, proxies, warmup, sources, and AI campaigns",
+        "AI comments, broadcasts, and reactions with prompts, frequency, stop words, limits, and XLSX reports",
         "Telethon live-listener for event-driven processing of new posts without heavy batch scans",
-        "Risk panels, operational events, heartbeat, and clear skip reasons"
+        "Risk control: spam block handling, quarantine, heartbeat, operational events, and clear skip reasons"
       ],
       "tech": [
         "Python",
@@ -395,23 +395,38 @@
         "Docker",
         "SQLAlchemy",
         "Alembic",
-        "OpenAI-compatible API"
+        "OpenAI-compatible API",
+        "Landing page",
+        "UX writing",
+        "Nginx"
       ],
       "period": "2026",
       "link": "https://tg.whynotai.ru",
       "highlight": true,
       "screenshots": [
+        "/screenshots/tg-whynotai-landing-01.png",
+        "/screenshots/whynotai-platform-live-01.png",
+        "/screenshots/tg-whynotai-landing-02.png",
+        "/screenshots/tg-whynotai-landing-04.png",
+        "/screenshots/tg-whynotai-landing-03.png",
+        "/screenshots/tg-whynotai-landing-05.png",
+        "/screenshots/tg-whynotai-landing-06.png",
+        "/screenshots/whynotai-platform-live-02.png",
+        "/screenshots/whynotai-platform-live-03.png",
         "/screenshots/whynotai-01.png",
         "/screenshots/whynotai-02.png",
         "/screenshots/whynotai-04.png",
         "/screenshots/whynotai-03.png",
         "/screenshots/whynotai-05.png",
-        "/screenshots/whynotai-06.png",
-        "/screenshots/whynotai-platform-live-01.png",
-        "/screenshots/whynotai-platform-live-02.png",
-        "/screenshots/whynotai-platform-live-03.png"
+        "/screenshots/whynotai-06.png"
       ],
-      "slug": "whynotai-telegram-agents"
+      "slug": "whynotai-telegram-agents",
+      "caseFlowTitle": "How the landing and dashboard connect",
+      "caseFlow": [
+        "The landing page explains the product, pricing, safety model, and launch path before the user enters the app.",
+        "The user moves into the dashboard to add accounts, proxies, sources, and campaign rules.",
+        "The dashboard runs Telegram workflows with limits, AI prompts, logs, statuses, and XLSX reports."
+      ]
     },
     {
       "slug": "whynotai-studio",

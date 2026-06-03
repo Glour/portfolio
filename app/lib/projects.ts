@@ -17,6 +17,8 @@ export interface PortfolioProject {
   highlight?: boolean;
   link?: string;
   screenshots?: string[];
+  caseFlowTitle?: string;
+  caseFlow?: string[];
 }
 
 const messagesByLocale = {

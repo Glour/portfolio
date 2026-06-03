@@ -156,6 +156,24 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </aside>
         </section>
 
+        {project.caseFlow?.length ? (
+          <section className="mt-14 rounded-[2rem] border border-primary-400/15 bg-primary-400/[0.055] p-6 backdrop-blur-sm md:p-8">
+            <p className="font-mono text-[11px] tracking-[0.3em] text-primary-400/65 uppercase">
+              {project.caseFlowTitle ?? 'Product flow'}
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {project.caseFlow.map((step, index) => (
+                <div key={step} className="relative rounded-2xl border border-white/10 bg-black/20 p-5">
+                  <span className="mb-4 flex h-9 w-9 items-center justify-center rounded-full border border-primary-400/25 bg-primary-400/10 font-mono text-xs text-primary-300">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <p className="text-sm leading-[1.75] text-white/74">{step}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         <section className="mt-14 md:mt-20">
           {screenshots.length > 0 ? (
             <>
