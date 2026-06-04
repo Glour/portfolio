@@ -58,11 +58,11 @@ export default function HomePage() {
 
   const featuredProjects = useMemo(() => {
     const latestFirst = [
-      'ai-dev-office',
       'whynotai-telegram-agents',
       'whynotai-studio',
       'ai-office-x-one',
       'transoff-ai-sales-qa',
+      'ai-dev-office',
       'headhunter-crm-agent',
       'vibegent',
       'vibegent-proxy',
