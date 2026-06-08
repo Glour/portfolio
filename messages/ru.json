@@ -405,7 +405,7 @@
       "category": "telegram",
       "description": "Единый продуктовый кейс: публичный лендинг и SaaS-кабинет для Telegram-операций. Лендинг объясняет AI-комментарии, рассылки, реакции, прогрев, прокси, источники и тарифы, а кабинет продолжает сценарий: аккаунты, кампании, лимиты, статусы, логи и XLSX-отчеты в управляемой системе.",
       "features": [
-        "Публичный лендинг tg.whynotai.ru с позиционированием Telegram SaaS, модулями, тарифами, workflow и блоком безопасности",
+        "Публичный лендинг whynotai.ru с позиционированием Telegram SaaS, модулями, тарифами, workflow и блоком безопасности",
         "SaaS-кабинет для Telegram-аккаунтов, прокси, прогрева, источников и AI-кампаний",
         "AI-комментарии, рассылки и реакции с промптом, частотой, стоп-словами, лимитами и XLSX-отчетами",
         "Telethon live-listener для событийной обработки новых постов без тяжелого пакетного обхода",
@@ -430,7 +430,7 @@
         "Proxy/account workflows"
       ],
       "period": "2026",
-      "link": "https://tg.whynotai.ru",
+      "link": "https://whynotai.ru",
       "highlight": true,
       "screenshots": [
         "/screenshots/tg-whynotai-landing-01.png",
@@ -475,7 +475,7 @@
         "Premium visual system"
       ],
       "period": "2026",
-      "link": "https://whynotai.ru",
+      "link": "https://studio.whynotai.ru",
       "highlight": true,
       "screenshots": [
         "/screenshots/whynotai-studio-01.png",

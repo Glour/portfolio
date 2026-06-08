@@ -405,7 +405,7 @@
       "category": "telegram",
       "description": "One product case: a public landing page and SaaS dashboard for Telegram operations. The landing page explains AI comments, broadcasts, reactions, warmup, proxies, sources, and pricing, while the dashboard continues the workflow with accounts, campaigns, limits, statuses, logs, and XLSX reports in one controlled system.",
       "features": [
-        "Public tg.whynotai.ru landing page with Telegram SaaS positioning, modules, pricing, workflow, and safety blocks",
+        "Public whynotai.ru landing page with Telegram SaaS positioning, modules, pricing, workflow, and safety blocks",
         "SaaS dashboard for Telegram accounts, proxies, warmup, sources, and AI campaigns",
         "AI comments, broadcasts, and reactions with prompts, frequency, stop words, limits, and XLSX reports",
         "Telethon live-listener for event-driven processing of new posts without heavy batch scans",
@@ -430,7 +430,7 @@
         "Proxy/account workflows"
       ],
       "period": "2026",
-      "link": "https://tg.whynotai.ru",
+      "link": "https://whynotai.ru",
       "highlight": true,
       "screenshots": [
         "/screenshots/tg-whynotai-landing-01.png",
@@ -475,7 +475,7 @@
         "Premium visual system"
       ],
       "period": "2026",
-      "link": "https://whynotai.ru",
+      "link": "https://studio.whynotai.ru",
       "highlight": true,
       "screenshots": [
         "/screenshots/whynotai-studio-01.png",
